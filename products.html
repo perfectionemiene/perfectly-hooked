@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection | Perfectly Hooked</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Paystack Inline Popup Script -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <style>
+        /* --- Product Grid & Cards --- */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #f0eaeb;
+            border-radius: 10px;
+            padding: 15px;
+            width: 280px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Image Slider Styling --- */
+        .image-slider {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1; 
+            object-fit: cover;
+            display: none; 
+        }
+
+        .image-slider img.active-slide {
+            display: block;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            color: #631C2D;
+            border: none;
+            font-size: 1.2rem;
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .slide-btn:hover {
+            background: #ffffff;
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* --- Product Info & Forms --- */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #631C2D;
+            margin: 0 0 15px 0;
+        }
+
+        .color-selector {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #f0eaeb;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+
+        .color-selector:focus {
+            outline: none;
+            border-color: #631C2D;
+        }
+
+        /* --- Quantity Selector Styling --- */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .quantity-selector button {
+            background-color: #fafafa;
+            color: #631C2D;
+            border: 1px solid #f0eaeb;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .quantity-selector button:hover {
+            background-color: #631C2D;
+            color: #fff;
+        }
+
+        .quantity-selector input {
+            width: 45px;
+            height: 32px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            outline: none;
+            background-color: #fff;
+        }
+
+        /* Input type spins removal */
+        .quantity-selector input::-webkit-outer-spin-button,
+        .quantity-selector input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .quantity-selector input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .add-to-cart {
+            background-color: #fff;
+            color: #631C2D;
+            border: 2px solid #631C2D;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #631C2D;
+            color: #fff;
+        }
+
+        .hide-product {
+            display: none !important;
+        }
+
+        /* --- Floating Cart Styling --- */
+        .floating-cart {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #631C2D;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+            z-index: 1000;
+        }
+
+        .floating-cart:hover {
+            transform: scale(1.05);
+            background-color: #4a1522;
+        }
+
+        .cart-badge {
+            background-color: #fff;
+            color: #631C2D;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+
+        .cart-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        /* --- Cart Modal Styling --- */
+        .cart-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .cart-modal {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 85vh;
+            overflow-y: auto;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .cart-modal h2 {
+            margin-top: 0;
+            color: #631C2D;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .cart-item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-item-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #d9534f;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: right;
+            margin: 20px 0;
+            color: #631C2D;
+        }
+
+        .modal-checkout-btn {
+            width: 100%;
+            background-color: #631C2D;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .modal-checkout-btn:hover {
+            background-color: #4a1522;
+        }
+
+        /* --- 2-Step Checkout Form Styling --- */
+        .checkout-form-container {
+            display: none; /* Hidden on load, revealed when Proceed is tapped */
+            margin-top: 15px;
+            border-top: 1px dashed #ddd;
+            padding-top: 15px;
+        }
+
+        .checkout-form-container h3 {
+            font-family: 'Playfair Display', serif;
+            color: #631C2D;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #631C2D;
+        }
+
+        /* --- Success Message Screen Styling --- */
+        .success-screen {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .success-screen h2 {
+            color: #27ae60;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .success-screen p {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.03);
+            background-color: #128C7E;
+        }
+
+        /* Mobile Header Rule Adjustment */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 4%;
+                text-align: center;
+            }
+            header nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            header nav a {
+                margin-left: 0;
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Perfectly <span>Hooked</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="openCartModal(); return false;" style="font-weight: 600; color: #631C2D;">🛒 Cart (<span id="cartCountHeader">0</span>)</a>
+        </nav>
+    </header>
+
+    <section class="mini-hero">
+        <h1>Our Collection</h1>
+    </section>
+
+    <!-- Product Filters -->
+    <section class="filter-section">
+        <div class="filter-menu">
+            <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
+            <button class="filter-btn" onclick="filterItems('elara', this)">Elara Bags</button>
+            <button class="filter-btn" onclick="filterItems('totes', this)">Tote Bags</button>
+            <button class="filter-btn" onclick="filterItems('bows', this)">Bow Bags</button>
+            <button class="filter-btn" onclick="filterItems('accessories', this)">Accessories</button>
+        </div>
+    </section>
+
+    <!-- Checkout Button (Top) -->
+    <div style="text-align: center; margin: 30px 0;">
+        <button onclick="openCartModal()" class="btn" style="background-color: #631C2D; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">View Cart & Checkout 🛒</button>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="products-container">
+        <div class="product-grid" id="product-list">
+            
+            <!-- Elara Bag -->
+            <div class="product-card" data-category="elara">
+                <div class="image-slider">
+                    <img src="blue-elara bag.jpeg" alt="One-Tone Elara Bag Front" class="active-slide">
+                    <img src="brown elara.jpeg" alt="One-Tone Elara Bag Side">
+                    <img src="b+p elara.jpeg" alt="One-Tone Elara Bag Inside">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Elara Bag ✨</h3>
+                    <p class="product-price">₦25,000</p>
+                    
+                    <select id="color-elara" class="color-selector">
+                        <option value="Maroon">Maroon</option>
+                        <option value="Black">Black</option>
+                        <option value="Cream">Cream</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('elara', -1)">-</button>
+                        <input type="number" id="qty-elara" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('elara', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('One-Tone Elara Bag', 25000, 'color-elara', 'qty-elara')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Tote Bag -->
+            <div class="product-card" data-category="totes">
+                <div class="image-slider">
+                    <img src="red tote.jpeg" alt="Tote Front" class="active-slide">
+                    <img src="red tote.jpeg" alt="Chunky Tote Side">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Tote Bag✨</h3>
+                    <p class="product-price">₦30,000</p>
+                    
+                    <select id="color-tote" class="color-selector">
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Olive Green">Olive Green</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('tote', -1)">-</button>
+                        <input type="number" id="qty-tote" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('tote', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('Tote Bag', 30000, 'color-tote', 'qty-tote')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bow Bag -->
+            <div class="product-card" data-category="bows">
+                <div class="image-slider">
+                    <img src="bow bag 2.jpeg" alt="Bow Bag Front" class="active-slide">
+                    <img src="pink bow bag worn.jpeg" alt="Bow Bag Side">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Bow Bag - Medium✨</h3>
+                    <p class="product-price">₦15,000</p>
+                    
+                    <select id="color-bow" class="color-selector">
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Red">Red</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('bow', -1)">-</button>
+                        <input type="number" id="qty-bow" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bow', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('Bow Bag', 20000, 'color-bow', 'qty-bow')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Second bow bag-->
+
+            <div class="product-card" data-category="bows">
+                <div class="image-slider">
+                    <img src="bow bag 1.jpeg" alt="Bow Bag Front" class="active-slide">
+                    <img src="red bow bag worn.jpeg" alt="Bow Bag Side">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Bow Bag - Large✨</h3>
+                    <p class="product-price">₦20,000</p>
+                    
+                    <select id="color-bow" class="color-selector">
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Red">Red</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('bow', -1)">-</button>
+                        <input type="number" id="qty-bow" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bow', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('Bow Bag', 20000, 'color-bow', 'qty-bow')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+
+            <div class="product-card" data-category="accessories">
+                <div class="image-slider">
+                    <img src="apricot scrunchie.jpeg" alt="Scrunchie picture" class="active-slide">
+                    <img src="brown scrunchie.jpeg" alt="Chunky Tote Side">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Basic scrunchie✨</h3>
+                    <p class="product-price">₦2,500</p>
+                    
+                    <select id="color-tote" class="color-selector">
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Red">Red</option>
+                        <option value="apricot">Apricot</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('tote', -1)">-</button>
+                        <input type="number" id="qty-tote" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('tote', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('Basic Scrunchie', 2500, 'color-scrunchie', 'qty-scrunchie')">Add to Cart</button>
+                </div>
+            </div>
+
+             <div class="product-card" data-category="accessories">
+                <div class="image-slider">
+                    <img src="red scrunchie.jpeg" alt="Scrunchie picture" class="active-slide">
+                    <img src="purple scrunchie.jpeg" alt="Chunky Tote Side">
+                    <button class="slide-btn prev-btn" onclick="changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Large scrunchie✨</h3>
+                    <p class="product-price">₦3,500</p>
+                    
+                    <select id="color-tote" class="color-selector">
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Red">Red</option>
+                        <option value="apricot">Apricot</option>
+                    </select>
+
+                    <!-- Quantity Adjusters wrapper -->
+                    <div class="quantity-selector">
+                        <button type="button" onclick="changeCardQty('scrunchie', -1)">-</button>
+                        <input type="number" id="qty-tote" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('scrunchie', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="addCustomToCart('Large Scrunchie', 3500, 'color-scrunchie', 'qty-scrunchie')">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cart Modal HTML -->
+    <div id="cartModalOverlay" class="cart-modal-overlay">
+        <div class="cart-modal" id="cartModalMainContent">
+            <span class="close-modal" onclick="closeCartModal()">&times;</span>
+            
+            <div id="cartItemsView">
+                <h2>Your Shopping Cart</h2>
+                <div id="cartItemsList">
+                    <!-- Cart items injected dynamically -->
+                </div>
+                <div class="cart-total" id="cartTotalDisplay">Total: ₦0</div>
+                <button class="modal-checkout-btn" onclick="showCheckoutForm()" id="checkoutStep1Btn">Secure Checkout 💳</button>
+            </div>
+
+            <!-- STEP 2: Delivery Details & Payment Form -->
+            <div class="checkout-form-container" id="checkoutFormStep">
+                <h3>Delivery Details</h3>
+                <form id="checkoutForm" onsubmit="initializePaystack(event)">
+                    <div class="form-group">
+                        <label for="cust-name">Full Name *</label>
+                        <input type="text" id="cust-name" placeholder="Sarah Danjuma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-email">Email Address *</label>
+                        <input type="email" id="cust-email" placeholder="sarah@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-phone">Phone Number *</label>
+                        <input type="tel" id="cust-phone" placeholder="07012345678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-state">Delivery State / Area *</label>
+                        <select id="cust-state" required>
+                            <option value="" disabled selected>Select location</option>
+                            <option value="Abuja Central">Abuja Central</option>
+                            <option value="Lugbe / Airport Road">Lugbe / Airport Road</option>
+                            <option value="Gwarinpa">Gwarinpa</option>
+                            <option value="Wuse / Garki">Wuse / Garki</option>
+                            <option value="Other">Other</option>
+                            <option value="Outside Abuja (Interstate)">Outside Abuja (Interstate)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-address">Exact Delivery Address *</label>
+                        <textarea id="cust-address" rows="2" placeholder="Street name, house number, estate..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="modal-checkout-btn" style="margin-top: 15px;" id="paystackTriggerBtn">Pay with Paystack🔒</button>
+                    <button type="button" onclick="hideCheckoutForm()" style="background: none; border: none; color: #666; margin-top: 10px; cursor: pointer; text-decoration: underline; width: 100%;">Back to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Icon -->
+    <div id="floatingCart" class="floating-cart cart-hidden" onclick="openCartModal()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+    </div>
+
+    <!-- Custom Clothing Banner -->
+    <section class="custom-clothing-banner">
+        <h2>Looking for Custom Clothing?🧶</h2>
+        <p>We also craft beautiful, tailored crochet clothing! These pieces are strictly made-to-order to ensure the perfect fit and style. Have a specific design in mind? Send us a message and let's bring it to life.</p>
+        <a href="contact.html" class="btn" style="background-color: #631C2D; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">Request a Custom Order</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Perfectly Hooked</h3>
+                <p>Handmade crochet bags crafted with love.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="products.html">Products</a>
+                <a href="about.html">About & Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-subscribe">
+                <h4>Subscribe</h4>
+                <p>Join the inner circle for product drops!</p>
+                <form action="http://eepurl.com/KweztjJP5p" method="post" target="_blank" novalidate>
+                    <div class="subscribe-form">
+                        <input type="email" name="EMAIL" placeholder="Your Email Address" required>
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="footer-socials">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/perfection_crochetsabuja?igsh=cXE3OTdkZmlja3Q5&utm_source=qr" target="_blank">Instagram</a>
+                    <a href="https://www.tiktok.com/@perfection_crochetsabuja?_r=1&_t=ZS-97vXRY3c20D" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Perfectly Hooked. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Features -->
+    <script>
+        // Paystack Public Key (Test Mode)
+        const PAYSTACK_PUBLIC_KEY = "pk_test_46a8e22175753ef59ce82b2fefb62a092b8adc56"; 
+        
+        // Filtering Logic 
+        function filterItems(category, buttonElement) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.classList.remove('hide-product');
+                } else {
+                    product.classList.add('hide-product');
+                }
+            });
+        }
+
+        // --- 2. Image Slider Logic ---
+        function changeSlide(button, direction) {
+            const slider = button.closest('.image-slider');
+            const images = slider.querySelectorAll('img');
+            let currentIndex = 0;
+            
+            images.forEach((img, index) => {
+                if (img.classList.contains('active-slide')) {
+                    currentIndex = index;
+                    img.classList.remove('active-slide');
+                }
+            });
+            
+            let newIndex = currentIndex + direction;
+            if (newIndex >= images.length) newIndex = 0; 
+            else if (newIndex < 0) newIndex = images.length - 1; 
+            
+            images[newIndex].classList.add('active-slide');
+        }
+
+        // --- 3. Quantity Counter Step Adjustments ---
+        function changeCardQty(inputId, direction) {
+            const qtyInput = document.getElementById(`qty-${inputId}`);
+            if (!qtyInput) return;
+            let currentVal = parseInt(qtyInput.value) || 1;
+            currentVal += direction;
+            if (currentVal < 1) currentVal = 1;
+            qtyInput.value = currentVal;
+        }
+
+        // Cart State Engine with Local Storage ---
+        let cart = JSON.parse(localStorage.getItem('perfectlyHookedCart')) || [];
+
+       window.onload = function() {
+    updateCartDisplay();
+
+    // Check if the user came from a specific category link (e.g., products.html#accessories)
+    const hash = window.location.hash; // this grabs "#accessories"
+    if (hash) {
+        const category = hash.replace('#', ''); // removes the '#' to get "accessories"
+        
+        // Find the filter button that matches this category
+        const targetBtn = document.querySelector(`.filter-btn[onclick*="'${category}'"]`);
+        
+        if (targetBtn) {
+            // Programmatically click the button to trigger your existing filter logic!
+            targetBtn.click();
+            
+            // Smoothly scroll down to the filters so they don't get lost
+            targetBtn.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
+
+        function saveCart() {
+            localStorage.setItem('perfectlyHookedCart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function addCustomToCart(itemName, itemPrice, colorSelectId, qtyInputId) {
+            let selectedColor = "Standard";
+            if (colorSelectId) {
+                const colorDropdown = document.getElementById(colorSelectId);
+                if (colorDropdown) selectedColor = colorDropdown.value;
+            }
+
+            const qtyField = document.getElementById(qtyInputId);
+            const chosenQuantity = qtyField ? parseInt(qtyField.value) || 1 : 1;
+
+            const matchingIndex = cart.findIndex(item => item.name === itemName && item.color === selectedColor);
+            
+            if (matchingIndex > -1) {
+                cart[matchingIndex].quantity += chosenQuantity;
+            } else {
+                cart.push({ 
+                    name: itemName, 
+                    price: itemPrice, 
+                    color: selectedColor, 
+                    quantity: chosenQuantity 
+                });
+            }
+
+            saveCart();
+            if (qtyField) qtyField.value = 1; 
+            alert(`${chosenQuantity}x ${itemName} (${selectedColor}) successfully added to cart! ✨`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            openCartModal(); 
+        }
+
+        function updateCartDisplay() {
+            const aggregateUnitsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            
+            const floatingCart = document.getElementById('floatingCart');
+            const cartCount = document.getElementById('cartCount');
+            const cartCountHeader = document.getElementById('cartCountHeader');
+            
+            if (cartCount) cartCount.textContent = aggregateUnitsCount;
+            if (cartCountHeader) cartCountHeader.textContent = aggregateUnitsCount;
+
+            if (aggregateUnitsCount > 0) {
+                floatingCart.classList.remove('cart-hidden');
+            } else {
+                floatingCart.classList.add('cart-hidden');
+            }
+        }
+
+        // --- 5. Modal Handling & 2-Step Checkout Setup ---
+        function openCartModal() {
+            const modalOverlay = document.getElementById('cartModalOverlay');
+            const list = document.getElementById('cartItemsList');
+            const totalDisplay = document.getElementById('cartTotalDisplay');
+
+            // Reset modal visibility state back to Step 1 (Cart items only)
+            document.getElementById('cartItemsView').style.display = 'block';
+            document.getElementById('checkoutFormStep').style.display = 'none';
+
+            list.innerHTML = ''; 
+            let total = 0;
+
+            if (cart.length === 0) {
+                list.innerHTML = '<p style="text-align:center; color:#666;">Your cart is empty.</p>';
+                document.getElementById('checkoutStep1Btn').style.display = 'none';
+            } else {
+                document.getElementById('checkoutStep1Btn').style.display = 'block';
+                cart.forEach((item, index) => {
+                    const itemQty = item.quantity || 1;
+                    const rowSubtotal = item.price * itemQty;
+                    total += rowSubtotal;
+                    
+                    list.innerHTML += `
+                        <div class="cart-item-row">
+                            <div class="cart-item-details">
+                                <span class="cart-item-title">${item.name} (x${itemQty})</span>
+                                <span class="cart-item-subtitle">Color: ${item.color} | Subtotal: ₦${rowSubtotal.toLocaleString()}</span>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart(${index})" title="Remove item">✖</button>
+                        </div>
+                    `;
+                });
+            }
+
+            totalDisplay.textContent = `Total: ₦${total.toLocaleString()}`;
+            
+            // Dynamically update checkout button label to reflect the exact cart total
+            document.getElementById('checkoutStep1Btn').textContent = `Proceed to Details (₦${total.toLocaleString()})`;
+            
+            modalOverlay.style.display = 'flex'; 
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModalOverlay').style.display = 'none'; 
+        }
+
+        function showCheckoutForm() {
+            if (cart.length === 0) return;
+            document.getElementById('cartItemsView').style.display = 'none';
+            document.getElementById('checkoutFormStep').style.display = 'block';
+        }
+
+        function hideCheckoutForm() {
+            document.getElementById('cartItemsView').style.display = 'block';
+            document.getElementById('checkoutFormStep').style.display = 'none';
+        }
+
+        // --- 6. Paystack Checkout & WhatsApp Automation Integration ---
+        function initializePaystack(event) {
+            event.preventDefault(); // Stop form from doing a default HTML reload
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value;
+            const email = document.getElementById('cust-email').value;
+            const phone = document.getElementById('cust-phone').value;
+            const location = document.getElementById('cust-state').value;
+            const address = document.getElementById('cust-address').value;
+
+            const totalNaira = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            
+            // Paystack measures transactions in Kobo (1 Naira = 100 Kobo)
+            const totalKobo = totalNaira * 100;
+
+            const payButton = document.getElementById('paystackTriggerBtn');
+            payButton.disabled = true;
+            payButton.textContent = "Opening Paystack Gateway...";
+
+            // Create a unique random order reference code
+            const orderRef = "PH-" + Math.floor(100000 + Math.random() * 900000);
+
+            let handler = PaystackPop.setup({
+                key: PAYSTACK_PUBLIC_KEY,
+                email: email,
+                amount: totalKobo,
+                currency: 'NGN',
+                ref: orderRef,
+                metadata: {
+                    custom_fields: [
+                        { display_name: "Customer Name", variable_name: "customer_name", value: name },
+                        { display_name: "Phone Number", variable_name: "phone_number", value: phone },
+                        { display_name: "Delivery Location", variable_name: "delivery_location", value: location },
+                        { display_name: "Delivery Address", variable_name: "delivery_address", value: address }
+                    ]
+                },
+                callback: function(response) {
+                    // Triggers automatically when payment succeeds on Paystack popup
+                    handlePaymentSuccess(response.reference, name, phone, location, address, totalNaira);
+                },
+                onClose: function() {
+                    alert('Transaction cancelled. You can try again when you are ready.');
+                    payButton.disabled = false;
+                    payButton.textContent = "Pay with Paystack 🔒";
+                }
+            });
+
+            handler.openIframe();
+        }
+
+        function handlePaymentSuccess(reference, name, phone, location, address, amountPaid) {
+            // 1. Build beautiful summary message text for the customer
+            let itemsString = "";
+            cart.forEach(item => {
+                itemsString += `• ${item.name} (x${item.quantity}) [Color: ${item.color}]\n`;
+            });
+
+            const rawMessage = `Hi Perfectly Hooked!🧶\n\nI have successfully completed payment on your website for my order.\n\n` +
+                               `💵 Amount Paid: ₦${amountPaid.toLocaleString()}\n` +
+                               `🔑 Reference: ${reference}\n\n` +
+                               `🛍️ Items Purchased:\n${itemsString}\n` +
+                               `👤 Customer Details:\n` +
+                               `• Name: ${name}\n` +
+                               `• Phone: ${phone}\n` +
+                               `• Area: ${location}\n` +
+                               `• Address: ${address}\n\n` +
+                               `Let's discuss shipping fees!✨`;
+
+            const encodedMessage = encodeURIComponent(rawMessage);
+            
+            // WhatsApp Link setup
+            const whatsappNumber = "2347015089219"; 
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // 2. Clear customer's browser shopping cart
+            cart = [];
+            saveCart();
+
+            // 3. Swap modal layout to display Success State directly
+            const modalContent = document.getElementById('cartModalMainContent');
+            modalContent.innerHTML = `
+                <div class="success-screen">
+                    <h2>🎉Payment Successful!</h2>
+                    <p>Your transaction was verified under reference: <strong>${reference}</strong>.</p>
+                    <p>We've registered your payment. To complete your order and arrange shipping/delivery options, tap the button below to continue on WhatsApp.</p>
+                    <a href="${whatsappUrl}" target="_blank" class="whatsapp-btn">Continue to WhatsApp 💬</a>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>

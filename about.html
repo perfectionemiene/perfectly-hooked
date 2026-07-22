@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Gallery | Perfectly Hooked</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Perfectly <span>Hooked</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html" class="active">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+   <!-- Mini Hero Banner -->
+<section class="mini-hero">
+    <div class="mini-hero-content">
+        <h1>Our Story & Gallery</h1>
+    </div>
+</section>
+
+    <!-- About Content Section -->
+    <section class="about-section">
+        <div class="about-container">
+          <!-- Story Text -->
+    <div class="about-text">
+    <h2>Behind the Stitches</h2>
+    <div class="accent-line-left"></div>
+    
+    <p class="lead-text">Perfectly Hooked began from a very simple place: I needed something to do. Over time, crochet became more than just a hobby; it was a calming and grounding escape that helped me slow down and find peace in the process.</p>
+    
+    <p>What started as a way to pass time quickly turned into something I genuinely loved. Over time, I found myself especially drawn to crocheting bags. There’s just something incredibly satisfying about watching yarn transform into something beautiful and functional with just a hook, patience, and skill.</p>
+    
+    <p>By June 2025, what began as a personal escape officially became a business. Perfectly Hooked was born out of passion, growth, and creativity. <strong>We don't believe in rushed production;</strong> we believe in creating functional pieces that can be felt and seen in every single bag!</p>
+    
+    <p>Every piece I create is a reflection of that journey, and I am deeply grateful to God for the gift of creativity and the ability to turn simple materials into something meaningful. Thank you for supporting this dream and carrying a piece of my heart with you.</p>
+</div>
+            <!-- Visual Graphic / Image Placeholder -->
+            <div class="about-image">
+                <div class="about-img-frame">
+                    <div class="placeholder-content">
+                        <img src="about.jpeg" alt="Crochet Bag" class="about-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Directly after the story) -->
+    <section class="gallery-section" id="gallery">
+        <h2>A Look Inside the Studio</h2>
+        <div class="accent-line"></div>
+        <p class="gallery-subtitle">Click on any image to zoom in and see our detailed premium crochet stitches up close.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="aesthetic 1.jpeg" alt="Crochet Creation 1" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="aesthetic 2.jpeg" alt="Crochet Creation 2" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="aesthetic 3.jpeg" alt="Crochet Creation 3" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+             <div class="gallery-item">
+                <img src="aesthetic 4.jpeg" alt="Crochet Creation 4" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+             <div class="gallery-item">
+                <img src="aesthetic 5.jpeg" alt="Crochet Creation 5" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+             <div class="gallery-item">
+                <img src="aesthetic 6.jpeg" alt="Crochet Creation 6" onclick="openModal(this.src)">
+                <div class="gallery-overlay"><span>View Stitch✨</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reusable Image Zoom View Modal Overlay -->
+    <div class="modal" id="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" alt="Enlarged view">
+    </div>
+
+   <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>Perfectly Hooked</h3>
+            <p>Handmade crochet bags crafted with love.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="products.html">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-subscribe">
+            <h4>Subscribe</h4>
+            <p>Join the inner circle for product drops!</p>
+            <!-- Your live Mailchimp URL added below -->
+            <form action="http://eepurl.com/KweztjJP5p" method="post" target="_blank" novalidate>
+                <div class="subscribe-form">
+                    <input type="email" name="EMAIL" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-socials">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="https://www.instagram.com/perfection_crochetsabuja?igsh=cXE3OTdkZmlja3Q5&utm_source=qr" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@perfection_crochetsabuja?_r=1&_t=ZS-97vXRY3c20D" target="_blank">TikTok</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Perfectly Hooked. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
