@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Perfectly Hooked</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Perfectly <span>Hooked</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Mini Hero Banner -->
+    <section class="mini-hero">
+        <h1>Get in Touch✨</h1>
+    </section>
+
+    <!-- Contact Page Section -->
+<section class="contact-section">
+    <div class="contact-container">
+        
+        <!-- Left Side: Intro Narrative -->
+        <div class="contact-info">
+            <h2>Let’s Start Something Beautiful Together</h2>
+            <div class="accent-line-left"></div>
+            <p>Whether you have a question about our existing collections, want to discuss bringing a dream custom design to life, or just want to say hi, we would love to hear from you!</p>
+            <p>Every single piece at Perfectly Hooked is handmade with meticulous care, patience, and passion. Because of this, custom orders give us a chance to collaborate directly with you on choosing the perfect yarn texture, colors, and functional shapes that fit your lifestyle.</p>
+            <p>Drop your details in the form, and let's create something timeless. We typically respond within 24–48 hours!</p>
+        </div>
+
+        <!-- Right Side: Contact Form Box -->
+        <div class="contact-form-wrapper">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="e.g perfectlyhooked@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">What can we help you with?</label>
+                    <select id="subject" required>
+                        <option value="" disabled selected>Select a purpose...</option>
+                        <option value="General Inquiry">Making Enquiries</option>
+                        <option value="Custom Bag Order">Custom Bag Order</option>
+                        <option value="Custom Clothing Order">Custom Clothing Order</option>
+                        <option value="Just Reaching Out">Just Reaching Out</option>
+                        <option value="Other">Others</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us all the details..." required></textarea>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="sendToWhatsApp()">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>Perfectly Hooked</h3>
+            <p>Handmade crochet bags crafted with love.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="products.html">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-subscribe">
+            <h4>Subscribe</h4>
+            <p>Join the inner circle for product drops!</p>
+            <!-- Mailchimp URL added below -->
+            <form action="http://eepurl.com/KweztjJP5p" method="post" target="_blank" novalidate>
+                <div class="subscribe-form">
+                    <input type="email" name="EMAIL" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-socials">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="https://www.instagram.com/perfection_crochetsabuja?igsh=cXE3OTdkZmlja3Q5&utm_source=qr" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@perfection_crochetsabuja?_r=1&_t=ZS-97vXRY3c20D" target="_blank">TikTok</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Perfectly Hooked. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
