@@ -28,7 +28,7 @@ Instead of building a fictional portfolio project, I chose to solve a real-world
 
 ---
 
-# ✨ Features
+# Features
 
 ## Home
 
@@ -165,7 +165,7 @@ Building this project helped me strengthen my understanding of:
 
 # Why I Built This
 
-I believe every business—big or small—deserves a professional online presence.
+I believe every business; big or small, deserves a professional online presence.
 
 Perfectly Hooked became the perfect opportunity to combine my passion for crochet with my growing interest in frontend development while creating something genuinely useful for customers.
 
@@ -177,9 +177,11 @@ I'm continuously learning and improving as a frontend developer.
 
 Suggestions, feedback, and ideas are always welcome!
 
+Kindly shop Perfectly Hooked, byeeee :)
+
 ---
 
-# 👩Developer
+# Developer
 
 Perfection Emiene
 
