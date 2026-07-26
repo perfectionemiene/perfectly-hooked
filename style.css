@@ -897,7 +897,6 @@ footer h3, footer h4 {
 }
 
 .mini-hero-content h1 {
-    font-family: var(--font-heading);
     font-size: 2.8rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -1174,4 +1173,524 @@ footer h3, footer h4 {
 /* Pause animation on mouse hover so users can read comfortably */
 .announcement-marquee:hover .marquee-content {
     animation-play-state: paused;
+}
+
+.custom-color-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #fff0f3; /* Gentle blush pink accent */
+  border: 1px solid #ffccd5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.banner-icon {
+  font-size: 1.8rem;
+}
+
+.banner-text strong {
+  color: #800020; /* Deep burgundy/rose tone to match brand */
+  display: block;
+  margin-bottom: 4px;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+/* ==========================================
+   FAQ SECTION STYLING
+   ========================================== */
+
+.faq-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: inherit;
+  color: #333333;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.faq-header h2 {
+  font-size: 2rem;
+  color: #5a2a38; /* Rich brand tone */
+  margin-bottom: 8px;
+}
+
+.faq-header p {
+  color: #666666;
+  font-size: 1rem;
+}
+
+/* --- Custom Color Banner --- */
+.custom-color-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
+  border: 1px solid #ffccd5;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.15);
+}
+
+.banner-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.banner-text strong {
+  font-size: 1.1rem;
+  color: #800020; /* Deep rose/burgundy */
+  display: block;
+  margin-bottom: 4px;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+/* --- FAQ Cards --- */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #f0e6e8;
+  border-radius: 12px;
+  padding: 22px 26px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-color: #ffd6e0;
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- CTA Bottom Contact Button --- */
+.faq-contact-cta {
+  text-align: center;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px dashed #e5d5d8;
+}
+
+.faq-contact-cta p {
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 15px;
+}
+
+.contact-btn {
+  display: inline-block;
+  background-color: #25d366; /* WhatsApp Green */
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-btn:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.03);
+}
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 600px) {
+  .custom-color-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .faq-item {
+    padding: 16px 20px;
+  }
+}
+
+/* Badge Version */
+.product-care-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #faf7f8;
+  border: 1px solid #f0e6e8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 15px;
+  font-size: 0.85rem;
+}
+
+.product-care-badge span {
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+.product-care-badge a {
+  color: #800020;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.product-care-badge a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   LOVE IT. CARE FOR IT. (BESTSELLER MIRROR STYLING)
+   ========================================== */
+
+.care-guide-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Matching the main Bestseller pink rounded card container */
+.care-container {
+  background-color: #fdf2f4; /* Soft blush pink background */
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.care-content {
+  max-width: 800px;
+}
+
+/* Pill Badge like "Bestseller" */
+.care-badge {
+  display: inline-block;
+  background-color: #6a1b29; /* Deep burgundy pill */
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+/* Title matching "The Elara Collection" */
+.care-title {
+  font-family: 'Playfair Display', serif; /* Matching serif font */
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #5b1322; /* Deep rose/burgundy title */
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+/* Accent line divider */
+.care-divider {
+  width: 50px;
+  height: 3px;
+  background-color: #f4c2c2;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+/* Description text matching body copy */
+.care-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 32px;
+}
+
+/* Content Breakdown */
+.care-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.care-item {
+  background-color: rgba(255, 255, 255, 0.7); /* Subtle white translucent cards */
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 204, 213, 0.4);
+}
+
+.care-item h3 {
+  font-size: 1.15rem;
+  color: #5b1322;
+  margin: 0 0 4px 0;
+}
+
+.care-item .yarn-usage {
+  font-size: 0.85rem;
+  color: #777777;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.care-item ul {
+  padding-left: 18px;
+  margin: 0;
+  color: #4a4a4a;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.care-item li {
+  margin-bottom: 6px;
+}
+
+/* CTA Pill Button matching "Shop the Elara" */
+.care-btn {
+  display: inline-block;
+  background-color: #f8c8d0; /* Light pink pill button */
+  color: #5b1322; /* Deep burgundy text */
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.care-btn:hover {
+  background-color: #f4b6c2;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive padding */
+@media (max-width: 768px) {
+  .care-container {
+    padding: 32px 20px;
+  }
+  .care-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================
+   GENERAL CARE TIPS (MATCHING BESTSELLER STYLING)
+   ========================================== */
+
+/* Inner container for General Care Tips */
+.general-care-tips {
+  background-color: rgba(255, 255, 255, 0.7); /* Matching translucent white card */
+  border-radius: 16px;
+  padding: 24px 28px;
+  border: 1px solid rgba(255, 204, 213, 0.4);
+  margin-top: 24px;
+}
+
+/* Heading */
+.general-care-tips h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #5b1322; /* Deep burgundy tone */
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+/* List Items */
+.general-care-tips ul {
+  list-style: none; /* Custom bullet icons */
+  padding: 0;
+  margin: 0;
+}
+
+.general-care-tips li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+.general-care-tips li:last-child {
+  margin-bottom: 0;
+}
+
+/* Styled bullet dot in matching rose accent */
+.general-care-tips li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  color: #800020;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ==========================================
+   UNIFIED CUSTOM REQUESTS SECTION
+   ========================================== */
+
+.custom-requests-section {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Outer Card Container */
+.custom-card {
+  background-color: #fdf2f4; /* Soft blush pink */
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(255, 204, 213, 0.5);
+}
+
+/* Header Badge */
+.custom-badge {
+  display: inline-block;
+  background-color: #6a1b29; /* Deep burgundy pill */
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* Heading */
+.custom-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5b1322;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+
+/* Divider Line */
+.custom-divider {
+  width: 50px;
+  height: 3px;
+  background-color: #f4c2c2;
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+/* 2-Column Grid inside the card */
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+/* Inner Translucent Cards */
+.custom-item {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  padding: 22px 24px;
+  border: 1px solid rgba(255, 204, 213, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.custom-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-icon {
+  font-size: 1.5rem;
+}
+
+.custom-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5b1322;
+  margin: 0;
+}
+
+.custom-item p {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+.custom-item em {
+  color: #777;
+}
+
+/* WhatsApp CTA Button */
+.custom-cta {
+  text-align: left;
+}
+
+.custom-btn {
+  display: inline-block;
+  background-color: #25d366; /* WhatsApp Green for clear action */
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  transition: all 0.2s ease;
+}
+
+.custom-btn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+/* Responsive Mobile Rules */
+@media (max-width: 600px) {
+  .custom-card {
+    padding: 28px 20px;
+  }
+  .custom-title {
+    font-size: 1.6rem;
+  }
+  .custom-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
 }
