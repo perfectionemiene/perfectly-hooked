@@ -136,8 +136,6 @@ Planned features include:
 
 # Preview
 
-(include screenshots)
-
 - Home Page
 - About Page
 - Products Page
@@ -189,7 +187,6 @@ Computer Science Student - Miva Open University
 
 Frontend Developer
 
-Building beautiful digital experiences—one project at a time. 
 portfolio
 crochet
 small-business
