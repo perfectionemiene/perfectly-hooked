@@ -94,3 +94,56 @@ function sendToWhatsApp() {
     let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(url, '_blank');
 }
+
+function openProductModal(productId) {
+  // Optional: Update modal fields dynamically based on productId here
+  document.getElementById('product-modal').classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeProductModal(event) {
+  if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('modal-close')) {
+    document.getElementById('product-modal').classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  checkReturningCustomerCart();
+});
+
+function checkReturningCustomerCart() {
+  // Retrieve cart array from localStorage
+  const savedCart = JSON.parse(localStorage.getItem("perfectly_hooked_cart")) || [];
+
+  // Calculate total item count
+  const totalItems = savedCart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+  // Check if banner was already dismissed during this browser session
+  const isDismissed = sessionStorage.getItem("welcome_banner_dismissed");
+
+  if (totalItems > 0 && !isDismissed) {
+    // Update count in text
+    const countElement = document.getElementById("welcome-cart-count");
+    if (countElement) {
+      countElement.textContent = totalItems;
+    }
+
+    // Show banner after a slight delay (700ms) for smooth entrance
+    setTimeout(() => {
+      const banner = document.getElementById("welcome-back-banner");
+      if (banner) {
+        banner.classList.remove("hidden");
+      }
+    }, 700);
+  }
+}
+
+function closeWelcomeBanner() {
+  const banner = document.getElementById("welcome-back-banner");
+  if (banner) {
+    banner.classList.add("hidden");
+  }
+  // Store dismissal in sessionStorage so it doesn't annoy them on every page refresh during the same session
+  sessionStorage.setItem("welcome_banner_dismissed", "true");
+}
