@@ -21,6 +21,22 @@
     </nav>
 </header>
 
+<!-- Returning Customer Cart Banner -->
+<div id="welcome-back-banner" class="welcome-banner hidden">
+  <div class="welcome-content">
+    <div class="welcome-text">
+      <span class="welcome-icon">👋</span>
+      <p>
+        <strong>Welcome back!</strong> You still have <span id="welcome-cart-count">0</span> item(s) in your cart.
+      </p>
+    </div>
+    <div class="welcome-actions">
+      <a href="cart.html" class="welcome-btn checkout-btn">Review & Checkout →</a>
+      <button onclick="closeWelcomeBanner()" class="welcome-close-btn" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+</div>
+
 <!-- PLACE MARQUEE RIGHT HERE 👇 -->
 <div class="announcement-marquee" id="promoMarquee">
     <div class="marquee-content">
