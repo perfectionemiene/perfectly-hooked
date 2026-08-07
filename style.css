@@ -13,6 +13,19 @@
     --white: #ffffff;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
+    
+    /* Fluid typography scales */
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+}
+
+html {
+    font-size: 16px;
 }
 
 body {
@@ -20,6 +33,8 @@ body {
     color: var(--charcoal);
     background-color: var(--white);
     line-height: 1.6;
+    font-size: var(--text-base);
+    overflow-x: hidden;
 }
 
 /* --- Header / Navigation --- */
@@ -33,11 +48,13 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     font-weight: 700;
     color: var(--burgundy);
 }
@@ -47,13 +64,19 @@ header {
     text-shadow: 1px 1px 0px var(--burgundy);
 }
 
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+}
+
 header nav a {
     text-decoration: none;
     color: var(--charcoal);
     font-weight: 600;
-    margin-left: 25px;
     padding-bottom: 5px;
     transition: color 0.3s ease;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
 
 header nav a:hover, header nav a.active {
@@ -78,13 +101,13 @@ header nav a:hover, header nav a.active {
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     margin-bottom: 20px;
     color: var(--light-pink-bg);
 }
@@ -99,6 +122,7 @@ header nav a:hover, header nav a.active {
     border-radius: 30px;
     margin-top: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
 }
 
 .btn:hover {
@@ -115,7 +139,7 @@ header nav a:hover, header nav a.active {
 
 .offers-section h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--burgundy);
 }
 
@@ -151,7 +175,7 @@ header nav a:hover, header nav a.active {
 }
 
 .offer-card h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     color: var(--burgundy);
     margin-bottom: 10px;
 }
@@ -179,6 +203,7 @@ footer {
 footer h3, footer h4 {
     color: var(--soft-pink);
     margin-bottom: 15px;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
 .footer-links a, .social-links a {
@@ -187,6 +212,7 @@ footer h3, footer h4 {
     display: block;
     margin-bottom: 10px;
     transition: color 0.3s ease;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
 }
 
 .footer-links a:hover, .social-links a:hover {
@@ -196,6 +222,7 @@ footer h3, footer h4 {
 .subscribe-form {
     display: flex;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .subscribe-form input {
@@ -204,6 +231,8 @@ footer h3, footer h4 {
     border-radius: 4px 0 0 4px;
     outline: none;
     width: 70%;
+    min-width: 150px;
+    flex: 1;
 }
 
 .subscribe-form button {
@@ -220,7 +249,7 @@ footer h3, footer h4 {
     text-align: center;
     border-top: 1px solid #444;
     padding-top: 20px;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
     color: #aaa;
 }
 
@@ -233,7 +262,7 @@ footer h3, footer h4 {
 
 .products-header h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--burgundy);
 }
 
@@ -252,6 +281,7 @@ footer h3, footer h4 {
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
 }
 
 .filter-btn:hover, .filter-btn.active {
@@ -260,7 +290,7 @@ footer h3, footer h4 {
     border-color: var(--burgundy);
 }
 
-/* Products Grid Setup */
+/* Products Grid Setup - FIXED for 2 columns on mobile */
 .products-container {
     padding: 20px 8% 80px 8%;
     background-color: var(--light-pink-bg);
@@ -268,18 +298,45 @@ footer h3, footer h4 {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile: 2 columns (fixed) */
+@media (max-width: 640px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 0px;
+    }
+}
+
+/* Very small phones: 2 columns but smaller */
+@media (max-width: 420px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 }
 
 .card {
     background-color: var(--white);
     border-radius: 12px;
-    padding: 15px;
+    padding: 12px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(107, 29, 47, 0.04);
     border: 1px solid rgba(107, 29, 47, 0.05);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -288,11 +345,11 @@ footer h3, footer h4 {
 
 .card .img-wrapper {
     width: 100%;
-    height: 240px;
+    height: 200px;
     background-color: #f7f7f7;
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .card img {
@@ -308,16 +365,16 @@ footer h3, footer h4 {
 }
 
 .card h3 {
-    font-size: 1.15rem;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
     color: var(--charcoal);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .card .price {
     color: var(--burgundy);
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    margin-bottom: 10px;
 }
 
 .cart-btn {
@@ -325,12 +382,13 @@ footer h3, footer h4 {
     background-color: var(--soft-pink);
     color: var(--burgundy);
     border: none;
-    padding: 10px;
+    padding: 8px 10px;
     font-family: var(--font-body);
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
 }
 
 .cart-btn:hover {
@@ -349,7 +407,7 @@ footer h3, footer h4 {
     color: var(--white);
     border: none;
     padding: 15px 40px;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     font-family: var(--font-body);
     font-weight: 600;
     border-radius: 30px;
@@ -417,13 +475,13 @@ footer h3, footer h4 {
 
 .contact-info {
     flex: 1;
-    min-width: 320px;
+    min-width: 280px;
     text-align: left;
 }
 
 .contact-info h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--burgundy);
     line-height: 1.2;
     margin-bottom: 5px;
@@ -431,14 +489,14 @@ footer h3, footer h4 {
 
 .contact-info p {
     color: #555;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 .contact-form-wrapper {
     flex: 1;
-    min-width: 320px;
+    min-width: 280px;
     background-color: var(--light-pink-bg);
     padding: 40px 30px;
     border-radius: 16px;
@@ -455,7 +513,7 @@ footer h3, footer h4 {
     display: block;
     font-weight: 600;
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     color: var(--burgundy);
 }
 
@@ -466,7 +524,7 @@ footer h3, footer h4 {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     outline: none;
     background-color: var(--white);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -491,7 +549,7 @@ footer h3, footer h4 {
     padding: 14px;
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(107, 29, 47, 0.2);
@@ -512,12 +570,12 @@ footer h3, footer h4 {
 
 .gallery-section h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--burgundy);
 }
 
 .gallery-subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
     color: #666;
     margin-bottom: 40px;
 }
@@ -525,18 +583,44 @@ footer h3, footer h4 {
 /* Elegant Grid Layout */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
 }
 
 .gallery-item {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    height: 320px;
+    height: 280px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     background-color: var(--light-pink-bg);
     cursor: zoom-in;
+}
+
+@media (max-width: 640px) {
+    .gallery-item {
+        height: 200px;
+    }
+}
+
+@media (max-width: 420px) {
+    .gallery-item {
+        height: 160px;
+    }
 }
 
 .gallery-item img {
@@ -563,7 +647,7 @@ footer h3, footer h4 {
     color: var(--white);
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
     border: 1px solid var(--soft-pink);
     padding: 8px 20px;
     border-radius: 20px;
@@ -595,18 +679,19 @@ footer h3, footer h4 {
 
 .preview-text {
     flex: 12;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .preview-text h2 {
     font-family: var(--font-heading);
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
     color: var(--burgundy);
 }
 
 .preview-text p {
     color: #555;
     margin-bottom: 15px;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 .text-link {
@@ -614,6 +699,7 @@ footer h3, footer h4 {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 .text-link:hover {
@@ -622,7 +708,7 @@ footer h3, footer h4 {
 
 .preview-image-box {
     flex: 1;
-    min-width: 280px;
+    min-width: 250px;
     display: flex;
     justify-content: center;
 }
@@ -646,7 +732,7 @@ footer h3, footer h4 {
 
 .home-gallery-preview h2 {
     font-family: var(--font-heading);
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
     color: var(--burgundy);
 }
 
@@ -659,11 +745,25 @@ footer h3, footer h4 {
 }
 
 .img-snap {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 640px) {
+    .img-snap {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 420px) {
+    .img-snap {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .img-snap img {
@@ -682,6 +782,7 @@ footer h3, footer h4 {
     font-weight: 600;
     border-radius: 30px;
     transition: all 0.3s ease;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
 }
 
 .btn-outline:hover {
@@ -710,7 +811,17 @@ footer h3, footer h4 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
+}
+
+@media (max-width: 640px) {
+    .filter-menu {
+        gap: 8px;
+    }
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
 }
 
 .filter-btn {
@@ -722,6 +833,7 @@ footer h3, footer h4 {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
 }
 
 .filter-btn:hover, .filter-btn.active {
@@ -742,7 +854,7 @@ footer h3, footer h4 {
 .custom-clothing-banner h2 {
     color: var(--burgundy);
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     margin-bottom: 15px;
 }
 
@@ -750,6 +862,7 @@ footer h3, footer h4 {
     color: #555;
     max-width: 700px;
     margin: 0 auto 25px auto;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 /* --- Featured Bestseller (Home Page) --- */
@@ -769,12 +882,21 @@ footer h3, footer h4 {
     padding: 40px;
 }
 
+@media (max-width: 768px) {
+    .bestseller-container {
+        padding: 25px 20px;
+        gap: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 .badge {
     background: var(--burgundy);
     color: var(--white);
     padding: 5px 15px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
     font-weight: 600;
     display: inline-block;
     margin-bottom: 15px;
@@ -782,18 +904,18 @@ footer h3, footer h4 {
 
 .bestseller-text {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .bestseller-text h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     color: var(--burgundy);
 }
 
 .bestseller-image {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .bestseller-image img {
@@ -834,14 +956,22 @@ footer h3, footer h4 {
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
+
 .about-text {
     flex: 1.2;
-    min-width: 320px;
+    min-width: 280px;
 }
 
 .about-text h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     color: var(--burgundy);
     margin-bottom: 5px;
 }
@@ -853,22 +983,34 @@ footer h3, footer h4 {
     margin-bottom: 25px;
 }
 
+@media (max-width: 768px) {
+    .accent-line-left {
+        margin: 0 auto 20px auto;
+    }
+}
+
 .about-text p {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
     color: #555;
     margin-bottom: 20px;
     text-align: justify;
 }
 
+@media (max-width: 768px) {
+    .about-text p {
+        text-align: center;
+    }
+}
+
 .about-text .lead-text {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
     color: var(--charcoal);
     font-weight: 400;
 }
 
 .about-image {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     display: flex;
     justify-content: center;
 }
@@ -896,8 +1038,14 @@ footer h3, footer h4 {
     color: var(--white);
 }
 
+@media (max-width: 768px) {
+    .mini-hero {
+        padding: 40px 5%;
+    }
+}
+
 .mini-hero-content h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 600;
     letter-spacing: 1px;
     position: relative;
@@ -913,6 +1061,7 @@ footer h3, footer h4 {
     margin: 12px auto 0 auto;
     border-radius: 2px;
 }
+
 .form-group input, 
 .form-group select, 
 .form-group textarea {
@@ -921,26 +1070,23 @@ footer h3, footer h4 {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     outline: none;
     background-color: var(--white);
     color: var(--charcoal);
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     
-    /* Resets default browser styles for clean dropdown arrows */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     
-    /* Adds a subtle custom dropdown chevron arrow background image */
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b1d2f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
     background-repeat: no-repeat;
     background-position: right 15px center;
     background-size: 16px;
 }
 
-/* Style for when the dropdown gains focus */
 .form-group input:focus, 
 .form-group select:focus, 
 .form-group textarea:focus {
@@ -949,15 +1095,79 @@ footer h3, footer h4 {
 }
 
 /* ==========================================================================
-   --- Mobile Responsiveness Breakpoint (Max-Width: 768px) ---
+   --- Mobile Responsiveness Breakpoints ---
    ========================================================================== */
-@media (max-width: 768px) {
-    /* --- Global Elements & Spacing --- */
-    body {
-        font-size: 14px; /* Slightly smaller base font for mobile comfort */
-    }
 
-    /* Reduce huge desktop section paddings across all pages */
+/* --- Tablet (768px - 992px) --- */
+@media (max-width: 992px) {
+    /* Adjust header */
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+        text-align: center;
+    }
+    
+    header nav {
+        justify-content: center;
+    }
+    
+    header nav a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 50px 5%;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    /* Section padding adjustments */
+    .offers-section,
+    .products-container,
+    .contact-section,
+    .gallery-section,
+    .home-about-preview,
+    .home-gallery-preview,
+    .featured-bestseller,
+    .about-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    /* Offer cards */
+    .offer-card {
+        max-width: 100%;
+        flex: 0 1 calc(50% - 20px);
+    }
+    
+    /* Footer */
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .footer-container > div {
+        flex: 0 1 calc(50% - 15px);
+        min-width: 200px;
+    }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+    /* Global */
+    body {
+        font-size: 15px;
+    }
+    
+    /* Reduce section paddings */
     header, 
     .hero, 
     .offers-section, 
@@ -971,78 +1181,78 @@ footer h3, footer h4 {
     .about-section, 
     .mini-hero, 
     footer {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding-left: 4% !important;
+        padding-right: 4% !important;
     }
-
-    /* --- Header / Navigation --- */
+    
+    /* Header */
     header {
         flex-direction: column;
-        gap: 15px;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        gap: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
         text-align: center;
     }
-
+    
     header nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
-
+    
     header nav a {
-        margin-left: 0; /* Clear desktop left margins */
-        padding: 5px 8px;
-        font-size: 0.95rem;
+        padding: 4px 8px;
+        font-size: 0.85rem;
     }
-
-    /* --- Hero Section --- */
+    
+    /* Hero */
     .hero {
         min-height: auto;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 40px;
+        padding-bottom: 40px;
         text-align: center;
     }
-
+    
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
-
+    
     .hero p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
-
-    /* --- What We Offer Section --- */
+    
+    /* Offers */
     .offers-section {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
-
+    
     .offers-section h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-
+    
     .offers-container {
-        gap: 20px;
+        gap: 15px;
     }
-
+    
     .offer-card {
-        max-width: 100%; /* Let cards span beautifully full-width on tiny screens */
-        padding: 25px 15px;
+        flex: 0 1 100%;
+        max-width: 100%;
+        padding: 20px 15px;
     }
-
-    /* --- Featured Bestseller & About layouts --- */
+    
+    /* Bestseller & About */
     .bestseller-container, 
     .about-container, 
     .contact-container, 
     .about-preview-container {
         flex-direction: column;
         text-align: center !important;
-        gap: 30px;
-        padding: 30px 20px;
+        gap: 25px;
+        padding: 25px 15px;
     }
-
+    
     .preview-text, 
     .preview-image-box, 
     .bestseller-text, 
@@ -1053,76 +1263,182 @@ footer h3, footer h4 {
     .contact-form-wrapper {
         flex: none;
         width: 100%;
+        min-width: unset;
     }
-
+    
     .bestseller-text h2, 
     .about-text h2, 
     .contact-info h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-
-    .accent-line-left {
-        margin: 0 auto 20px auto; /* Center design borders on mobile */
-    }
-
+    
     .about-text p {
-        text-align: center; /* Center paragraph text for mobile readability */
-    }
-
-    /* --- Products & Gallery Layouts --- */
-    /* Product Grid Main Layout */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards on desktop */
-  gap: 24px;
-}
-
-/* Mobile Media Query for 2 Cards Side-by-Side */
-@media (max-width: 640px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on mobile */
-    gap: 12px; /* Reduce space between small cards */
-    padding: 0 10px;
-  }
-
-  .product-card {
-    padding: 10px;
-    border-radius: 12px;
-  }
-
-  .product-card h3 {
-    font-size: 0.9rem; /* Smaller titles to fit 2-column layout */
-  }
-
-  .product-card .price {
-    font-size: 0.85rem;
-  }
-
-  /* Compact controls for mobile cards */
-  .product-card select,
-  .product-card button {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-  }
-}
-
-    .gallery-item {
-        height: 260px; /* Snappy aspect boxes for image content */
-    }
-
-    /* --- Footer Elements --- */
-    .footer-container {
-        flex-direction: column;
-        gap: 30px;
         text-align: center;
     }
-
+    
+    /* Gallery items */
+    .gallery-item {
+        height: 220px;
+    }
+    
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .footer-container > div {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    
     .subscribe-form {
         justify-content: center;
     }
+    
+    .subscribe-form input {
+        width: 60%;
+    }
+    
+    /* Mini hero */
+    .mini-hero {
+        padding: 30px 4% !important;
+    }
+    
+    .mini-hero-content h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .mini-hero-content h1::after {
+        margin: 8px auto 0 auto;
+    }
 }
 
-/* Styling for the link wrapping the cards */
+/* --- Small Phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    /* Even smaller header */
+    header {
+        padding: 10px 3% !important;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    header nav a {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+    
+    /* Hero */
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+    
+    /* Products - 2 columns with smaller gap */
+    .products-grid {
+        gap: 10px;
+        padding: 0;
+    }
+    
+    .card {
+        padding: 8px;
+    }
+    
+    .card .img-wrapper {
+        height: 140px;
+    }
+    
+    .card h3 {
+        font-size: 0.75rem;
+    }
+    
+    .card .price {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .cart-btn {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    /* Gallery */
+    .gallery-item {
+        height: 160px;
+    }
+    
+    /* Offer cards */
+    .offer-card {
+        padding: 15px 12px;
+    }
+    
+    .offer-card h3 {
+        font-size: 1rem;
+    }
+    
+    /* Sections */
+    .offers-section h2,
+    .gallery-section h2,
+    .products-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Footer */
+    .subscribe-form input {
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+    }
+    
+    .subscribe-form button {
+        width: 100%;
+        border-radius: 0 0 4px 4px;
+    }
+}
+
+/* --- Very Small Phones (max-width: 380px) --- */
+@media (max-width: 380px) {
+    .products-grid {
+        gap: 8px;
+    }
+    
+    .card .img-wrapper {
+        height: 110px;
+    }
+    
+    .card h3 {
+        font-size: 0.65rem;
+    }
+    
+    .card .price {
+        font-size: 0.7rem;
+    }
+    
+    .gallery-item {
+        height: 130px;
+    }
+    
+    .filter-btn {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+}
+
+/* --- Styling for link wrapping the cards --- */
 .offer-card-link {
     text-decoration: none;
     color: inherit;
@@ -1134,47 +1450,31 @@ footer h3, footer h4 {
 }
 
 .offer-card-link:hover {
-    transform: translateY(-5px); /* Adds a subtle, elegant hover lift! */
+    transform: translateY(-5px);
 }
 
-/* Update this existing class to fill the full height of the link */
 .offer-card {
     background-color: var(--white);
     padding: 30px 20px;
     border-radius: 12px;
-    width: 100%; /* Force card to fill link width */
+    width: 100%;
     box-shadow: 0 4px 15px rgba(107, 29, 47, 0.04);
     border: 1px solid rgba(107, 29, 47, 0.05);
 }
 
-@media (max-width: 768px) {
-    /* Slim down mini hero padding & title size on mobile */
-    .mini-hero {
-        padding: 30px 5% !important; /* Reduced top/bottom padding from 60px to 30px */
-    }
-
-    .mini-hero-content h1 {
-        font-size: 1.8rem !important; /* Scaled down heading size from 2.8rem */
-    }
-
-    .mini-hero-content h1::after {
-        margin: 8px auto 0 auto; /* Tighter underline margin */
-    }
-}
-
 /* --- Brand-Matched Scrolling Marquee --- */
 .announcement-marquee {
-    background-color: #631C2D; /* Brand Maroon Background */
-    color: #ffffff;            /* White Text */
+    background-color: #631C2D;
+    color: #ffffff;
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
     padding: 10px 0;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.5rem;
+    font-size: clamp(0.65rem, 1.2vw, 0.9rem);
     font-weight: 500;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(99, 28, 45, 0.2); /* Soft maroon drop-shadow */
+    box-shadow: 0 4px 10px rgba(99, 28, 45, 0.2);
     position: relative;
     z-index: 99;
 }
@@ -1182,15 +1482,14 @@ footer h3, footer h4 {
 .marquee-content {
     display: inline-block;
     padding-left: 100%;
-    animation: marquee-scroll 25s linear infinite; /* Smooth scrolling loop */
+    animation: marquee-scroll 25s linear infinite;
 }
 
 .marquee-content span {
     display: inline-block;
-    padding-right: 60px; /* Space between repeated messages */
+    padding-right: 60px;
 }
 
-/* Continuous smooth movement */
 @keyframes marquee-scroll {
     0% {
         transform: translate3d(0, 0, 0);
@@ -1200,36 +1499,43 @@ footer h3, footer h4 {
     }
 }
 
-/* Pause animation on mouse hover so users can read comfortably */
 .announcement-marquee:hover .marquee-content {
     animation-play-state: paused;
 }
 
 .custom-color-banner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background-color: #fff0f3; 
-  border: 1px solid #ffccd5;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #fff0f3;
+    border: 1px solid #ffccd5;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+    .custom-color-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
 }
 
 .banner-icon {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .banner-text strong {
-  color: #800020; 
-  display: block;
-  margin-bottom: 4px;
+    color: #800020;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .banner-text p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4a4a4a;
+    margin: 0;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    color: #4a4a4a;
 }
 
 /* ==========================================
@@ -1237,170 +1543,180 @@ footer h3, footer h4 {
    ========================================== */
 
 .faq-section {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
-  font-family: inherit;
-  color: #333333;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: inherit;
+    color: #333333;
 }
 
 .faq-header {
-  text-align: center;
-  margin-bottom: 35px;
+    text-align: center;
+    margin-bottom: 35px;
 }
 
 .faq-header h2 {
-  font-size: 2rem;
-  color: #5a2a38; /* Rich brand tone */
-  margin-bottom: 8px;
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    color: #5a2a38;
+    margin-bottom: 8px;
 }
 
 .faq-header p {
-  color: #666666;
-  font-size: 1rem;
+    color: #666666;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
 }
 
 /* --- Custom Color Banner --- */
 .custom-color-banner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
-  border: 1px solid #ffccd5;
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
+    border: 1px solid #ffccd5;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.15);
 }
 
 .banner-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
+    font-size: 2rem;
+    flex-shrink: 0;
 }
 
 .banner-text strong {
-  font-size: 1.1rem;
-  color: #800020; /* Deep rose/burgundy */
-  display: block;
-  margin-bottom: 4px;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    color: #800020;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .banner-text p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4a4a4a;
-  line-height: 1.5;
+    margin: 0;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    color: #4a4a4a;
+    line-height: 1.5;
 }
 
 /* --- FAQ Cards --- */
 .faq-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .faq-item {
-  background: #ffffff;
-  border: 1px solid #f0e6e8;
-  border-radius: 12px;
-  padding: 22px 26px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #ffffff;
+    border: 1px solid #f0e6e8;
+    border-radius: 12px;
+    padding: 22px 26px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  border-color: #ffd6e0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border-color: #ffd6e0;
 }
 
 .faq-item h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #800020;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    font-weight: 600;
+    color: #800020;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .faq-item p {
-  font-size: 0.95rem;
-  color: #555555;
-  line-height: 1.6;
-  margin: 0;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* --- CTA Bottom Contact Button --- */
 .faq-contact-cta {
-  text-align: center;
-  margin-top: 45px;
-  padding-top: 25px;
-  border-top: 1px dashed #e5d5d8;
+    text-align: center;
+    margin-top: 45px;
+    padding-top: 25px;
+    border-top: 1px dashed #e5d5d8;
 }
 
 .faq-contact-cta p {
-  font-size: 1rem;
-  color: #555555;
-  margin-bottom: 15px;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: #555555;
+    margin-bottom: 15px;
 }
 
 .contact-btn {
-  display: inline-block;
-  background-color: #800020; 
-  color: #ffffff;
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    background-color: #800020;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
 }
 
 .contact-btn:hover {
-  background-color: #800020;
-  transform: scale(1.03);
+    background-color: #800020;
+    transform: scale(1.03);
 }
 
 /* --- Responsive Layout for Mobile --- */
 @media (max-width: 600px) {
-  .custom-color-banner {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
+    .custom-color-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
 
-  .faq-item {
-    padding: 16px 20px;
-  }
+    .faq-item {
+        padding: 16px 20px;
+    }
 }
 
 /* Badge Version */
 .product-care-badge {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #faf7f8;
-  border: 1px solid #f0e6e8;
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin-top: 15px;
-  font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #faf7f8;
+    border: 1px solid #f0e6e8;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 15px;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+@media (max-width: 480px) {
+    .product-care-badge {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 .product-care-badge span {
-  color: #4a4a4a;
-  font-weight: 500;
+    color: #4a4a4a;
+    font-weight: 500;
 }
 
 .product-care-badge a {
-  color: #800020;
-  text-decoration: none;
-  font-weight: 600;
+    color: #800020;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .product-care-badge a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* ==========================================
@@ -1408,182 +1724,185 @@ footer h3, footer h4 {
    ========================================== */
 
 .care-guide-section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Matching the main Bestseller pink rounded card container */
 .care-container {
-  background-color: #fdf2f4; /* Soft blush pink background */
-  border-radius: 24px;
-  padding: 48px 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    background-color: #fdf2f4;
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 768px) {
+    .care-container {
+        padding: 32px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .care-container {
+        padding: 24px 15px;
+    }
 }
 
 .care-content {
-  max-width: 800px;
+    max-width: 800px;
 }
 
-/* Pill Badge like "Bestseller" */
 .care-badge {
-  display: inline-block;
-  background-color: #6a1b29; /* Deep burgundy pill */
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 6px 18px;
-  border-radius: 20px;
-  letter-spacing: 0.03em;
-  margin-bottom: 20px;
+    display: inline-block;
+    background-color: #6a1b29;
+    color: #ffffff;
+    font-size: clamp(0.7rem, 1vw, 0.82rem);
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+    margin-bottom: 20px;
 }
 
-/* Title matching "The Elara Collection" */
 .care-title {
-  font-family: 'Playfair Display', serif; /* Matching serif font */
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #5b1322; /* Deep rose/burgundy title */
-  margin: 0 0 12px 0;
-  line-height: 1.2;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #5b1322;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
 }
 
-/* Accent line divider */
 .care-divider {
-  width: 50px;
-  height: 3px;
-  background-color: #f4c2c2;
-  margin-bottom: 20px;
-  border-radius: 2px;
+    width: 50px;
+    height: 3px;
+    background-color: #f4c2c2;
+    margin-bottom: 20px;
+    border-radius: 2px;
 }
 
-/* Description text matching body copy */
 .care-description {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #4a4a4a;
-  margin-bottom: 32px;
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 32px;
 }
 
-/* Content Breakdown */
 .care-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+    .care-details {
+        grid-template-columns: 1fr;
+    }
 }
 
 .care-item {
-  background-color: rgba(255, 255, 255, 0.7); /* Subtle white translucent cards */
-  border-radius: 16px;
-  padding: 20px 24px;
-  border: 1px solid rgba(255, 204, 213, 0.4);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255, 204, 213, 0.4);
 }
 
 .care-item h3 {
-  font-size: 1.15rem;
-  color: #5b1322;
-  margin: 0 0 4px 0;
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    color: #5b1322;
+    margin: 0 0 4px 0;
 }
 
 .care-item .yarn-usage {
-  font-size: 0.85rem;
-  color: #777777;
-  margin-bottom: 12px;
-  font-style: italic;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    color: #777777;
+    margin-bottom: 12px;
+    font-style: italic;
 }
 
 .care-item ul {
-  padding-left: 18px;
-  margin: 0;
-  color: #4a4a4a;
-  font-size: 0.92rem;
-  line-height: 1.5;
+    padding-left: 18px;
+    margin: 0;
+    color: #4a4a4a;
+    font-size: clamp(0.8rem, 1.1vw, 0.92rem);
+    line-height: 1.5;
 }
 
 .care-item li {
-  margin-bottom: 6px;
+    margin-bottom: 6px;
 }
 
-/* CTA Pill Button matching "Shop the Elara" */
 .care-btn {
-  display: inline-block;
-  background-color: #f8c8d0; /* Light pink pill button */
-  color: #5b1322; /* Deep burgundy text */
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.2s ease;
+    display: inline-block;
+    background-color: #f8c8d0;
+    color: #5b1322;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 .care-btn:hover {
-  background-color: #f4b6c2;
-  transform: translateY(-2px);
-}
-
-/* Mobile responsive padding */
-@media (max-width: 768px) {
-  .care-container {
-    padding: 32px 20px;
-  }
-  .care-title {
-    font-size: 1.8rem;
-  }
+    background-color: #f4b6c2;
+    transform: translateY(-2px);
 }
 
 /* ==========================================
-   GENERAL CARE TIPS (MATCHING BESTSELLER STYLING)
+   GENERAL CARE TIPS
    ========================================== */
 
-/* Inner container for General Care Tips */
 .general-care-tips {
-  background-color: rgba(255, 255, 255, 0.7); /* Matching translucent white card */
-  border-radius: 16px;
-  padding: 24px 28px;
-  border: 1px solid rgba(255, 204, 213, 0.4);
-  margin-top: 24px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 24px 28px;
+    border: 1px solid rgba(255, 204, 213, 0.4);
+    margin-top: 24px;
 }
 
-/* Heading */
+@media (max-width: 480px) {
+    .general-care-tips {
+        padding: 18px 16px;
+    }
+}
+
 .general-care-tips h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #5b1322; /* Deep burgundy tone */
-  margin-top: 0;
-  margin-bottom: 14px;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 700;
+    color: #5b1322;
+    margin-top: 0;
+    margin-bottom: 14px;
 }
 
-/* List Items */
 .general-care-tips ul {
-  list-style: none; /* Custom bullet icons */
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .general-care-tips li {
-  position: relative;
-  padding-left: 22px;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #4a4a4a;
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+    line-height: 1.6;
+    color: #4a4a4a;
 }
 
 .general-care-tips li:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
-/* Styled bullet dot in matching rose accent */
 .general-care-tips li::before {
-  content: "•";
-  position: absolute;
-  left: 4px;
-  top: 0;
-  color: #800020;
-  font-size: 1.2rem;
-  line-height: 1;
+    content: "•";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    color: #800020;
+    font-size: 1.2rem;
+    line-height: 1;
 }
 
 /* ==========================================
@@ -1591,138 +1910,136 @@ footer h3, footer h4 {
    ========================================== */
 
 .custom-requests-section {
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Outer Card Container */
 .custom-card {
-  background-color: #fdf2f4; /* Soft blush pink */
-  border-radius: 24px;
-  padding: 40px 36px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(255, 204, 213, 0.5);
+    background-color: #fdf2f4;
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 204, 213, 0.5);
 }
 
-/* Header Badge */
+@media (max-width: 600px) {
+    .custom-card {
+        padding: 28px 20px;
+    }
+}
+
 .custom-badge {
-  display: inline-block;
-  background-color: #6a1b29; /* Deep burgundy pill */
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 5px 16px;
-  border-radius: 20px;
-  letter-spacing: 0.03em;
-  margin-bottom: 16px;
-  text-transform: uppercase;
+    display: inline-block;
+    background-color: #6a1b29;
+    color: #ffffff;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    font-weight: 600;
+    padding: 5px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
-/* Heading */
 .custom-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #5b1322;
-  margin: 0 0 12px 0;
-  line-height: 1.25;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 700;
+    color: #5b1322;
+    margin: 0 0 12px 0;
+    line-height: 1.25;
 }
 
-/* Divider Line */
 .custom-divider {
-  width: 50px;
-  height: 3px;
-  background-color: #f4c2c2;
-  margin-bottom: 28px;
-  border-radius: 2px;
+    width: 50px;
+    height: 3px;
+    background-color: #f4c2c2;
+    margin-bottom: 28px;
+    border-radius: 2px;
 }
 
-/* 2-Column Grid inside the card */
 .custom-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
 }
 
-/* Inner Translucent Cards */
+@media (max-width: 640px) {
+    .custom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .custom-item {
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 16px;
-  padding: 22px 24px;
-  border: 1px solid rgba(255, 204, 213, 0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 16px;
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 204, 213, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .custom-item-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .custom-icon {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .custom-item h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #5b1322;
-  margin: 0;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    font-weight: 600;
+    color: #5b1322;
+    margin: 0;
 }
 
 .custom-item p {
-  font-size: 0.93rem;
-  line-height: 1.55;
-  color: #4a4a4a;
-  margin: 0;
+    font-size: clamp(0.8rem, 1.1vw, 0.93rem);
+    line-height: 1.55;
+    color: #4a4a4a;
+    margin: 0;
 }
 
 .custom-item em {
-  color: #777;
+    color: #777;
 }
 
-/* WhatsApp CTA Button */
 .custom-cta {
-  text-align: left;
+    text-align: left;
 }
 
 .custom-btn {
-  display: inline-block;
-  background-color: #800020; 
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-  transition: all 0.2s ease;
+    display: inline-block;
+    background-color: #800020;
+    color: #ffffff;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    transition: all 0.2s ease;
 }
 
 .custom-btn:hover {
-  background-color: #1ebe5d;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    background-color: #1ebe5d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
 }
 
-/* Responsive Mobile Rules */
 @media (max-width: 600px) {
-  .custom-card {
-    padding: 28px 20px;
-  }
-  .custom-title {
-    font-size: 1.6rem;
-  }
-  .custom-btn {
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
+    .custom-btn {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
 }
 
 /* ==========================================
@@ -1730,109 +2047,112 @@ footer h3, footer h4 {
    ========================================== */
 
 .welcome-banner {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  width: 90%;
-  max-width: 600px;
-  background-color: #fdf2f4; /* Matching blush pink background */
-  border: 1px solid #f8c8d0;
-  border-radius: 50px; /* Modern pill container */
-  box-shadow: 0 10px 25px rgba(91, 19, 34, 0.12);
-  padding: 10px 20px;
-  transition: all 0.4s ease-in-out;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+    background-color: #fdf2f4;
+    border: 1px solid #f8c8d0;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(91, 19, 34, 0.12);
+    padding: 10px 20px;
+    transition: all 0.4s ease-in-out;
 }
 
-/* Hide helper class */
 .welcome-banner.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -20px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -20px);
+}
+
+@media (max-width: 480px) {
+    .welcome-banner {
+        border-radius: 16px;
+        padding: 12px 16px;
+        top: 10px;
+        width: 95%;
+    }
 }
 
 .welcome-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .welcome-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
 }
 
 .welcome-text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    color: #4a4a4a;
 }
 
 .welcome-text strong {
-  color: #5b1322; /* Deep burgundy tone */
+    color: #5b1322;
 }
 
 .welcome-icon {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .welcome-text p {
-  margin: 0;
+    margin: 0;
 }
 
 .welcome-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
-/* Checkout CTA Button */
+@media (max-width: 480px) {
+    .welcome-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 .welcome-btn {
-  background-color: #6a1b29; /* Burgundy primary button */
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 20px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+    background-color: #6a1b29;
+    color: #ffffff;
+    font-size: clamp(0.7rem, 1vw, 0.82rem);
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .welcome-btn:hover {
-  background-color: #5b1322;
-  transform: translateY(-1px);
+    background-color: #5b1322;
+    transform: translateY(-1px);
 }
 
 .welcome-close-btn {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #888888;
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #888888;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
 }
 
 .welcome-close-btn:hover {
-  color: #5b1322;
-}
-
-/* Responsive adjustments for smaller phones */
-@media (max-width: 480px) {
-  .welcome-banner {
-    border-radius: 16px;
-    padding: 12px 16px;
-  }
-  
-  .welcome-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .welcome-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
+    color: #5b1322;
 }
