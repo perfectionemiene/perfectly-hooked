@@ -15,13 +15,13 @@
     --font-body: 'Poppins', sans-serif;
     
     /* Fluid typography scales */
-    --text-base: 1rem;
-    --text-sm: 0.875rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 2rem;
-    --text-4xl: 2.5rem;
+    --text-base: clamp(0.9rem, 2vw, 1rem);
+    --text-sm: clamp(0.8rem, 1.5vw, 0.875rem);
+    --text-lg: clamp(1rem, 2.5vw, 1.125rem);
+    --text-xl: clamp(1.1rem, 3vw, 1.25rem);
+    --text-2xl: clamp(1.25rem, 4vw, 1.5rem);
+    --text-3xl: clamp(1.5rem, 5vw, 2rem);
+    --text-4xl: clamp(1.8rem, 6vw, 2.5rem);
 }
 
 html {
@@ -35,6 +35,8 @@ body {
     line-height: 1.6;
     font-size: var(--text-base);
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* --- Header / Navigation --- */
@@ -290,7 +292,7 @@ footer h3, footer h4 {
     border-color: var(--burgundy);
 }
 
-/* Products Grid Setup - FIXED for 2 columns on mobile */
+/* Products Grid Setup */
 .products-container {
     padding: 20px 8% 80px 8%;
     background-color: var(--light-pink-bg);
@@ -310,7 +312,7 @@ footer h3, footer h4 {
     }
 }
 
-/* Mobile: 2 columns (fixed) */
+/* Mobile: 2 columns */
 @media (max-width: 640px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -319,7 +321,7 @@ footer h3, footer h4 {
     }
 }
 
-/* Very small phones: 2 columns but smaller */
+/* Very small phones: 2 columns */
 @media (max-width: 420px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -630,7 +632,7 @@ footer h3, footer h4 {
     transition: transform 0.5s ease;
 }
 
-/* Beautiful Burgundy Hover Cover Filter */
+/* Burgundy Hover Cover Filter */
 .gallery-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -674,12 +676,11 @@ footer h3, footer h4 {
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .preview-text {
-    flex: 12;
-    min-width: 280px;
+    flex: 1;
 }
 
 .preview-text h2 {
@@ -708,7 +709,6 @@ footer h3, footer h4 {
 
 .preview-image-box {
     flex: 1;
-    min-width: 250px;
     display: flex;
     justify-content: center;
 }
@@ -875,20 +875,11 @@ footer h3, footer h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    flex-wrap: wrap;
+    gap: 30px;
+    flex-wrap: nowrap;
     background: var(--light-pink-bg);
     border-radius: 20px;
     padding: 40px;
-}
-
-@media (max-width: 768px) {
-    .bestseller-container {
-        padding: 25px 20px;
-        gap: 25px;
-        flex-direction: column;
-        text-align: center;
-    }
 }
 
 .badge {
@@ -904,7 +895,6 @@ footer h3, footer h4 {
 
 .bestseller-text {
     flex: 1;
-    min-width: 280px;
 }
 
 .bestseller-text h2 {
@@ -915,7 +905,6 @@ footer h3, footer h4 {
 
 .bestseller-image {
     flex: 1;
-    min-width: 280px;
 }
 
 .bestseller-image img {
@@ -952,21 +941,12 @@ footer h3, footer h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
+    gap: 40px;
+    flex-wrap: nowrap;
 }
 
 .about-text {
-    flex: 1.2;
-    min-width: 280px;
+    flex: 1;
 }
 
 .about-text h2 {
@@ -983,23 +963,11 @@ footer h3, footer h4 {
     margin-bottom: 25px;
 }
 
-@media (max-width: 768px) {
-    .accent-line-left {
-        margin: 0 auto 20px auto;
-    }
-}
-
 .about-text p {
     font-size: clamp(0.9rem, 1.2vw, 1rem);
     color: #555;
     margin-bottom: 20px;
-    text-align: justify;
-}
-
-@media (max-width: 768px) {
-    .about-text p {
-        text-align: center;
-    }
+    text-align: left;
 }
 
 .about-text .lead-text {
@@ -1010,7 +978,6 @@ footer h3, footer h4 {
 
 .about-image {
     flex: 1;
-    min-width: 280px;
     display: flex;
     justify-content: center;
 }
@@ -1034,14 +1001,8 @@ footer h3, footer h4 {
 .mini-hero {
     background: linear-gradient(rgba(107, 29, 47, 0.9), rgba(107, 29, 47, 0.9)); 
     padding: 60px 8%;
-    text-align: center;
+    text-align: left;
     color: var(--white);
-}
-
-@media (max-width: 768px) {
-    .mini-hero {
-        padding: 40px 5%;
-    }
 }
 
 .mini-hero-content h1 {
@@ -1058,7 +1019,7 @@ footer h3, footer h4 {
     width: 60px;
     height: 3px;
     background-color: var(--soft-pink);
-    margin: 12px auto 0 auto;
+    margin: 12px 0 0 0;
     border-radius: 2px;
 }
 
@@ -1100,16 +1061,15 @@ footer h3, footer h4 {
 
 /* --- Tablet (768px - 992px) --- */
 @media (max-width: 992px) {
-    /* Adjust header */
     header {
         flex-direction: column;
         gap: 12px;
         padding: 15px 5%;
-        text-align: center;
+        text-align: left;
     }
     
     header nav {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     header nav a {
@@ -1117,10 +1077,9 @@ footer h3, footer h4 {
         font-size: 0.9rem;
     }
     
-    /* Hero */
     .hero {
         padding: 50px 5%;
-        text-align: center;
+        text-align: left;
         min-height: auto;
     }
     
@@ -1128,7 +1087,6 @@ footer h3, footer h4 {
         max-width: 100%;
     }
     
-    /* Section padding adjustments */
     .offers-section,
     .products-container,
     .contact-section,
@@ -1141,13 +1099,11 @@ footer h3, footer h4 {
         padding-right: 5%;
     }
     
-    /* Offer cards */
     .offer-card {
         max-width: 100%;
         flex: 0 1 calc(50% - 20px);
     }
     
-    /* Footer */
     .footer-container {
         flex-direction: row;
         flex-wrap: wrap;
@@ -1162,12 +1118,10 @@ footer h3, footer h4 {
 
 /* --- Mobile (max-width: 768px) --- */
 @media (max-width: 768px) {
-    /* Global */
     body {
         font-size: 15px;
     }
     
-    /* Reduce section paddings */
     header, 
     .hero, 
     .offers-section, 
@@ -1185,18 +1139,19 @@ footer h3, footer h4 {
         padding-right: 4% !important;
     }
     
-    /* Header */
+    /* Kept header text left-aligned on mobile */
     header {
         flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: center;
+        text-align: left;
     }
     
     header nav {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 8px;
     }
@@ -1206,23 +1161,21 @@ footer h3, footer h4 {
         font-size: 0.85rem;
     }
     
-    /* Hero */
     .hero {
         min-height: auto;
         padding-top: 40px;
         padding-bottom: 40px;
-        text-align: center;
+        text-align: left;
     }
     
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 5vw, 1.8rem);
     }
     
     .hero p {
         font-size: 0.95rem;
     }
     
-    /* Offers */
     .offers-section {
         padding-top: 40px;
         padding-bottom: 40px;
@@ -1242,23 +1195,47 @@ footer h3, footer h4 {
         padding: 20px 15px;
     }
     
-    /* Bestseller & About */
+    /* Bestseller, Behind the Stitches & Our Story remain SIDE-BY-SIDE on mobile */
     .bestseller-container, 
     .about-container, 
-    .contact-container, 
     .about-preview-container {
+        flex-direction: row !important;
+        text-align: left !important;
+        gap: 15px !important;
+        padding: 20px 12px !important;
+        align-items: center;
+    }
+    
+    .bestseller-text,
+    .about-text,
+    .preview-text {
+        flex: 1 1 55% !important;
+        width: 55% !important;
+        min-width: unset;
+    }
+    
+    .bestseller-image,
+    .about-image,
+    .preview-image-box {
+        flex: 1 1 45% !important;
+        width: 45% !important;
+        min-width: unset;
+    }
+
+    .bestseller-image img,
+    .about-img-frame,
+    .story-preview-img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .contact-container {
         flex-direction: column;
-        text-align: center !important;
+        text-align: left !important;
         gap: 25px;
         padding: 25px 15px;
     }
-    
-    .preview-text, 
-    .preview-image-box, 
-    .bestseller-text, 
-    .bestseller-image, 
-    .about-text, 
-    .about-image, 
+
     .contact-info, 
     .contact-form-wrapper {
         flex: none;
@@ -1269,23 +1246,25 @@ footer h3, footer h4 {
     .bestseller-text h2, 
     .about-text h2, 
     .contact-info h2 {
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
     
     .about-text p {
-        text-align: center;
+        text-align: left;
     }
     
-    /* Gallery items */
+    .accent-line-left {
+        margin: 0 0 15px 0 !important;
+    }
+    
     .gallery-item {
         height: 220px;
     }
     
-    /* Footer */
     .footer-container {
         flex-direction: column;
         gap: 25px;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-container > div {
@@ -1294,16 +1273,16 @@ footer h3, footer h4 {
     }
     
     .subscribe-form {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .subscribe-form input {
         width: 60%;
     }
     
-    /* Mini hero */
     .mini-hero {
         padding: 30px 4% !important;
+        text-align: left !important;
     }
     
     .mini-hero-content h1 {
@@ -1311,7 +1290,7 @@ footer h3, footer h4 {
     }
     
     .mini-hero-content h1::after {
-        margin: 8px auto 0 auto;
+        margin: 8px 0 0 0 !important;
     }
 }
 
@@ -1321,7 +1300,6 @@ footer h3, footer h4 {
         font-size: 14px;
     }
     
-    /* Even smaller header */
     header {
         padding: 10px 3% !important;
     }
@@ -1335,7 +1313,6 @@ footer h3, footer h4 {
         padding: 3px 6px;
     }
     
-    /* Hero */
     .hero h1 {
         font-size: 1.5rem;
     }
@@ -1349,7 +1326,6 @@ footer h3, footer h4 {
         font-size: 0.85rem;
     }
     
-    /* Products - 2 columns with smaller gap */
     .products-grid {
         gap: 10px;
         padding: 0;
@@ -1377,12 +1353,10 @@ footer h3, footer h4 {
         font-size: 0.7rem;
     }
     
-    /* Gallery */
     .gallery-item {
         height: 160px;
     }
     
-    /* Offer cards */
     .offer-card {
         padding: 15px 12px;
     }
@@ -1391,14 +1365,12 @@ footer h3, footer h4 {
         font-size: 1rem;
     }
     
-    /* Sections */
     .offers-section h2,
     .gallery-section h2,
     .products-header h2 {
         font-size: 1.5rem;
     }
     
-    /* Footer */
     .subscribe-form input {
         width: 100%;
         border-radius: 4px 4px 0 0;
@@ -1669,7 +1641,6 @@ footer h3, footer h4 {
     transform: scale(1.03);
 }
 
-/* --- Responsive Layout for Mobile --- */
 @media (max-width: 600px) {
     .custom-color-banner {
         flex-direction: column;
