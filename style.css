@@ -1232,6 +1232,7 @@ footer h3, footer h4 {
     .about-text h2, 
     .contact-info h2 {
         font-size: clamp(1.2rem, 4vw, 1.8rem);
+        text-align: left !important;
     }
 
     .about-container {
