@@ -23,7 +23,7 @@
         background-color: #fff;
         border: 1px solid #f0eaeb;
         border-radius: 10px;
-        padding: 15px;
+        padding: 10px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -731,7 +731,7 @@
     <div id="welcome-back-banner" class="welcome-banner hidden">
       <div class="welcome-content">
         <div class="welcome-text">
-          <span class="welcome-icon">👋</span>
+          <span class="welcome-icon">👋🏾</span>
           <p>
             <strong>Welcome back!</strong> You still have <span id="welcome-cart-count">0</span> item(s) in your cart.
           </p>
@@ -1874,7 +1874,7 @@
         });
 
         const rawMessage = `Hi Perfectly Hooked!🧶\n\nI have successfully completed payment on your website for my order.\n\n` +
-                           `Amount Paid: ₦${amountPaid.toLocaleString()}${isEarlyBird ? ' (Includes 10% Early Bird Discount! 🎉)' : ''}\n` +
+                           `Amount Paid: ₦${amountPaid.toLocaleString()}${isEarlyBird ? ' (Includes 10% Early Bird Discount!🎉)' : ''}\n` +
                            `Reference: ${reference}\n\n` +
                            `Items Purchased:\n${itemsString}\n` +
                            `Customer Details:\n` +
@@ -1882,7 +1882,7 @@
                            `• Phone: ${phone}\n` +
                            `• Area: ${location}\n` +
                            `• Address: ${address}\n\n` +
-                           `Let's discuss shipping fees!✨`;
+                           `Let's discuss shipping fees!`;
 
         const encodedMessage = encodeURIComponent(rawMessage);
         const whatsappNumber = "2347015089219"; 
