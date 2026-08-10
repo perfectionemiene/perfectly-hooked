@@ -1105,7 +1105,8 @@ footer h3, footer h4 {
     }
     
     .footer-container {
-        flex-direction: row;
+        flex-direction: column;
+        text-align: left;
         flex-wrap: wrap;
         gap: 30px;
     }
@@ -1165,7 +1166,7 @@ footer h3, footer h4 {
         min-height: auto;
         padding-top: 40px;
         padding-bottom: 40px;
-        text-align: left;
+        text-align: center;
     }
     
     .hero h1 {
@@ -1195,9 +1196,8 @@ footer h3, footer h4 {
         padding: 20px 15px;
     }
     
-    /* Bestseller, Behind the Stitches & Our Story remain SIDE-BY-SIDE on mobile */
+    /* Bestseller, Behind the Stitches */
     .bestseller-container, 
-    .about-container, 
     .about-preview-container {
         flex-direction: row !important;
         text-align: left !important;
@@ -1207,7 +1207,6 @@ footer h3, footer h4 {
     }
     
     .bestseller-text,
-    .about-text,
     .preview-text {
         flex: 1 1 55% !important;
         width: 55% !important;
@@ -1215,7 +1214,6 @@ footer h3, footer h4 {
     }
     
     .bestseller-image,
-    .about-image,
     .preview-image-box {
         flex: 1 1 45% !important;
         width: 45% !important;
@@ -1223,7 +1221,6 @@ footer h3, footer h4 {
     }
 
     .bestseller-image img,
-    .about-img-frame,
     .story-preview-img {
         width: 100%;
         height: auto;
@@ -1244,13 +1241,12 @@ footer h3, footer h4 {
     }
     
     .bestseller-text h2, 
-    .about-text h2, 
     .contact-info h2 {
         font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
     
     .about-text p {
-        text-align: left;
+        text-align: center;
     }
     
     .accent-line-left {
@@ -1277,7 +1273,7 @@ footer h3, footer h4 {
     }
     
     .subscribe-form input {
-        width: 60%;
+        width: 30%;
     }
     
     .mini-hero {
