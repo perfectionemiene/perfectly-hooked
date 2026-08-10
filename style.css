@@ -182,7 +182,7 @@ header nav a:hover, header nav a.active {
     margin-bottom: 10px;
 }
 
-/* --- Footer (Desktop & Global) --- */
+/* --- Footer --- */
 footer {
     background-color: var(--charcoal);
     color: var(--white);
@@ -199,7 +199,7 @@ footer {
 
 .footer-container > div {
     flex: 1;
-    min-width: 220px;
+    min-width: 200px;
 }
 
 footer h3, footer h4 {
@@ -224,34 +224,27 @@ footer h3, footer h4 {
 .subscribe-form {
     display: flex;
     margin-top: 10px;
-    width: 100%;
-    max-width: 350px;
+    flex-wrap: wrap;
 }
 
 .subscribe-form input {
-    padding: 10px 12px;
+    padding: 10px;
     border: none;
     border-radius: 4px 0 0 4px;
     outline: none;
+    width: 70%;
+    min-width: 150px;
     flex: 1;
-    min-width: 0;
-    font-family: var(--font-body);
 }
 
 .subscribe-form button {
     background-color: var(--burgundy);
     color: var(--white);
     border: none;
-    padding: 10px 18px;
+    padding: 10px 15px;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     font-weight: 600;
-    white-space: nowrap;
-    transition: background-color 0.3s ease;
-}
-
-.subscribe-form button:hover {
-    background-color: #521422;
 }
 
 .footer-bottom {
@@ -311,6 +304,7 @@ footer h3, footer h4 {
     gap: 30px;
 }
 
+/* Tablet: 2 columns */
 @media (max-width: 992px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -318,14 +312,16 @@ footer h3, footer h4 {
     }
 }
 
+/* Mobile: 2 columns */
 @media (max-width: 640px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
-        padding: 0;
+        padding: 0 0px;
     }
 }
 
+/* Very small phones: 2 columns */
 @media (max-width: 420px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -402,6 +398,7 @@ footer h3, footer h4 {
     color: var(--white);
 }
 
+/* Checkout Button Layout */
 .checkout-wrapper {
     text-align: center;
     margin-top: 50px;
@@ -462,7 +459,7 @@ footer h3, footer h4 {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* --- Contact Page Layout --- */
+/* --- Master Contact Page Layout --- */
 .contact-section {
     padding: 80px 8%;
     background-color: var(--white);
@@ -585,6 +582,7 @@ footer h3, footer h4 {
     margin-bottom: 40px;
 }
 
+/* Elegant Grid Layout */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -634,6 +632,7 @@ footer h3, footer h4 {
     transition: transform 0.5s ease;
 }
 
+/* Burgundy Hover Cover Filter */
 .gallery-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -664,18 +663,20 @@ footer h3, footer h4 {
     opacity: 1;
 }
 
-/* --- Home Page Desktop Layouts (Side-by-Side Defaults) --- */
+/* --- Home Page Extra Sections --- */
+
+/* About Section Preview Layout */
 .home-about-preview {
-    padding: 40px 8% 60px 8%;
+    padding: 80px 8%;
     background-color: var(--white);
 }
 
 .about-preview-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 50px;
+    flex-wrap: nowrap;
 }
 
 .preview-text {
@@ -712,65 +713,14 @@ footer h3, footer h4 {
     justify-content: center;
 }
 
-.story-preview-img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(107, 29, 47, 0.1);
-    object-fit: cover;
-}
-
-/* Bestseller Desktop Side-By-Side */
-.featured-bestseller {
-    padding: 50px 8% 30px 8%;
-    background-color: var(--white);
-}
-
-.bestseller-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    background: var(--light-pink-bg);
-    border-radius: 20px;
+.mini-frame {
     padding: 40px;
-}
-
-.badge {
-    background: var(--burgundy);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.bestseller-text {
-    flex: 1;
-}
-
-.bestseller-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    background-color: var(--light-pink-bg);
+    border: 2px dashed var(--burgundy);
     color: var(--burgundy);
-}
-
-.bestseller-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.bestseller-image img {
-    width: 100%;
-    max-width: 400px;
+    font-weight: 600;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(107,29,47,0.15);
-    object-fit: cover;
+    text-align: center;
 }
 
 /* Gallery Section Preview Layout */
@@ -822,7 +772,7 @@ footer h3, footer h4 {
     object-fit: cover;
 }
 
-/* Button Outline Variant */
+/* Secondary Button Outline Variant */
 .btn-outline {
     display: inline-block;
     border: 2px solid var(--burgundy);
@@ -838,6 +788,16 @@ footer h3, footer h4 {
 .btn-outline:hover {
     background-color: var(--burgundy);
     color: var(--white);
+}
+
+/* Styling for the Our Story preview image */
+.story-preview-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(107, 29, 47, 0.1);
+    object-fit: cover;
 }
 
 /* --- Product Filters --- */
@@ -905,7 +865,73 @@ footer h3, footer h4 {
     font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
-/* --- About Page Section --- */
+/* --- Featured Bestseller (Home Page) --- */
+.featured-bestseller {
+    padding: 80px 8%;
+    background-color: var(--white);
+}
+
+.bestseller-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: nowrap;
+    background: var(--light-pink-bg);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.badge {
+    background: var(--burgundy);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.bestseller-text {
+    flex: 1;
+}
+
+.bestseller-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--burgundy);
+}
+
+.bestseller-image {
+    flex: 1;
+}
+
+.bestseller-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(107,29,47,0.15);
+}
+
+/* --- Contact Form Updates --- */
+.contact-form select, .contact-form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+}
+
+.contact-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--burgundy);
+}
+
+/* --- About Page Structural Layout --- */
 .about-section {
     padding: 80px 8%;
     background-color: var(--white);
@@ -913,10 +939,10 @@ footer h3, footer h4 {
 
 .about-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    flex-wrap: nowrap;
 }
 
 .about-text {
@@ -1029,7 +1055,362 @@ footer h3, footer h4 {
     box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
 }
 
-/* --- Card Links --- */
+/* ==========================================================================
+   --- Mobile Responsiveness Breakpoints ---
+   ========================================================================== */
+
+/* --- Tablet (768px - 992px) --- */
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+        text-align: left;
+    }
+    
+    header nav {
+        justify-content: flex-start;
+    }
+    
+    header nav a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 50px 5%;
+        text-align: left;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .offers-section,
+    .products-container,
+    .contact-section,
+    .gallery-section,
+    .home-about-preview,
+    .home-gallery-preview,
+    .featured-bestseller,
+    .about-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .offer-card {
+        max-width: 100%;
+        flex: 0 1 calc(50% - 20px);
+    }
+    
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .footer-container > div {
+        flex: 0 1 calc(50% - 15px);
+        min-width: 200px;
+    }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    header, 
+    .hero, 
+    .offers-section, 
+    .products-header, 
+    .products-container, 
+    .contact-section, 
+    .gallery-section, 
+    .home-about-preview, 
+    .home-gallery-preview, 
+    .featured-bestseller, 
+    .about-section, 
+    .mini-hero, 
+    footer {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+    
+    /* Kept header text left-aligned on mobile */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+    }
+    
+    header nav {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    header nav a {
+        padding: 4px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: left;
+    }
+    
+    .hero h1 {
+        font-size: clamp(1.5rem, 5vw, 1.8rem);
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .offers-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .offers-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .offers-container {
+        gap: 15px;
+    }
+    
+    .offer-card {
+        flex: 0 1 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+    
+    /* Bestseller, Behind the Stitches & Our Story remain SIDE-BY-SIDE on mobile */
+    .bestseller-container, 
+    .about-container, 
+    .about-preview-container {
+        flex-direction: row !important;
+        text-align: left !important;
+        gap: 15px !important;
+        padding: 20px 12px !important;
+        align-items: center;
+    }
+    
+    .bestseller-text,
+    .about-text,
+    .preview-text {
+        flex: 1 1 55% !important;
+        width: 55% !important;
+        min-width: unset;
+    }
+    
+    .bestseller-image,
+    .about-image,
+    .preview-image-box {
+        flex: 1 1 45% !important;
+        width: 45% !important;
+        min-width: unset;
+    }
+
+    .bestseller-image img,
+    .about-img-frame,
+    .story-preview-img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        text-align: left !important;
+        gap: 25px;
+        padding: 25px 15px;
+    }
+
+    .contact-info, 
+    .contact-form-wrapper {
+        flex: none;
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .bestseller-text h2, 
+    .about-text h2, 
+    .contact-info h2 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+    
+    .about-text p {
+        text-align: left;
+    }
+    
+    .accent-line-left {
+        margin: 0 0 15px 0 !important;
+    }
+    
+    .gallery-item {
+        height: 220px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: left;
+    }
+    
+    .footer-container > div {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    
+    .subscribe-form {
+        justify-content: flex-start;
+    }
+    
+    .subscribe-form input {
+        width: 60%;
+    }
+    
+    .mini-hero {
+        padding: 30px 4% !important;
+        text-align: left !important;
+    }
+    
+    .mini-hero-content h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .mini-hero-content h1::after {
+        margin: 8px 0 0 0 !important;
+    }
+}
+
+/* --- Small Phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header {
+        padding: 10px 3% !important;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    header nav a {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+    
+    .products-grid {
+        gap: 10px;
+        padding: 0;
+    }
+    
+    .card {
+        padding: 8px;
+    }
+    
+    .card .img-wrapper {
+        height: 140px;
+    }
+    
+    .card h3 {
+        font-size: 0.75rem;
+    }
+    
+    .card .price {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+    
+    .cart-btn {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .gallery-item {
+        height: 160px;
+    }
+    
+    .offer-card {
+        padding: 15px 12px;
+    }
+    
+    .offer-card h3 {
+        font-size: 1rem;
+    }
+    
+    .offers-section h2,
+    .gallery-section h2,
+    .products-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .subscribe-form input {
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+    }
+    
+    .subscribe-form button {
+        width: 100%;
+        border-radius: 0 0 4px 4px;
+    }
+}
+
+/* --- Very Small Phones (max-width: 380px) --- */
+@media (max-width: 380px) {
+    .products-grid {
+        gap: 8px;
+    }
+    
+    .card .img-wrapper {
+        height: 110px;
+    }
+    
+    .card h3 {
+        font-size: 0.65rem;
+    }
+    
+    .card .price {
+        font-size: 0.7rem;
+    }
+    
+    .gallery-item {
+        height: 130px;
+    }
+    
+    .filter-btn {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+}
+
+/* --- Styling for link wrapping the cards --- */
 .offer-card-link {
     text-decoration: none;
     color: inherit;
@@ -1044,7 +1425,16 @@ footer h3, footer h4 {
     transform: translateY(-5px);
 }
 
-/* --- Announcement Marquee --- */
+.offer-card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(107, 29, 47, 0.04);
+    border: 1px solid rgba(107, 29, 47, 0.05);
+}
+
+/* --- Brand-Matched Scrolling Marquee --- */
 .announcement-marquee {
     background-color: #631C2D;
     color: #ffffff;
@@ -1085,6 +1475,69 @@ footer h3, footer h4 {
     animation-play-state: paused;
 }
 
+.custom-color-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #fff0f3;
+    border: 1px solid #ffccd5;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+    .custom-color-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+.banner-icon {
+    font-size: 1.8rem;
+}
+
+.banner-text strong {
+    color: #800020;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.banner-text p {
+    margin: 0;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    color: #4a4a4a;
+}
+
+/* ==========================================
+   FAQ SECTION STYLING
+   ========================================== */
+
+.faq-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: inherit;
+    color: #333333;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.faq-header h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    color: #5a2a38;
+    margin-bottom: 8px;
+}
+
+.faq-header p {
+    color: #666666;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+}
+
 /* --- Custom Color Banner --- */
 .custom-color-banner {
     display: flex;
@@ -1117,31 +1570,7 @@ footer h3, footer h4 {
     line-height: 1.5;
 }
 
-/* --- FAQ Section --- */
-.faq-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-    font-family: inherit;
-    color: #333333;
-}
-
-.faq-header {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.faq-header h2 {
-    font-size: clamp(1.6rem, 4vw, 2rem);
-    color: #5a2a38;
-    margin-bottom: 8px;
-}
-
-.faq-header p {
-    color: #666666;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-}
-
+/* --- FAQ Cards --- */
 .faq-grid {
     display: flex;
     flex-direction: column;
@@ -1180,6 +1609,7 @@ footer h3, footer h4 {
     margin: 0;
 }
 
+/* --- CTA Bottom Contact Button --- */
 .faq-contact-cta {
     text-align: center;
     margin-top: 45px;
@@ -1211,6 +1641,19 @@ footer h3, footer h4 {
     transform: scale(1.03);
 }
 
+@media (max-width: 600px) {
+    .custom-color-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .faq-item {
+        padding: 16px 20px;
+    }
+}
+
+/* Badge Version */
 .product-care-badge {
     display: flex;
     align-items: center;
@@ -1223,6 +1666,13 @@ footer h3, footer h4 {
     font-size: clamp(0.75rem, 1vw, 0.85rem);
     flex-wrap: wrap;
     gap: 8px;
+}
+
+@media (max-width: 480px) {
+    .product-care-badge {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 .product-care-badge span {
@@ -1240,7 +1690,10 @@ footer h3, footer h4 {
     text-decoration: underline;
 }
 
-/* --- Care Guide Section --- */
+/* ==========================================
+   LOVE IT. CARE FOR IT. (BESTSELLER MIRROR STYLING)
+   ========================================== */
+
 .care-guide-section {
     padding: 40px 20px;
     max-width: 1200px;
@@ -1252,6 +1705,18 @@ footer h3, footer h4 {
     border-radius: 24px;
     padding: 48px 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 768px) {
+    .care-container {
+        padding: 32px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .care-container {
+        padding: 24px 15px;
+    }
 }
 
 .care-content {
@@ -1299,6 +1764,12 @@ footer h3, footer h4 {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 24px;
     margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+    .care-details {
+        grid-template-columns: 1fr;
+    }
 }
 
 .care-item {
@@ -1350,12 +1821,22 @@ footer h3, footer h4 {
     transform: translateY(-2px);
 }
 
+/* ==========================================
+   GENERAL CARE TIPS
+   ========================================== */
+
 .general-care-tips {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 16px;
     padding: 24px 28px;
     border: 1px solid rgba(255, 204, 213, 0.4);
     margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+    .general-care-tips {
+        padding: 18px 16px;
+    }
 }
 
 .general-care-tips h3 {
@@ -1395,7 +1876,10 @@ footer h3, footer h4 {
     line-height: 1;
 }
 
-/* --- Custom Requests Section --- */
+/* ==========================================
+   UNIFIED CUSTOM REQUESTS SECTION
+   ========================================== */
+
 .custom-requests-section {
     padding: 40px 20px;
     max-width: 1100px;
@@ -1408,6 +1892,12 @@ footer h3, footer h4 {
     padding: 40px 36px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
     border: 1px solid rgba(255, 204, 213, 0.5);
+}
+
+@media (max-width: 600px) {
+    .custom-card {
+        padding: 28px 20px;
+    }
 }
 
 .custom-badge {
@@ -1447,6 +1937,12 @@ footer h3, footer h4 {
     margin-bottom: 32px;
 }
 
+@media (max-width: 640px) {
+    .custom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .custom-item {
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 16px;
@@ -1482,6 +1978,10 @@ footer h3, footer h4 {
     margin: 0;
 }
 
+.custom-item em {
+    color: #777;
+}
+
 .custom-cta {
     text-align: left;
 }
@@ -1505,7 +2005,18 @@ footer h3, footer h4 {
     box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
 }
 
-/* --- Welcome Banner --- */
+@media (max-width: 600px) {
+    .custom-btn {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   WELCOME BACK BANNER STYLING
+   ========================================== */
+
 .welcome-banner {
     position: fixed;
     top: 20px;
@@ -1528,11 +2039,28 @@ footer h3, footer h4 {
     transform: translate(-50%, -20px);
 }
 
+@media (max-width: 480px) {
+    .welcome-banner {
+        border-radius: 16px;
+        padding: 12px 16px;
+        top: 10px;
+        width: 95%;
+    }
+}
+
 .welcome-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .welcome-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
 }
 
 .welcome-text {
@@ -1560,6 +2088,13 @@ footer h3, footer h4 {
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .welcome-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 
 .welcome-btn {
@@ -1591,180 +2126,4 @@ footer h3, footer h4 {
 
 .welcome-close-btn:hover {
     color: #5b1322;
-}
-
-/* ==========================================================================
-   --- Mobile & Responsive Media Queries ---
-   ========================================================================== */
-
-/* --- Tablet (768px - 992px) --- */
-@media (max-width: 992px) {
-    header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px 5%;
-        text-align: center;
-    }
-    
-    header nav {
-        justify-content: center;
-    }
-    
-    .hero {
-        padding: 50px 5%;
-        text-align: left;
-    }
-    
-    .offers-section,
-    .products-container,
-    .contact-section,
-    .gallery-section,
-    .home-about-preview,
-    .home-gallery-preview,
-    .featured-bestseller,
-    .about-section {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-}
-
-/* --- Mobile (max-width: 768px) --- */
-@media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
-    
-    header, 
-    .hero, 
-    .offers-section, 
-    .products-header, 
-    .products-container, 
-    .contact-section, 
-    .gallery-section, 
-    .home-about-preview, 
-    .home-gallery-preview, 
-    .featured-bestseller, 
-    .about-section, 
-    .mini-hero, 
-    footer {
-        padding-left: 4% !important;
-        padding-right: 4% !important;
-    }
-    
-    /* Centered Mobile Header */
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        text-align: center;
-    }
-    
-    header nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    /* Stack Image & Text Side-by-Side to Vertical on Mobile */
-    .about-container, 
-    .about-preview-container,
-    .bestseller-container {
-        flex-direction: column !important;
-        text-align: left !important;
-        gap: 25px !important;
-        padding: 25px 20px !important;
-    }
-    
-    .about-text,
-    .preview-text,
-    .bestseller-text,
-    .about-image,
-    .preview-image-box,
-    .bestseller-image {
-        flex: none !important;
-        width: 100% !important;
-    }
-
-    .about-img-frame,
-    .story-preview-img,
-    .bestseller-image img {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-    }
-
-    /* Mobile Clean Footer Fix */
-    footer {
-        padding-top: 40px !important;
-        padding-bottom: 20px !important;
-    }
-
-    .footer-container {
-        flex-direction: column !important;
-        gap: 30px !important;
-        text-align: left !important;
-    }
-    
-    .footer-container > div {
-        width: 100% !important;
-        min-width: unset !important;
-    }
-
-    .subscribe-form {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .mini-hero {
-        padding: 40px 4% !important;
-        text-align: center !important;
-    }
-    
-    .mini-hero-content h1::after {
-        margin: 10px auto 0 auto !important;
-    }
-}
-
-/* --- Small Phones (max-width: 480px) --- */
-@media (max-width: 480px) {
-    header nav a {
-        font-size: 0.8rem;
-        padding: 3px 6px;
-    }
-    
-    .card .img-wrapper {
-        height: 140px;
-    }
-    
-    .subscribe-form {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .subscribe-form input,
-    .subscribe-form button {
-        width: 100% !important;
-        border-radius: 6px !important;
-    }
-
-    .welcome-banner {
-        border-radius: 16px;
-        padding: 12px 16px;
-        top: 10px;
-        width: 95%;
-    }
-
-    .welcome-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .welcome-actions {
-        width: 100%;
-        justify-content: space-between;
-    }
 }
