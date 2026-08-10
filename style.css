@@ -1001,7 +1001,7 @@ footer h3, footer h4 {
 .mini-hero {
     background: linear-gradient(rgba(107, 29, 47, 0.9), rgba(107, 29, 47, 0.9)); 
     padding: 60px 8%;
-    text-align: left;
+    text-align: center;
     color: var(--white);
 }
 
