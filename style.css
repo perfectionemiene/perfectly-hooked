@@ -92,7 +92,7 @@ header nav a:hover, header nav a.active {
                 url('header.jpeg') no-repeat center center/cover;
     min-height: 65vh;
     display: flex;
-    align-items: normal;
+    align-items: flex-start;
     padding: 60px 8%;
     color: var(--white);
 }
@@ -134,7 +134,7 @@ header nav a:hover, header nav a.active {
 
 /* --- What We Offer Section --- */
 .offers-section {
-    padding: 80px 8%;
+    padding: 40px 8%;
     text-align: center;
     background-color: var(--light-pink-bg);
 }
@@ -146,7 +146,7 @@ header nav a:hover, header nav a.active {
 }
 
 .accent-line {
-    width: 50px;
+    width: 40px;
     height: 3px;
     background-color: var(--soft-pink);
     margin: 15px auto 45px auto;
@@ -186,7 +186,7 @@ header nav a:hover, header nav a.active {
 footer {
     background-color: var(--charcoal);
     color: var(--white);
-    padding: 60px 8% 20px 8%;
+    padding: 40px 8% 20px 8%;
 }
 
 .footer-container {
@@ -565,7 +565,7 @@ footer h3, footer h4 {
 
 /* --- Gallery Page Specific Styles --- */
 .gallery-section {
-    padding: 80px 8%;
+    padding: 40px 8%;
     text-align: center;
     background-color: var(--white);
 }
@@ -579,7 +579,7 @@ footer h3, footer h4 {
 .gallery-subtitle {
     font-size: clamp(0.85rem, 1.2vw, 1rem);
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 /* Elegant Grid Layout */
@@ -667,7 +667,7 @@ footer h3, footer h4 {
 
 /* About Section Preview Layout */
 .home-about-preview {
-    padding: 80px 8%;
+    padding: 40px 8%;
     background-color: var(--white);
 }
 
@@ -675,7 +675,7 @@ footer h3, footer h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 30px;
     flex-wrap: nowrap;
 }
 
@@ -725,7 +725,7 @@ footer h3, footer h4 {
 
 /* Gallery Section Preview Layout */
 .home-gallery-preview {
-    padding: 80px 8%;
+    padding: 40px 8%;
     text-align: center;
     background-color: var(--light-pink-bg);
 }
@@ -867,7 +867,7 @@ footer h3, footer h4 {
 
 /* --- Featured Bestseller (Home Page) --- */
 .featured-bestseller {
-    padding: 80px 8%;
+    padding: 40px 8%;
     background-color: var(--white);
 }
 
@@ -933,7 +933,7 @@ footer h3, footer h4 {
 
 /* --- About Page Structural Layout --- */
 .about-section {
-    padding: 80px 8%;
+    padding: 40px 8%;
     background-color: var(--white);
 }
 
@@ -999,8 +999,8 @@ footer h3, footer h4 {
 /* --- Mini Hero Banner Section --- */
 .mini-hero {
     background: linear-gradient(rgba(107, 29, 47, 0.9), rgba(107, 29, 47, 0.9)); 
-    padding: 60px 8%;
-    text-align: left;
+    padding: 30px 8%;
+    text-align: center;
     color: var(--white);
 }
 
@@ -1008,18 +1008,8 @@ footer h3, footer h4 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 600;
     letter-spacing: 1px;
-    position: relative;
+    text text-align: center;
     display: inline-block;
-}
-
-.mini-hero-content h1::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--soft-pink);
-    margin: 12px 0 0 0;
-    border-radius: 2px;
 }
 
 .form-group input, 
@@ -1092,8 +1082,7 @@ footer h3, footer h4 {
     .gallery-section,
     .home-about-preview,
     .home-gallery-preview,
-    .featured-bestseller,
-    .about-section {
+    .featured-bestseller {
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -1138,19 +1127,19 @@ footer h3, footer h4 {
         padding-right: 4% !important;
     }
     
-    /* Kept header text left-aligned on mobile */
+    /* Kept header text center-aligned on mobile */
     header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
+        text-align: center;
     }
     
     header nav {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 8px;
     }
@@ -1164,7 +1153,7 @@ footer h3, footer h4 {
         min-height: auto;
         padding-top: 40px;
         padding-bottom: 40px;
-        text-align: left;
+        text-align: center;
     }
     
     .hero h1 {
@@ -1176,8 +1165,8 @@ footer h3, footer h4 {
     }
     
     .offers-section {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     
     .offers-section h2 {
@@ -1194,19 +1183,17 @@ footer h3, footer h4 {
         padding: 20px 15px;
     }
     
-    /* Bestseller, Behind the Stitches & Our Story remain SIDE-BY-SIDE on mobile */
-    .bestseller-container, 
-    .about-container, 
+    /* Bestseller and about preview remain SIDE-BY-SIDE on mobile */
+    .bestseller-container,  
     .about-preview-container {
         flex-direction: row !important;
         text-align: left !important;
         gap: 15px !important;
-        padding: 20px 12px !important;
+        padding: 15px 12px !important;
         align-items: center;
     }
     
     .bestseller-text,
-    .about-text,
     .preview-text {
         flex: 1 1 55% !important;
         width: 55% !important;
@@ -1214,7 +1201,6 @@ footer h3, footer h4 {
     }
     
     .bestseller-image,
-    .about-image,
     .preview-image-box {
         flex: 1 1 45% !important;
         width: 45% !important;
@@ -1230,8 +1216,8 @@ footer h3, footer h4 {
     
     .contact-container {
         flex-direction: column;
-        text-align: left !important;
-        gap: 25px;
+        text-align: center !important;
+        gap: 20px;
         padding: 25px 15px;
     }
 
@@ -1247,13 +1233,25 @@ footer h3, footer h4 {
     .contact-info h2 {
         font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
-    
-    .about-text p {
-        text-align: left;
+
+    .about-container {
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        text-align: center;
+    }
+
+    .about-text, 
+    .about-image {
+        width: 100%;
+        flex: none;
+    }
+
+    .accent-line-left {
+        margin: 0 auto 15px auto !important; /* Centers the accent line on mobile */
     }
     
-    .accent-line-left {
-        margin: 0 0 15px 0 !important;
+    .about-text p {
+        text-align: center;
     }
     
     .gallery-item {
@@ -1262,7 +1260,7 @@ footer h3, footer h4 {
     
     .footer-container {
         flex-direction: column;
-        gap: 25px;
+        gap: 20px;
         text-align: left;
     }
     
@@ -1276,12 +1274,12 @@ footer h3, footer h4 {
     }
     
     .subscribe-form input {
-        width: 60%;
+        width: 40%;
     }
     
     .mini-hero {
         padding: 30px 4% !important;
-        text-align: left !important;
+        text-align: center !important;
     }
     
     .mini-hero-content h1 {
