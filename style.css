@@ -182,7 +182,7 @@ header nav a:hover, header nav a.active {
     margin-bottom: 10px;
 }
 
-/* --- Footer --- */
+/* --- Footer (Desktop & Global) --- */
 footer {
     background-color: var(--charcoal);
     color: var(--white);
@@ -199,7 +199,7 @@ footer {
 
 .footer-container > div {
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
 }
 
 footer h3, footer h4 {
@@ -224,27 +224,34 @@ footer h3, footer h4 {
 .subscribe-form {
     display: flex;
     margin-top: 10px;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 350px;
 }
 
 .subscribe-form input {
-    padding: 10px;
+    padding: 10px 12px;
     border: none;
     border-radius: 4px 0 0 4px;
     outline: none;
-    width: 70%;
-    min-width: 150px;
     flex: 1;
+    min-width: 0;
+    font-family: var(--font-body);
 }
 
 .subscribe-form button {
     background-color: var(--burgundy);
     color: var(--white);
     border: none;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #521422;
 }
 
 .footer-bottom {
@@ -304,7 +311,6 @@ footer h3, footer h4 {
     gap: 30px;
 }
 
-/* Tablet: 2 columns */
 @media (max-width: 992px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -312,16 +318,14 @@ footer h3, footer h4 {
     }
 }
 
-/* Mobile: 2 columns */
 @media (max-width: 640px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
-        padding: 0 0px;
+        padding: 0;
     }
 }
 
-/* Very small phones: 2 columns */
 @media (max-width: 420px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -398,7 +402,6 @@ footer h3, footer h4 {
     color: var(--white);
 }
 
-/* Checkout Button Layout */
 .checkout-wrapper {
     text-align: center;
     margin-top: 50px;
@@ -459,7 +462,7 @@ footer h3, footer h4 {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* --- Master Contact Page Layout --- */
+/* --- Contact Page Layout --- */
 .contact-section {
     padding: 80px 8%;
     background-color: var(--white);
@@ -582,7 +585,6 @@ footer h3, footer h4 {
     margin-bottom: 40px;
 }
 
-/* Elegant Grid Layout */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -632,7 +634,6 @@ footer h3, footer h4 {
     transition: transform 0.5s ease;
 }
 
-/* Burgundy Hover Cover Filter */
 .gallery-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -663,20 +664,18 @@ footer h3, footer h4 {
     opacity: 1;
 }
 
-/* --- Home Page Extra Sections --- */
-
-/* About Section Preview Layout */
+/* --- Home Page Desktop Layouts (Side-by-Side Defaults) --- */
 .home-about-preview {
-    padding: 30px 8% 60px 8%;
+    padding: 40px 8% 60px 8%;
     background-color: var(--white);
 }
 
 .about-preview-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    flex-wrap: nowrap;
+    gap: 40px;
 }
 
 .preview-text {
@@ -713,14 +712,65 @@ footer h3, footer h4 {
     justify-content: center;
 }
 
-.mini-frame {
-    padding: 40px;
-    background-color: var(--light-pink-bg);
-    border: 2px dashed var(--burgundy);
-    color: var(--burgundy);
-    font-weight: 600;
+.story-preview-img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
     border-radius: 12px;
-    text-align: center;
+    box-shadow: 0 6px 15px rgba(107, 29, 47, 0.1);
+    object-fit: cover;
+}
+
+/* Bestseller Desktop Side-By-Side */
+.featured-bestseller {
+    padding: 50px 8% 30px 8%;
+    background-color: var(--white);
+}
+
+.bestseller-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: var(--light-pink-bg);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.badge {
+    background: var(--burgundy);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.bestseller-text {
+    flex: 1;
+}
+
+.bestseller-text h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--burgundy);
+}
+
+.bestseller-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.bestseller-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(107,29,47,0.15);
+    object-fit: cover;
 }
 
 /* Gallery Section Preview Layout */
@@ -772,7 +822,7 @@ footer h3, footer h4 {
     object-fit: cover;
 }
 
-/* Secondary Button Outline Variant */
+/* Button Outline Variant */
 .btn-outline {
     display: inline-block;
     border: 2px solid var(--burgundy);
@@ -788,16 +838,6 @@ footer h3, footer h4 {
 .btn-outline:hover {
     background-color: var(--burgundy);
     color: var(--white);
-}
-
-/* Styling for the Our Story preview image */
-.story-preview-img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(107, 29, 47, 0.1);
-    object-fit: cover;
 }
 
 /* --- Product Filters --- */
@@ -865,73 +905,7 @@ footer h3, footer h4 {
     font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
-/* --- Featured Bestseller (Home Page) --- */
-.featured-bestseller {
-    padding: 60px 8% 30px 8%;
-    background-color: var(--white);
-}
-
-.bestseller-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: nowrap;
-    background: var(--light-pink-bg);
-    border-radius: 20px;
-    padding: 40px;
-}
-
-.badge {
-    background: var(--burgundy);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.bestseller-text {
-    flex: 1;
-}
-
-.bestseller-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--burgundy);
-}
-
-.bestseller-image {
-    flex: 1;
-}
-
-.bestseller-image img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(107,29,47,0.15);
-}
-
-/* --- Contact Form Updates --- */
-.contact-form select, .contact-form input[type="file"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: var(--font-body);
-}
-
-.contact-form label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--burgundy);
-}
-
-/* --- About Page Structural Layout --- */
+/* --- About Page Section --- */
 .about-section {
     padding: 80px 8%;
     background-color: var(--white);
@@ -939,10 +913,10 @@ footer h3, footer h4 {
 
 .about-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    flex-wrap: nowrap;
 }
 
 .about-text {
@@ -1055,7 +1029,7 @@ footer h3, footer h4 {
     box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
 }
 
-/* --- Styling for link wrapping the cards --- */
+/* --- Card Links --- */
 .offer-card-link {
     text-decoration: none;
     color: inherit;
@@ -1070,7 +1044,7 @@ footer h3, footer h4 {
     transform: translateY(-5px);
 }
 
-/* --- Brand-Matched Scrolling Marquee --- */
+/* --- Announcement Marquee --- */
 .announcement-marquee {
     background-color: #631C2D;
     color: #ffffff;
@@ -1143,9 +1117,7 @@ footer h3, footer h4 {
     line-height: 1.5;
 }
 
-/* ==========================================
-   FAQ SECTION STYLING
-   ========================================== */
+/* --- FAQ Section --- */
 .faq-section {
     max-width: 900px;
     margin: 60px auto;
@@ -1268,9 +1240,7 @@ footer h3, footer h4 {
     text-decoration: underline;
 }
 
-/* ==========================================
-   CARE GUIDE SECTION
-   ========================================== */
+/* --- Care Guide Section --- */
 .care-guide-section {
     padding: 40px 20px;
     max-width: 1200px;
@@ -1425,9 +1395,7 @@ footer h3, footer h4 {
     line-height: 1;
 }
 
-/* ==========================================
-   UNIFIED CUSTOM REQUESTS SECTION
-   ========================================== */
+/* --- Custom Requests Section --- */
 .custom-requests-section {
     padding: 40px 20px;
     max-width: 1100px;
@@ -1514,10 +1482,6 @@ footer h3, footer h4 {
     margin: 0;
 }
 
-.custom-item em {
-    color: #777;
-}
-
 .custom-cta {
     text-align: left;
 }
@@ -1541,9 +1505,7 @@ footer h3, footer h4 {
     box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
 }
 
-/* ==========================================
-   WELCOME BACK BANNER STYLING
-   ========================================== */
+/* --- Welcome Banner --- */
 .welcome-banner {
     position: fixed;
     top: 20px;
@@ -1632,7 +1594,7 @@ footer h3, footer h4 {
 }
 
 /* ==========================================================================
-   --- Mobile Responsiveness Breakpoints ---
+   --- Mobile & Responsive Media Queries ---
    ========================================================================== */
 
 /* --- Tablet (768px - 992px) --- */
@@ -1648,19 +1610,9 @@ footer h3, footer h4 {
         justify-content: center;
     }
     
-    header nav a {
-        padding: 5px 10px;
-        font-size: 0.9rem;
-    }
-    
     .hero {
         padding: 50px 5%;
         text-align: left;
-        min-height: auto;
-    }
-    
-    .hero-content {
-        max-width: 100%;
     }
     
     .offers-section,
@@ -1673,22 +1625,6 @@ footer h3, footer h4 {
     .about-section {
         padding-left: 5%;
         padding-right: 5%;
-    }
-    
-    .offer-card {
-        max-width: 100%;
-        flex: 0 1 calc(50% - 20px);
-    }
-    
-    .footer-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-    
-    .footer-container > div {
-        flex: 0 1 calc(50% - 15px);
-        min-width: 200px;
     }
 }
 
@@ -1715,7 +1651,7 @@ footer h3, footer h4 {
         padding-right: 4% !important;
     }
     
-    /* Centered Header on Mobile */
+    /* Centered Mobile Header */
     header {
         flex-direction: column;
         align-items: center;
@@ -1731,47 +1667,8 @@ footer h3, footer h4 {
         flex-wrap: wrap;
         gap: 10px;
     }
-    
-    header nav a {
-        padding: 4px 8px;
-        font-size: 0.85rem;
-    }
-    
-    .hero {
-        min-height: auto;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        text-align: left;
-    }
-    
-    .hero h1 {
-        font-size: clamp(1.5rem, 5vw, 1.8rem);
-    }
-    
-    .hero p {
-        font-size: 0.95rem;
-    }
-    
-    .offers-section {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    
-    .offers-section h2 {
-        font-size: 1.8rem;
-    }
-    
-    .offers-container {
-        gap: 15px;
-    }
-    
-    .offer-card {
-        flex: 0 1 100%;
-        max-width: 100%;
-        padding: 20px 15px;
-    }
-    
-    /* Stack About, Story & Bestseller sections vertically so pictures sit full width below text */
+
+    /* Stack Image & Text Side-by-Side to Vertical on Mobile */
     .about-container, 
     .about-preview-container,
     .bestseller-container {
@@ -1783,11 +1680,7 @@ footer h3, footer h4 {
     
     .about-text,
     .preview-text,
-    .bestseller-text {
-        flex: none !important;
-        width: 100% !important;
-    }
-    
+    .bestseller-text,
     .about-image,
     .preview-image-box,
     .bestseller-image {
@@ -1798,207 +1691,63 @@ footer h3, footer h4 {
     .about-img-frame,
     .story-preview-img,
     .bestseller-image img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .contact-container {
-        flex-direction: column;
-        text-align: left !important;
-        gap: 25px;
-        padding: 25px 15px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
     }
 
-    .contact-info, 
-    .contact-form-wrapper {
-        flex: none;
-        width: 100%;
-        min-width: unset;
+    /* Mobile Clean Footer Fix */
+    footer {
+        padding-top: 40px !important;
+        padding-bottom: 20px !important;
     }
-    
-    .bestseller-text h2, 
-    .about-text h2, 
-    .contact-info h2 {
-        font-size: clamp(1.2rem, 4vw, 1.8rem);
-    }
-    
-    .about-text p {
-        text-align: left;
-    }
-    
-    .accent-line-left {
-        margin: 0 0 15px 0 !important;
-    }
-    
-    .gallery-item {
-        height: 220px;
-    }
-    
+
     .footer-container {
-        flex-direction: column;
-        gap: 25px;
-        text-align: left;
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: left !important;
     }
     
     .footer-container > div {
-        flex: 1 1 100%;
-        min-width: unset;
+        width: 100% !important;
+        min-width: unset !important;
     }
-    
+
     .subscribe-form {
-        justify-content: flex-start;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
-    .subscribe-form input {
-        width: 60%;
-    }
-    
-    /* Mini Hero Banner Centering */
     .mini-hero {
         padding: 40px 4% !important;
         text-align: center !important;
     }
     
-    .mini-hero-content h1 {
-        font-size: 1.6rem !important;
-    }
-    
     .mini-hero-content h1::after {
         margin: 10px auto 0 auto !important;
-    }
-
-    .care-container {
-        padding: 32px 20px;
-    }
-}
-
-/* --- Small Phones (max-width: 600px) --- */
-@media (max-width: 600px) {
-    .custom-color-banner {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-
-    .faq-item {
-        padding: 16px 20px;
-    }
-
-    .care-details,
-    .custom-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .custom-card {
-        padding: 28px 20px;
-    }
-
-    .custom-btn {
-        display: block;
-        text-align: center;
-        width: 100%;
     }
 }
 
 /* --- Small Phones (max-width: 480px) --- */
 @media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    
-    header {
-        padding: 12px 3% !important;
-    }
-    
-    .logo {
-        font-size: 1.3rem;
-    }
-    
     header nav a {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         padding: 3px 6px;
-    }
-    
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-    
-    .hero p {
-        font-size: 0.85rem;
-    }
-    
-    .btn {
-        padding: 10px 25px;
-        font-size: 0.85rem;
-    }
-    
-    .products-grid {
-        gap: 10px;
-        padding: 0;
-    }
-    
-    .card {
-        padding: 8px;
     }
     
     .card .img-wrapper {
         height: 140px;
     }
     
-    .card h3 {
-        font-size: 0.75rem;
-    }
-    
-    .card .price {
-        font-size: 0.8rem;
-        margin-bottom: 6px;
-    }
-    
-    .cart-btn {
-        padding: 6px 8px;
-        font-size: 0.7rem;
-    }
-    
-    .gallery-item {
-        height: 160px;
-    }
-    
-    .offer-card {
-        padding: 15px 12px;
-    }
-    
-    .offer-card h3 {
-        font-size: 1rem;
-    }
-    
-    .offers-section h2,
-    .gallery-section h2,
-    .products-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .subscribe-form input {
-        width: 100%;
-        border-radius: 4px 4px 0 0;
-    }
-    
-    .subscribe-form button {
-        width: 100%;
-        border-radius: 0 0 4px 4px;
-    }
-
-    .product-care-badge {
+    .subscribe-form {
         flex-direction: column;
-        text-align: center;
+        gap: 8px;
     }
-
-    .care-container {
-        padding: 24px 15px;
-    }
-
-    .general-care-tips {
-        padding: 18px 16px;
+    
+    .subscribe-form input,
+    .subscribe-form button {
+        width: 100% !important;
+        border-radius: 6px !important;
     }
 
     .welcome-banner {
@@ -2017,33 +1766,5 @@ footer h3, footer h4 {
     .welcome-actions {
         width: 100%;
         justify-content: space-between;
-    }
-}
-
-/* --- Very Small Phones (max-width: 380px) --- */
-@media (max-width: 380px) {
-    .products-grid {
-        gap: 8px;
-    }
-    
-    .card .img-wrapper {
-        height: 110px;
-    }
-    
-    .card h3 {
-        font-size: 0.65rem;
-    }
-    
-    .card .price {
-        font-size: 0.7rem;
-    }
-    
-    .gallery-item {
-        height: 130px;
-    }
-    
-    .filter-btn {
-        padding: 4px 10px;
-        font-size: 0.65rem;
     }
 }
