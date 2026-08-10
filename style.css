@@ -1153,7 +1153,7 @@ footer h3, footer h4 {
         min-height: auto;
         padding-top: 40px;
         padding-bottom: 40px;
-        text-align: center;
+        text-align: left;
     }
     
     .hero h1 {
@@ -1166,7 +1166,7 @@ footer h3, footer h4 {
     
     .offers-section {
         padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
     
     .offers-section h2 {
@@ -1246,9 +1246,9 @@ footer h3, footer h4 {
         flex: none;
     }
 
-    .accent-line-left {
-        margin: 0 auto 15px auto !important; /* Centers the accent line on mobile */
-    }
+   .accent-line-left {
+    margin: 0 0 15px 0 !important;
+   }
     
     .about-text p {
         text-align: center;
