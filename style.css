@@ -1008,7 +1008,7 @@ footer h3, footer h4 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 600;
     letter-spacing: 1px;
-    text text-align: center;
+    text-align: left;
     display: inline-block;
 }
 
