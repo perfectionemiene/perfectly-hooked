@@ -87,7 +87,7 @@ function sendToWhatsApp() {
                           `📌 *Purpose:* ${subject}\n\n` +
                           `💬 *Message:* \n${message}`;
 
-    // Your live WhatsApp link business destination phone number
+    // WhatsApp destination phone number
     let phoneNumber = "2347015089219"; 
     
     // Construct and open the live WhatsApp API window endpoint
