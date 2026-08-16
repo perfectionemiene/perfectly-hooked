@@ -1,2127 +1,1940 @@
-/* --- Global Reset & Colors --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --burgundy: #6b1d2f;
-    --soft-pink: #fbcbc9;
-    --light-pink-bg: #fff5f5;
-    --charcoal: #2b2b2b;
-    --white: #ffffff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection | Perfectly Hooked</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
-    /* Fluid typography scales */
-    --text-base: clamp(0.9rem, 2vw, 1rem);
-    --text-sm: clamp(0.8rem, 1.5vw, 0.875rem);
-    --text-lg: clamp(1rem, 2.5vw, 1.125rem);
-    --text-xl: clamp(1.1rem, 3vw, 1.25rem);
-    --text-2xl: clamp(1.25rem, 4vw, 1.5rem);
-    --text-3xl: clamp(1.5rem, 5vw, 2rem);
-    --text-4xl: clamp(1.8rem, 6vw, 2.5rem);
-}
-
-html {
-    font-size: 16px;
-}
-
-body {
-    font-family: var(--font-body);
-    color: var(--charcoal);
-    background-color: var(--white);
-    line-height: 1.6;
-    font-size: var(--text-base);
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-/* --- Header / Navigation --- */
-header {
-    background-color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    box-shadow: 0 2px 10px rgba(107, 29, 47, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.logo {
-    font-family: var(--font-heading);
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-    font-weight: 700;
-    color: var(--burgundy);
-}
-
-.logo span {
-    color: var(--soft-pink);
-    text-shadow: 1px 1px 0px var(--burgundy);
-}
-
-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 15px;
-}
-
-header nav a {
-    text-decoration: none;
-    color: var(--charcoal);
-    font-weight: 600;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-}
-
-header nav a:hover, header nav a.active {
-    color: var(--burgundy);
-    border-bottom: 2px solid var(--soft-pink);
-}
-
-/* --- Hero Section --- */
-.hero {
-    background: linear-gradient(rgba(107, 29, 47, 0.88), rgba(107, 29, 47, 0.88)), 
-                url('header.jpeg') no-repeat center center/cover;
-    min-height: 65vh;
-    display: flex;
-    align-items: flex-start;
-    padding: 60px 8%;
-    color: var(--white);
-}
-
-.hero-content {
-    max-width: 650px;
-}
-
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 6vw, 3rem);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.hero p {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    margin-bottom: 20px;
-    color: var(--light-pink-bg);
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--soft-pink);
-    color: var(--burgundy);
-    padding: 12px 35px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 30px;
-    margin-top: 10px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    background-color: var(--white);
-}
-
-/* --- What We Offer Section --- */
-.offers-section {
-    padding: 40px 8%;
-    text-align: center;
-    background-color: var(--light-pink-bg);
-}
-
-.offers-section h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--burgundy);
-}
-
-.accent-line {
-    width: 40px;
-    height: 3px;
-    background-color: var(--soft-pink);
-    margin: 15px auto 45px auto;
-}
-
-.offers-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.offer-card {
-    background-color: var(--white);
-    padding: 30px 20px;
-    border-radius: 12px;
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
-    box-shadow: 0 4px 15px rgba(107, 29, 47, 0.04);
-    border: 1px solid rgba(107, 29, 47, 0.05);
-}
-
-.offer-card .icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.offer-card h3 {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    color: var(--burgundy);
-    margin-bottom: 10px;
-}
-
-/* --- Footer --- */
-footer {
-    background-color: var(--charcoal);
-    color: var(--white);
-    padding: 40px 8% 20px 8%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-container > div {
-    flex: 1;
-    min-width: 200px;
-}
-
-footer h3, footer h4 {
-    color: var(--soft-pink);
-    margin-bottom: 15px;
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-}
-
-.footer-links a, .social-links a {
-    color: #ccc;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-}
-
-.footer-links a:hover, .social-links a:hover {
-    color: var(--soft-pink);
-}
-
-.subscribe-form {
-    display: flex;
-    margin-top: 10px;
-    flex-wrap: wrap;
-}
-
-.subscribe-form input {
-    padding: 10px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-    width: 70%;
-    min-width: 150px;
-    flex: 1;
-}
-
-.subscribe-form button {
-    background-color: var(--burgundy);
-    color: var(--white);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
-    color: #aaa;
-}
-
-/* --- Products Page Design --- */
-.products-header {
-    text-align: center;
-    padding: 60px 8% 20px 8%;
-    background-color: var(--white);
-}
-
-.products-header h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--burgundy);
-}
-
-.filter-buttons {
-    margin-top: 30px;
-}
-
-.filter-btn {
-    background-color: var(--white);
-    color: var(--charcoal);
-    border: 2px solid var(--soft-pink);
-    padding: 8px 24px;
-    margin: 5px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background-color: var(--burgundy);
-    color: var(--white);
-    border-color: var(--burgundy);
-}
-
-/* Products Grid Setup */
-.products-container {
-    padding: 20px 8% 80px 8%;
-    background-color: var(--light-pink-bg);
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* Tablet: 2 columns */
-@media (max-width: 992px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
-/* Mobile: 2 columns */
-@media (max-width: 640px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 0 0px;
-    }
-}
-
-/* Very small phones: 2 columns */
-@media (max-width: 420px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-}
-
-.card {
-    background-color: var(--white);
-    border-radius: 12px;
-    padding: 12px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(107, 29, 47, 0.04);
-    border: 1px solid rgba(107, 29, 47, 0.05);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: scale(1.03);
-}
-
-.card .img-wrapper {
-    width: 100%;
-    height: 200px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: zoom-in;
-    transition: opacity 0.3s ease;
-}
-
-.card img:hover {
-    opacity: 0.9;
-}
-
-.card h3 {
-    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
-    color: var(--charcoal);
-    margin-bottom: 3px;
-}
-
-.card .price {
-    color: var(--burgundy);
-    font-weight: 600;
-    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
-    margin-bottom: 10px;
-}
-
-.cart-btn {
-    width: 100%;
-    background-color: var(--soft-pink);
-    color: var(--burgundy);
-    border: none;
-    padding: 8px 10px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-}
-
-.cart-btn:hover {
-    background-color: var(--burgundy);
-    color: var(--white);
-}
-
-/* Checkout Button Layout */
-.checkout-wrapper {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.checkout-btn {
-    background-color: var(--burgundy);
-    color: var(--white);
-    border: none;
-    padding: 15px 40px;
-    font-size: clamp(1rem, 1.5vw, 1.1rem);
-    font-family: var(--font-body);
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(107, 29, 47, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.checkout-btn:hover {
-    background-color: #521422;
-    transform: translateY(-2px);
-}
-
-/* --- Interactive Image Zoom Modal --- */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 2000;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
-}
-
-.modal img {
-    max-width: 85%;
-    max-height: 80vh;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    animation: zoomAnimation 0.3s ease-out;
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-@keyframes zoomAnimation {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* --- Master Contact Page Layout --- */
-.contact-section {
-    padding: 80px 8%;
-    background-color: var(--white);
-}
-
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    flex: 1;
-    min-width: 280px;
-    text-align: left;
-}
-
-.contact-info h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--burgundy);
-    line-height: 1.2;
-    margin-bottom: 5px;
-}
-
-.contact-info p {
-    color: #555;
-    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.contact-form-wrapper {
-    flex: 1;
-    min-width: 280px;
-    background-color: var(--light-pink-bg);
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(107, 29, 47, 0.04);
-    border: 1px solid rgba(107, 29, 47, 0.05);
-    text-align: left;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    color: var(--burgundy);
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: var(--font-body);
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    outline: none;
-    background-color: var(--white);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: var(--burgundy);
-    box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
-}
-
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    background-color: var(--burgundy);
-    color: var(--white);
-    border: none;
-    padding: 14px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(107, 29, 47, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.submit-btn:hover {
-    background-color: #521422;
-    transform: translateY(-1px);
-}
-
-/* --- Gallery Page Specific Styles --- */
-.gallery-section {
-    padding: 40px 8%;
-    text-align: center;
-    background-color: var(--white);
-}
-
-.gallery-section h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: var(--burgundy);
-}
-
-.gallery-subtitle {
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Elegant Grid Layout */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-@media (max-width: 640px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-}
-
-@media (max-width: 420px) {
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    height: 280px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    background-color: var(--light-pink-bg);
-    cursor: zoom-in;
-}
-
-@media (max-width: 640px) {
-    .gallery-item {
-        height: 200px;
-    }
-}
-
-@media (max-width: 420px) {
-    .gallery-item {
-        height: 160px;
-    }
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-/* Burgundy Hover Cover Filter */
-.gallery-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(107, 29, 47, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-overlay span {
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
-    border: 1px solid var(--soft-pink);
-    padding: 8px 20px;
-    border-radius: 20px;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-/* --- Home Page Extra Sections --- */
-
-/* About Section Preview Layout */
-.home-about-preview {
-    padding: 40px 8%;
-    background-color: var(--white);
-}
-
-.about-preview-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: nowrap;
-}
-
-.preview-text {
-    flex: 1;
-}
-
-.preview-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.3rem);
-    color: var(--burgundy);
-}
-
-.preview-text p {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-}
-
-.text-link {
-    color: var(--burgundy);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-}
-
-.text-link:hover {
-    color: var(--soft-pink);
-}
-
-.preview-image-box {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.mini-frame {
-    padding: 40px;
-    background-color: var(--light-pink-bg);
-    border: 2px dashed var(--burgundy);
-    color: var(--burgundy);
-    font-weight: 600;
-    border-radius: 12px;
-    text-align: center;
-}
-
-/* Gallery Section Preview Layout */
-.home-gallery-preview {
-    padding: 40px 8%;
-    text-align: center;
-    background-color: var(--light-pink-bg);
-}
-
-.home-gallery-preview h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.3rem);
-    color: var(--burgundy);
-}
-
-.home-gallery-images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.img-snap {
-    width: 200px;
-    height: 200px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-@media (max-width: 640px) {
-    .img-snap {
-        width: 140px;
-        height: 140px;
-    }
-}
-
-@media (max-width: 420px) {
-    .img-snap {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-.img-snap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Secondary Button Outline Variant */
-.btn-outline {
-    display: inline-block;
-    border: 2px solid var(--burgundy);
-    color: var(--burgundy);
-    padding: 10px 25px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-}
-
-.btn-outline:hover {
-    background-color: var(--burgundy);
-    color: var(--white);
-}
-
-/* Styling for the Our Story preview image */
-.story-preview-img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(107, 29, 47, 0.1);
-    object-fit: cover;
-}
-
-/* --- Product Filters --- */
-.filter-section {
-    text-align: center;
-    padding: 30px 8% 10px;
-    background-color: var(--white);
-}
-
-.filter-menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-@media (max-width: 640px) {
-    .filter-menu {
-        gap: 8px;
-    }
-    .filter-btn {
-        padding: 6px 14px;
-        font-size: 0.75rem;
-    }
-}
-
-.filter-btn {
-    padding: 8px 20px;
-    background: transparent;
-    border: 2px solid var(--burgundy);
-    color: var(--burgundy);
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background: var(--burgundy);
-    color: var(--white);
-}
-
-/* --- Custom Clothing Banner --- */
-.custom-clothing-banner {
-    background-color: var(--light-pink-bg);
-    padding: 60px 8%;
-    text-align: center;
-    margin: 40px 0;
-    border-top: 2px dashed var(--burgundy);
-    border-bottom: 2px dashed var(--burgundy);
-}
-
-.custom-clothing-banner h2 {
-    color: var(--burgundy);
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 15px;
-}
-
-.custom-clothing-banner p {
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 25px auto;
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-}
-
-/* --- Featured Bestseller (Home Page) --- */
-.featured-bestseller {
-    padding: 40px 8%;
-    background-color: var(--white);
-}
-
-.bestseller-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: nowrap;
-    background: var(--light-pink-bg);
-    border-radius: 20px;
-    padding: 40px;
-}
-
-.badge {
-    background: var(--burgundy);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.bestseller-text {
-    flex: 1;
-}
-
-.bestseller-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--burgundy);
-}
-
-.bestseller-image {
-    flex: 1;
-}
-
-.bestseller-image img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(107,29,47,0.15);
-}
-
-/* --- Contact Form Updates --- */
-.contact-form select, .contact-form input[type="file"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: var(--font-body);
-}
-
-.contact-form label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--burgundy);
-}
-
-/* --- About Page Structural Layout --- */
-.about-section {
-    padding: 40px 8%;
-    background-color: var(--white);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: nowrap;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--burgundy);
-    margin-bottom: 5px;
-}
-
-.accent-line-left {
-    width: 40px;
-    height: 3px;
-    background-color: var(--soft-pink);
-    margin-bottom: 25px;
-}
-
-.about-text p {
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
-    color: #555;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.about-text .lead-text {
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
-    color: var(--charcoal);
-    font-weight: 400;
-}
-
-.about-image {
-    flex: 1;
-    justify-content: center;
-}
-
-.about-img-frame {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(107, 29, 47, 0.12);
-}
-
-.about-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* --- Mini Hero Banner Section --- */
-.mini-hero {
-    background: linear-gradient(rgba(107, 29, 47, 0.9), rgba(107, 29, 47, 0.9)); 
-    padding: 30px 8%;
-    text-align: center;
-    color: var(--white);
-}
-
-.mini-hero-content h1 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: left;
-    display: inline-block;
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: var(--font-body);
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    outline: none;
-    background-color: var(--white);
-    color: var(--charcoal);
-    cursor: pointer;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b1d2f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 16px;
-}
-
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    border-color: var(--burgundy);
-    box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
-}
-
-/* ==========================================================================
-   --- Mobile Responsiveness Breakpoints ---
-   ========================================================================== */
-
-/* --- Tablet (768px - 992px) --- */
-@media (max-width: 992px) {
-    header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px 5%;
-        text-align: left;
-    }
-    
-    header nav {
-        justify-content: flex-start;
-    }
-    
-    header nav a {
-        padding: 5px 10px;
-        font-size: 0.9rem;
-    }
-    
-    .hero {
-        padding: 50px 5%;
-        text-align: left;
-        min-height: auto;
-    }
-    
-    .hero-content {
-        max-width: 100%;
-    }
-    
-    .offers-section,
-    .products-container,
-    .contact-section,
-    .gallery-section,
-    .home-about-preview,
-    .home-gallery-preview,
-    .featured-bestseller {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
-    .offer-card {
-        max-width: 100%;
-        flex: 0 1 calc(50% - 20px);
-    }
-    
-    .footer-container {
-        flex-direction: row;
-        flex-wrap: wrap;
+    <!-- Paystack Inline Popup Script -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+   <style>
+    /* --- Product Grid & Cards --- */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+        margin-top: 20px;
     }
-    
-    .footer-container > div {
-        flex: 0 1 calc(50% - 15px);
-        min-width: 200px;
-    }
-}
 
-/* --- Mobile (max-width: 768px) --- */
-@media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
-    
-    header, 
-    .hero, 
-    .offers-section, 
-    .products-header, 
-    .products-container, 
-    .contact-section, 
-    .gallery-section, 
-    .home-about-preview, 
-    .home-gallery-preview, 
-    .featured-bestseller, 
-    .about-section, 
-    .mini-hero, 
-    footer {
-        padding-left: 4% !important;
-        padding-right: 4% !important;
-    }
-    
-    /* Kept header text center-aligned on mobile */
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+    .product-card {
+        background-color: #fff;
+        border: 1px solid #f0eaeb;
+        border-radius: 10px;
+        padding: 10px;
         text-align: center;
-    }
-    
-    header nav {
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    
-    header nav a {
-        padding: 4px 8px;
-        font-size: 0.85rem;
-    }
-    
-    .hero {
-        min-height: auto;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        text-align: left;
-    }
-    
-    .hero h1 {
-        font-size: clamp(1.5rem, 5vw, 1.8rem);
-    }
-    
-    .hero p {
-        font-size: 0.95rem;
-    }
-    
-    .offers-section {
-        padding-top: 20px;
-        padding-bottom: 10px;
-    }
-    
-    .offers-section h2 {
-        font-size: 1.8rem;
-    }
-    
-    .offers-container {
-        gap: 15px;
-    }
-    
-    .offer-card {
-        flex: 0 1 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        width: 100%; /* Changed from fixed 280px */
         max-width: 100%;
-        padding: 20px 15px;
-    }
-    
-    /* Bestseller and about preview remain SIDE-BY-SIDE on mobile */
-    .bestseller-container,  
-    .about-preview-container {
-        flex-direction: row !important;
-        text-align: left !important;
-        gap: 15px !important;
-        padding: 15px 12px !important;
-        align-items: center;
-    }
-    
-    .bestseller-text,
-    .preview-text {
-        flex: 1 1 55% !important;
-        width: 55% !important;
-        min-width: unset;
-    }
-    
-    .bestseller-image,
-    .preview-image-box {
-        flex: 1 1 45% !important;
-        width: 45% !important;
-        min-width: unset;
     }
 
-    .bestseller-image img,
-    .about-img-frame,
-    .story-preview-img {
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- Image Slider Styling --- */
+    .image-slider {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .image-slider img {
         width: 100%;
         height: auto;
-    }
-    
-    .contact-container {
-        flex-direction: column;
-        text-align: center !important;
-        gap: 20px;
-        padding: 25px 15px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: none;
     }
 
-    .contact-info, 
-    .contact-form-wrapper {
-        flex: none;
-        width: 100%;
-        min-width: unset;
-    }
-    
-    .bestseller-text h2, 
-    .about-text h2, 
-    .contact-info h2 {
-        font-size: clamp(1.2rem, 4vw, 1.8rem);
-        text-align: left !important;
-    }
-
-    .about-container {
-        flex-direction: column !important;
-        flex-wrap: wrap !important;
-        text-align: center;
-    }
-
-    .about-text, 
-    .about-image {
-        width: 100%;
-        flex: none;
-    }
-
-   .accent-line-left {
-    margin: 0 0 15px 0 !important;
-   }
-    
-    .about-text p {
-        text-align: center;
-    }
-    
-    .gallery-item {
-        height: 220px;
-    }
-    
-    .footer-container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: left;
-    }
-    
-    .footer-container > div {
-        flex: 1 1 100%;
-        min-width: unset;
-    }
-    
-    .subscribe-form {
-        justify-content: flex-start;
-    }
-    
-    .subscribe-form input {
-        width: 40%;
-    }
-    
-    .mini-hero {
-        padding: 30px 4% !important;
-        text-align: center !important;
-    }
-    
-    .mini-hero-content h1 {
-        font-size: 1.6rem !important;
-    }
-    
-    .mini-hero-content h1::after {
-        margin: 8px 0 0 0 !important;
-    }
-}
-
-/* --- Small Phones (max-width: 480px) --- */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-    
-    header {
-        padding: 10px 3% !important;
-    }
-    
-    .logo {
-        font-size: 1.3rem;
-    }
-    
-    header nav a {
-        font-size: 0.75rem;
-        padding: 3px 6px;
-    }
-    
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-    
-    .hero p {
-        font-size: 0.85rem;
-    }
-    
-    .btn {
-        padding: 10px 25px;
-        font-size: 0.85rem;
-    }
-    
-    .products-grid {
-        gap: 10px;
-        padding: 0;
-    }
-    
-    .card {
-        padding: 8px;
-    }
-    
-    .card .img-wrapper {
-        height: 140px;
-    }
-    
-    .card h3 {
-        font-size: 0.75rem;
-    }
-    
-    .card .price {
-        font-size: 0.8rem;
-        margin-bottom: 6px;
-    }
-    
-    .cart-btn {
-        padding: 6px 8px;
-        font-size: 0.7rem;
-    }
-    
-    .gallery-item {
-        height: 160px;
-    }
-    
-    .offer-card {
-        padding: 15px 12px;
-    }
-    
-    .offer-card h3 {
-        font-size: 1rem;
-    }
-    
-    .offers-section h2,
-    .gallery-section h2,
-    .products-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .subscribe-form input {
-        width: 100%;
-        border-radius: 4px 4px 0 0;
-    }
-    
-    .subscribe-form button {
-        width: 100%;
-        border-radius: 0 0 4px 4px;
-    }
-}
-
-/* --- Very Small Phones (max-width: 380px) --- */
-@media (max-width: 380px) {
-    .products-grid {
-        gap: 8px;
-    }
-    
-    .card .img-wrapper {
-        height: 110px;
-    }
-    
-    .card h3 {
-        font-size: 0.65rem;
-    }
-    
-    .card .price {
-        font-size: 0.7rem;
-    }
-    
-    .gallery-item {
-        height: 130px;
-    }
-    
-    .filter-btn {
-        padding: 4px 10px;
-        font-size: 0.65rem;
-    }
-}
-
-/* --- Styling for link wrapping the cards --- */
-.offer-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
-    transition: transform 0.3s ease;
-}
-
-.offer-card-link:hover {
-    transform: translateY(-5px);
-}
-
-.offer-card {
-    background-color: var(--white);
-    padding: 30px 20px;
-    border-radius: 12px;
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(107, 29, 47, 0.04);
-    border: 1px solid rgba(107, 29, 47, 0.05);
-}
-
-/* --- Brand-Matched Scrolling Marquee --- */
-.announcement-marquee {
-    background-color: #631C2D;
-    color: #ffffff;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    padding: 10px 0;
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(0.5rem, 1.2vw, 0.5rem);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(99, 28, 45, 0.2);
-    position: relative;
-    z-index: 99;
-}
-
-.marquee-content {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee-scroll 25s linear infinite;
-}
-
-.marquee-content span {
-    display: inline-block;
-    padding-right: 60px;
-}
-
-@keyframes marquee-scroll {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-100%, 0, 0);
-    }
-}
-
-.announcement-marquee:hover .marquee-content {
-    animation-play-state: paused;
-}
-
-.custom-color-banner {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: #fff0f3;
-    border: 1px solid #ffccd5;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-}
-
-@media (max-width: 600px) {
-    .custom-color-banner {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-}
-
-.banner-icon {
-    font-size: 1.8rem;
-}
-
-.banner-text strong {
-    color: #800020;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.banner-text p {
-    margin: 0;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    color: #4a4a4a;
-}
-
-/* ==========================================
-   FAQ SECTION STYLING
-   ========================================== */
-
-.faq-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-    font-family: inherit;
-    color: #333333;
-}
-
-.faq-header {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.faq-header h2 {
-    font-size: clamp(1.6rem, 4vw, 2rem);
-    color: #5a2a38;
-    margin-bottom: 8px;
-}
-
-.faq-header p {
-    color: #666666;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-}
-
-/* --- Custom Color Banner --- */
-.custom-color-banner {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
-    border: 1px solid #ffccd5;
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.15);
-}
-
-.banner-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-}
-
-.banner-text strong {
-    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-    color: #800020;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.banner-text p {
-    margin: 0;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    color: #4a4a4a;
-    line-height: 1.5;
-}
-
-/* --- FAQ Cards --- */
-.faq-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.faq-item {
-    background: #ffffff;
-    border: 1px solid #f0e6e8;
-    border-radius: 12px;
-    padding: 22px 26px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-    border-color: #ffd6e0;
-}
-
-.faq-item h3 {
-    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-    font-weight: 600;
-    color: #800020;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.faq-item p {
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    color: #555555;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* --- CTA Bottom Contact Button --- */
-.faq-contact-cta {
-    text-align: center;
-    margin-top: 45px;
-    padding-top: 25px;
-    border-top: 1px dashed #e5d5d8;
-}
-
-.faq-contact-cta p {
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-    color: #555555;
-    margin-bottom: 15px;
-}
-
-.contact-btn {
-    display: inline-block;
-    background-color: #800020;
-    color: #ffffff;
-    font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
-}
-
-.contact-btn:hover {
-    background-color: #800020;
-    transform: scale(1.03);
-}
-
-@media (max-width: 600px) {
-    .custom-color-banner {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-
-    .faq-item {
-        padding: 16px 20px;
-    }
-}
-
-/* Badge Version */
-.product-care-badge {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #faf7f8;
-    border: 1px solid #f0e6e8;
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-top: 15px;
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-@media (max-width: 480px) {
-    .product-care-badge {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-.product-care-badge span {
-    color: #4a4a4a;
-    font-weight: 500;
-}
-
-.product-care-badge a {
-    color: #800020;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.product-care-badge a:hover {
-    text-decoration: underline;
-}
-
-/* ==========================================
-   LOVE IT. CARE FOR IT. (BESTSELLER MIRROR STYLING)
-   ========================================== */
-
-.care-guide-section {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.care-container {
-    background-color: #fdf2f4;
-    border-radius: 24px;
-    padding: 48px 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-}
-
-@media (max-width: 768px) {
-    .care-container {
-        padding: 32px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .care-container {
-        padding: 24px 15px;
-    }
-}
-
-.care-content {
-    max-width: 800px;
-}
-
-.care-badge {
-    display: inline-block;
-    background-color: #6a1b29;
-    color: #ffffff;
-    font-size: clamp(0.7rem, 1vw, 0.82rem);
-    font-weight: 600;
-    padding: 6px 18px;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
-    margin-bottom: 20px;
-}
-
-.care-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    font-weight: 700;
-    color: #5b1322;
-    margin: 0 0 12px 0;
-    line-height: 1.2;
-}
-
-.care-divider {
-    width: 50px;
-    height: 3px;
-    background-color: #f4c2c2;
-    margin-bottom: 20px;
-    border-radius: 2px;
-}
-
-.care-description {
-    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-    line-height: 1.6;
-    color: #4a4a4a;
-    margin-bottom: 32px;
-}
-
-.care-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    margin-bottom: 32px;
-}
-
-@media (max-width: 640px) {
-    .care-details {
-        grid-template-columns: 1fr;
-    }
-}
-
-.care-item {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 16px;
-    padding: 20px 24px;
-    border: 1px solid rgba(255, 204, 213, 0.4);
-}
-
-.care-item h3 {
-    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
-    color: #5b1322;
-    margin: 0 0 4px 0;
-}
-
-.care-item .yarn-usage {
-    font-size: clamp(0.75rem, 1vw, 0.85rem);
-    color: #777777;
-    margin-bottom: 12px;
-    font-style: italic;
-}
-
-.care-item ul {
-    padding-left: 18px;
-    margin: 0;
-    color: #4a4a4a;
-    font-size: clamp(0.8rem, 1.1vw, 0.92rem);
-    line-height: 1.5;
-}
-
-.care-item li {
-    margin-bottom: 6px;
-}
-
-.care-btn {
-    display: inline-block;
-    background-color: #f8c8d0;
-    color: #5b1322;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.care-btn:hover {
-    background-color: #f4b6c2;
-    transform: translateY(-2px);
-}
-
-/* ==========================================
-   GENERAL CARE TIPS
-   ========================================== */
-
-.general-care-tips {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 16px;
-    padding: 24px 28px;
-    border: 1px solid rgba(255, 204, 213, 0.4);
-    margin-top: 24px;
-}
-
-@media (max-width: 480px) {
-    .general-care-tips {
-        padding: 18px 16px;
-    }
-}
-
-.general-care-tips h3 {
-    font-size: clamp(1rem, 1.4vw, 1.25rem);
-    font-weight: 700;
-    color: #5b1322;
-    margin-top: 0;
-    margin-bottom: 14px;
-}
-
-.general-care-tips ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.general-care-tips li {
-    position: relative;
-    padding-left: 22px;
-    margin-bottom: 10px;
-    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
-    line-height: 1.6;
-    color: #4a4a4a;
-}
-
-.general-care-tips li:last-child {
-    margin-bottom: 0;
-}
-
-.general-care-tips li::before {
-    content: "•";
-    position: absolute;
-    left: 4px;
-    top: 0;
-    color: #800020;
-    font-size: 1.2rem;
-    line-height: 1;
-}
-
-/* ==========================================
-   UNIFIED CUSTOM REQUESTS SECTION
-   ========================================== */
-
-.custom-requests-section {
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.custom-card {
-    background-color: #fdf2f4;
-    border-radius: 24px;
-    padding: 40px 36px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(255, 204, 213, 0.5);
-}
-
-@media (max-width: 600px) {
-    .custom-card {
-        padding: 28px 20px;
-    }
-}
-
-.custom-badge {
-    display: inline-block;
-    background-color: #6a1b29;
-    color: #ffffff;
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    font-weight: 600;
-    padding: 5px 16px;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-}
-
-.custom-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 700;
-    color: #5b1322;
-    margin: 0 0 12px 0;
-    line-height: 1.25;
-}
-
-.custom-divider {
-    width: 50px;
-    height: 3px;
-    background-color: #f4c2c2;
-    margin-bottom: 28px;
-    border-radius: 2px;
-}
-
-.custom-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-bottom: 32px;
-}
-
-@media (max-width: 640px) {
-    .custom-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.custom-item {
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 16px;
-    padding: 22px 24px;
-    border: 1px solid rgba(255, 204, 213, 0.6);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.custom-item-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.custom-icon {
-    font-size: 1.5rem;
-}
-
-.custom-item h3 {
-    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
-    font-weight: 600;
-    color: #5b1322;
-    margin: 0;
-}
-
-.custom-item p {
-    font-size: clamp(0.8rem, 1.1vw, 0.93rem);
-    line-height: 1.55;
-    color: #4a4a4a;
-    margin: 0;
-}
-
-.custom-item em {
-    color: #777;
-}
-
-.custom-cta {
-    text-align: left;
-}
-
-.custom-btn {
-    display: inline-block;
-    background-color: #800020;
-    color: #ffffff;
-    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-    font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-    transition: all 0.2s ease;
-}
-
-.custom-btn:hover {
-    background-color: #1ebe5d;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
-}
-
-@media (max-width: 600px) {
-    .custom-btn {
+    .image-slider img.active-slide {
         display: block;
-        text-align: center;
-        width: 100%;
     }
-}
 
-/* ==========================================
-   WELCOME BACK BANNER STYLING
-   ========================================== */
-
-.welcome-banner {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    width: 90%;
-    max-width: 600px;
-    background-color: #fdf2f4;
-    border: 1px solid #f8c8d0;
-    border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(91, 19, 34, 0.12);
-    padding: 10px 20px;
-    transition: all 0.4s ease-in-out;
-}
-
-.welcome-banner.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -20px);
-}
-
-@media (max-width: 480px) {
-    .welcome-banner {
-        border-radius: 16px;
-        padding: 12px 16px;
-        top: 10px;
-        width: 95%;
+    .slide-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        color: #631C2D;
+        border: none;
+        font-size: 1.2rem;
+        padding: 5px 12px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+        z-index: 10;
     }
-}
 
-.welcome-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
+    .slide-btn:hover {
+        background: #ffffff;
+    }
 
-@media (max-width: 480px) {
-    .welcome-content {
+    .prev-btn {
+        left: 10px;
+    }
+    .next-btn {
+        right: 10px;
+    }
+
+    /* --- Product Info & Forms --- */
+    .product-details {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        margin-top: 15px;
+        flex-grow: 1;
     }
-}
 
-.welcome-text {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-    color: #4a4a4a;
-}
+    .product-name {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+        color: #333;
+        margin: 0 0 5px 0;
+    }
 
-.welcome-text strong {
-    color: #5b1322;
-}
+    .product-price {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+        font-weight: 600;
+        color: #631C2D;
+        margin: 0 0 15px 0;
+    }
 
-.welcome-icon {
-    font-size: 1.2rem;
-}
-
-.welcome-text p {
-    margin: 0;
-}
-
-.welcome-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-}
-
-@media (max-width: 480px) {
-    .welcome-actions {
+    .color-selector {
         width: 100%;
-        justify-content: space-between;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #f0eaeb;
+        border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(0.75rem, 1vw, 0.95rem);
+        color: #333;
+        background-color: #fafafa;
+        cursor: pointer;
     }
-}
 
-.welcome-btn {
-    background-color: #6a1b29;
-    color: #ffffff;
-    font-size: clamp(0.7rem, 1vw, 0.82rem);
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 20px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
+    .color-selector:focus {
+        outline: none;
+        border-color: #631C2D;
+    }
 
-.welcome-btn:hover {
-    background-color: #5b1322;
-    transform: translateY(-1px);
-}
+    /* --- Quantity Selector Styling --- */
+    .quantity-selector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
 
-.welcome-close-btn {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    color: #888888;
-    cursor: pointer;
-    padding: 4px;
-    line-height: 1;
-}
+    .quantity-selector button {
+        background-color: #fafafa;
+        color: #631C2D;
+        border: 1px solid #f0eaeb;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
 
-.welcome-close-btn:hover {
-    color: #5b1322;
-}
+    .quantity-selector button:hover {
+        background-color: #631C2D;
+        color: #fff;
+    }
+
+    .quantity-selector input {
+        width: 45px;
+        height: 32px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #333;
+        outline: none;
+        background-color: #fff;
+    }
+
+    .add-to-cart {
+        background-color: #fff;
+        color: #631C2D;
+        border: 2px solid #631C2D;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        margin-top: auto;
+        transition: all 0.3s ease;
+        font-size: clamp(0.75rem, 1vw, 0.95rem);
+    }
+
+    .add-to-cart:hover {
+        background-color: #631C2D;
+        color: #fff;
+    }
+
+    .hide-product {
+        display: none !important;
+    }
+
+    /* --- Welcome Back Banner --- */
+    .welcome-banner {
+        background-color: #fff5f5;
+        border-bottom: 2px solid #631C2D;
+        padding: 12px 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .welcome-banner.hidden {
+        display: none !important;
+    }
+
+    .welcome-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .welcome-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #333;
+        font-size: clamp(0.8rem, 1.2vw, 1rem);
+    }
+
+    .welcome-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .welcome-btn {
+        background-color: #631C2D;
+        color: #fff;
+        text-decoration: none;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: clamp(0.7rem, 1vw, 0.85rem);
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+
+    .welcome-btn:hover {
+        background-color: #4a1522;
+    }
+
+    .welcome-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #666;
+    }
+
+    /* --- Floating Cart Styling --- */
+    .floating-cart {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #631C2D;
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+        z-index: 1000;
+    }
+
+    .floating-cart:hover {
+        transform: scale(1.05);
+        background-color: #4a1522;
+    }
+
+    .cart-badge {
+        background-color: #fff;
+        color: #631C2D;
+        padding: 2px 8px;
+        border-radius: 50%;
+        font-size: 0.9rem;
+    }
+
+    .cart-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    /* --- Quick View Modal & Cart Modal Overlay --- */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        backdrop-filter: blur(3px);
+    }
+
+    .modal-content-wrapper {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 650px;
+        max-height: 90vh;
+        overflow-y: auto;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .qv-modal-body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .qv-image-container {
+        flex: 1 1 250px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 10px;
+        min-height: 250px;
+    }
+
+    .qv-image-container img {
+        width: 100%;
+        max-height: 380px;
+        object-fit: contain;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .qv-image-container img.active-slide {
+        display: block;
+    }
+
+    .qv-details-container {
+        flex: 1 1 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .qv-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        color: #631C2D;
+        margin: 0 0 5px 0;
+    }
+
+    .qv-price {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+    }
+
+    .qv-description {
+        font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: #333;
+        line-height: 1;
+        z-index: 10;
+    }
+
+    .close-modal:hover {
+        color: #631C2D;
+    }
+
+    /* Cart specific styles */
+    .cart-modal h2 {
+        margin-top: 0;
+        color: #631C2D;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    }
+
+    .cart-item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+    }
+
+    .cart-item-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-item-title {
+        font-weight: bold;
+        color: #333;
+        font-size: clamp(0.85rem, 1.2vw, 1rem);
+    }
+
+    .cart-item-subtitle {
+        font-size: clamp(0.75rem, 1vw, 0.9rem);
+        color: #666;
+    }
+
+    .remove-btn {
+        background: none;
+        border: none;
+        color: #d9534f;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .cart-total {
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        font-weight: bold;
+        text-align: right;
+        margin: 20px 0;
+        color: #631C2D;
+    }
+
+    .modal-checkout-btn {
+        width: 100%;
+        background-color: #631C2D;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .modal-checkout-btn:hover {
+        background-color: #4a1522;
+    }
+
+    .checkout-form-container {
+        display: none;
+        margin-top: 15px;
+        border-top: 1px dashed #ddd;
+        padding-top: 15px;
+    }
+
+    .checkout-form-container h3 {
+        font-family: 'Playfair Display', serif;
+        color: #631C2D;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-weight: 600;
+        font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #631C2D;
+    }
+
+    .success-screen {
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .success-screen h2 {
+        color: #27ae60;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        margin-bottom: 10px;
+    }
+
+    .success-screen p {
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        font-size: clamp(0.85rem, 1.2vw, 1rem);
+    }
+
+    .whatsapp-btn {
+        display: inline-block;
+        background-color: #25D366;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        transition: transform 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+        transform: scale(1.03);
+        background-color: #128C7E;
+    }
+
+    /* ==========================================
+       RESPONSIVE BREAKPOINTS
+       ========================================== */
+
+    /* Tablet: 2 columns */
+    @media (max-width: 992px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    /* Mobile: 2 columns (fixed!) */
+    @media (max-width: 640px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 0 5px;
+        }
+
+        .product-card {
+            padding: 10px;
+        }
+
+        .product-name {
+            font-size: 0.8rem;
+        }
+
+        .product-price {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .color-selector {
+            font-size: 0.7rem;
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+
+        .quantity-selector button {
+            width: 26px;
+            height: 26px;
+            font-size: 0.9rem;
+        }
+
+        .quantity-selector input {
+            width: 36px;
+            height: 26px;
+            font-size: 0.8rem;
+        }
+
+        .add-to-cart {
+            font-size: 0.7rem;
+            padding: 8px 12px;
+        }
+
+        .slide-btn {
+            font-size: 0.9rem;
+            padding: 3px 8px;
+        }
+    }
+
+    /* Small phones: 2 columns with tighter spacing */
+    @media (max-width: 420px) {
+        .product-grid {
+            gap: 8px;
+            padding: 0 2px;
+        }
+
+        .product-card {
+            padding: 6px;
+        }
+
+        .product-name {
+            font-size: 0.7rem;
+        }
+
+        .product-price {
+            font-size: 0.7rem;
+            margin-bottom: 6px;
+        }
+
+        .color-selector {
+            font-size: 0.6rem;
+            padding: 4px;
+            margin-bottom: 6px;
+        }
+
+        .quantity-selector button {
+            width: 22px;
+            height: 22px;
+            font-size: 0.7rem;
+        }
+
+        .quantity-selector input {
+            width: 30px;
+            height: 22px;
+            font-size: 0.7rem;
+        }
+
+        .add-to-cart {
+            font-size: 0.6rem;
+            padding: 6px 8px;
+        }
+
+        .slide-btn {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+        }
+
+        .prev-btn {
+            left: 4px;
+        }
+        .next-btn {
+            right: 4px;
+        }
+    }
+
+    /* Header responsive */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px 4%;
+            text-align: center;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        header nav a {
+            margin-left: 0;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        .qv-modal-body {
+            flex-direction: column;
+        }
+
+        .welcome-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .welcome-actions {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    /* Very small phones */
+    @media (max-width: 480px) {
+        .floating-cart {
+            bottom: 15px;
+            right: 15px;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+        }
+
+        .modal-content-wrapper {
+            padding: 15px;
+            width: 95%;
+        }
+
+        .qv-image-container {
+            min-height: 180px;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Perfectly <span>Hooked</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="openCartModal(); return false;" style="font-weight: 600; color: #631C2D;">🛒 Cart (<span id="cartCountHeader">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- Returning Customer Cart Banner -->
+    <div id="welcome-back-banner" class="welcome-banner hidden">
+      <div class="welcome-content">
+        <div class="welcome-text">
+          <span class="welcome-icon">👋🏾</span>
+          <p>
+            <strong>Welcome back!</strong> You still have <span id="welcome-cart-count">0</span> item(s) in your cart.
+          </p>
+        </div>
+        <div class="welcome-actions">
+          <a href="#" onclick="openCartModal(); return false;" class="welcome-btn checkout-btn">Review & Checkout →</a>
+          <button onclick="closeWelcomeBanner()" class="welcome-close-btn" aria-label="Dismiss">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="mini-hero">
+        <h1>Our Collection</h1>
+    </section>
+
+    <!-- Product Filters -->
+    <section class="filter-section">
+        <div class="filter-menu">
+            <button class="filter-btn active" onclick="filterItems('all', this)">All</button>
+            <button class="filter-btn" onclick="filterItems('elara', this)">Elara Bags</button>
+            <button class="filter-btn" onclick="filterItems('totes', this)">Tote Bags</button>
+            <button class="filter-btn" onclick="filterItems('bows', this)">Bow Bags</button>
+            <button class="filter-btn" onclick="filterItems('accessories', this)">Accessories</button>
+        </div>
+    </section>
+
+    <!-- Checkout Button (Top) -->
+    <div style="text-align: center; margin: 30px 0;">
+        <button onclick="openCartModal()" class="btn" style="background-color: #631C2D; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">View Cart & Checkout 🛒</button>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="products-container">
+        <div class="product-grid" id="product-list">
+            
+            <!-- Elara Duo Bag -->
+            <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Duo Bag🤩', '₦25,000', 25000, 'A beautiful dual-tone handmade crochet wrist bag.', 'color-elara-duo', 'qty-elara-duo')">
+                <div class="image-slider">
+                    <img src="b+p elara.jpeg" alt="Elara Duo Bag Front" class="active-slide">
+                    <img src="brown elara.jpeg" alt="Elara Duo Bag Side">
+                    <img src="bag elara.jpeg" alt="Elara Duo Bag Inside">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Elara Duo Bag🤩</h3>
+                    <p class="product-price">₦25,000</p>
+                    
+                    <select id="color-elara-duo" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Brown and Olive Green">Brown and Olive Green</option>
+                        <option value="Electric Blue and Fuchsia Pink">Electric Blue and Fuchsia Pink</option>
+                        <option value="Lilac and Purple">Lilac and Purple</option>
+                        <option value="Fuchsia Pink and Olive Green">Fuchsia Pink and Olive Green</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('elara-duo', -1)">-</button>
+                        <input type="number" id="qty-elara-duo" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('elara-duo', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Elara Duo Bag🤩', 25000, 'color-elara-duo', 'qty-elara-duo')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Elara Classic Bag -->
+            <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Classic Bag🤩', '₦25,000', 25000, 'A sleek single-tone crochet bag', 'color-elara-classic', 'qty-elara-classic')">
+                <div class="image-slider">
+                    <img src="burgundy elara.jpeg" alt="Elara Classic Bag Front" class="active-slide">
+                    <img src="burgundy bottom.jfif" alt="Elara Classic Bag Side">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Elara Classic Bag🤩</h3>
+                    <p class="product-price">₦25,000</p>
+                    
+                    <select id="color-elara-classic" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Black">Black</option>
+                        <option value="Fuchsia Pink">Fuchsia Pink</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('elara-classic', -1)">-</button>
+                        <input type="number" id="qty-elara-classic" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('elara-classic', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Elara Classic Bag🤩', 25000, 'color-elara-classic', 'qty-elara-classic')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Elara Textured Bag -->
+            <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Textured Bag🤩', '₦25,000', 25000, 'Looking for a bag with a bit of character? The Elara Textured Bag is perfect for you.', 'color-elara-textured', 'qty-elara-textured')">
+                <div class="image-slider">
+                    <img src="brown popcorn elara.jfif" alt="Elara Textured Bag Front" class="active-slide">
+                    <img src="popraised.jfif" alt="Elara Textured Bag Side">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Elara Textured Bag🤩</h3>
+                    <p class="product-price">₦25,000</p>
+                    
+                    <select id="color-elara-textured" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Dark Brown and Champagne">Dark Brown and Champagne</option>
+                        <option value="Burgundy and Red">Burgundy and Red</option>
+                        <option value="Fuchsia Pink and Light Pink">Fuchsia Pink and Light Pink</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('elara-textured', -1)">-</button>
+                        <input type="number" id="qty-elara-textured" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('elara-textured', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Elara Textured Bag🤩', 25000, 'color-elara-textured', 'qty-elara-textured')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bloom Tote -->
+            <div class="product-card" data-category="totes" onclick="openQuickView(this, 'Bloom Tote🤍', '₦30,000', 30000, 'A spacious everyday tote bag lined with fabric, designed to hold daily essentials in style.', 'color-bloom-tote', 'qty-bloom-tote')">
+                <div class="image-slider">
+                    <img src="red tote.jpeg" alt="Bloom Tote Front" class="active-slide">
+                    <img src="closer red tote look.jfif" alt="Bloom Tote Detail">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Bloom Tote🤍</h3>
+                    <p class="product-price">₦30,000</p>
+                    
+                    <select id="color-bloom-tote" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Burgundy and Red">Burgundy and Red</option>
+                        <option value="Olive Green and Cream">Olive Green and Cream</option>
+                        <option value="Burgundy and Salmon Pink">Burgundy and Salmon Pink</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('bloom-tote', -1)">-</button>
+                        <input type="number" id="qty-bloom-tote" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bloom-tote', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Bloom Tote🤍', 30000, 'color-bloom-tote', 'qty-bloom-tote')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Suzy Tote -->
+            <div class="product-card" data-category="totes" onclick="openQuickView(this, 'Suzy Tote🤍', '₦30,000', 30000, 'Minimalist solid tote bag.', 'color-suzy-tote', 'qty-suzy-tote')">
+                <div class="image-slider">
+                    <img src="2nd tote bag.jfif" alt="Suzy Tote Front" class="active-slide">
+                    <img src="pink closer look.jfif" alt="Suzy Tote Close Look">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Suzy Tote🤍</h3>
+                    <p class="product-price">₦30,000</p>
+                    
+                    <select id="color-suzy-tote" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Fuchsia Pink">Fuchsia Pink</option>
+                        <option value="Olive Green">Olive Green</option>
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('suzy-tote', -1)">-</button>
+                        <input type="number" id="qty-suzy-tote" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('suzy-tote', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Suzy Tote🤍', 30000, 'color-suzy-tote', 'qty-suzy-tote')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bow Bag - Medium -->
+            <div class="product-card" data-category="bows" onclick="openQuickView(this, 'Bow Bag - Medium🎀', '₦15,000', 15000, 'Structured statement bag shaped like a bow.', 'color-bow-med', 'qty-bow-med')">
+                <div class="image-slider">
+                    <img src="bow bag 2.jpeg" alt="Bow Bag Medium Front" class="active-slide">
+                    <img src="pink bow bag worn.jpeg" alt="Bow Bag Medium Worn">
+                    <img src="back-pink bow bag.jpeg" alt="Bow Bag Medium Back">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Bow Bag - Medium🎀</h3>
+                    <p class="product-price">₦15,000</p>
+                    
+                    <select id="color-bow-med" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Black">Black</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                        <option value="Burgundy">Burgundy</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('bow-med', -1)">-</button>
+                        <input type="number" id="qty-bow-med" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bow-med', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Bow Bag - Medium🎀', 15000, 'color-bow-med', 'qty-bow-med')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bow Bag - Large -->
+            <div class="product-card" data-category="bows" onclick="openQuickView(this, 'Bow Bag - Large🎀', '₦20,000', 20000, 'Expanded version of our iconic bow bag designed to carry larger items while maintaining its shape.', 'color-bow-lg', 'qty-bow-lg')">
+                <div class="image-slider">
+                    <img src="bow bag 1.jpeg" alt="Bow Bag Large Front" class="active-slide">
+                    <img src="red bow bag worn.jpeg" alt="Bow Bag Large Worn">
+                    <img src="back-red bow bag.jpeg" alt="Bow Bag Large Back">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Bow Bag - Large🎀</h3>
+                    <p class="product-price">₦20,000</p>
+                    
+                    <select id="color-bow-lg" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Black">Black</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                        <option value="Pink">Pink</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('bow-lg', -1)">-</button>
+                        <input type="number" id="qty-bow-lg" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bow-lg', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Bow Bag - Large🎀', 20000, 'color-bow-lg', 'qty-bow-lg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Basic Scrunchie -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Basic scrunchie💫', '₦2,500', 2500, 'Cute crochet hair scrunchie that secures hair tightly without pull or damage, made with bold colors for you.', 'color-scrunchie-basic', 'qty-scrunchie-basic')">
+                <div class="image-slider">
+                    <img src="apricot scrunchie.jpeg" alt="Apricot Scrunchie" class="active-slide">
+                    <img src="brown scrunchie.jpeg" alt="Brown Scrunchie">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Basic scrunchie💫</h3>
+                    <p class="product-price">₦2,500</p>
+                    
+                    <select id="color-scrunchie-basic" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Apricot">Apricot</option>
+                        <option value="Fuchsia Pink">Fuchsia Pink</option>
+                        <option value="Light Pink">Light Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Red">Red</option>
+                        <option value="Cream">Cream</option>
+                        <option value="Black">Black</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                        <option value="Burgundy">Burgundy</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('scrunchie-basic', -1)">-</button>
+                        <input type="number" id="qty-scrunchie-basic" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('scrunchie-basic', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Basic scrunchie💫', 2500, 'color-scrunchie-basic', 'qty-scrunchie-basic')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Large Scrunchie -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Maxi scrunchie💫', '₦3,500', 3500, 'Oversized statement hair scrunchie adding instant volume to buns and ponytails, made with bold colors for you.', 'color-scrunchie-lg', 'qty-scrunchie-lg')">
+                <div class="image-slider">
+                    <img src="red scrunchie.jpeg" alt="Large Red Scrunchie" class="active-slide">
+                    <img src="pink big scrunchie.jpeg" alt="Large Pink Scrunchie">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Maxi Scrunchie💫</h3>
+                    <p class="product-price">₦3,500</p>
+                    
+                    <select id="color-scrunchie-lg" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Red">Red</option>
+                        <option value="Fuchsia Pink">Fuchsia Pink</option>
+                        <option value="Light Pink">Light Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Apricot">Apricot</option>
+                        <option value="Black">Black</option>
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Navy Blue">Navy Blue</option>
+                        <option value="Light Blue">Light Blue</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('scrunchie-lg', -1)">-</button>
+                        <input type="number" id="qty-scrunchie-lg" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('scrunchie-lg', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Maxi scrunchie💫', 3500, 'color-scrunchie-lg', 'qty-scrunchie-lg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Olohi Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Olohi✨', '₦2,000', 2000, 'Lightweight floral dangle earrings. Olohi means Beauty in the Idoma Language.', 'color-ihotu', 'qty-ihotu')">
+                <div class="image-slider">
+                    <img src="ivy4.jpeg" alt="Ivy Earrings Style 1" class="active-slide">
+                    <img src="ivy2.jpeg" alt="Ivy Earrings Style 2">
+                    <img src="ivy3.jpeg" alt="style 3">
+                    <img src="ivy1.jpeg" alt="style 4">
+                    <img src="ivy5.jpeg">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Olohi✨</h3>
+                    <p class="product-price">₦2,000</p>
+                    
+                    <select id="color-olohi" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Buttercream">Buttercream</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Neon Pink">Neon Pink</option>
+                        <option value="Purple and Lilac">Purple and Lilac</option>
+                        <option value="Burgundy and Apricot">Burgundy and Aprioct</option>
+                        <option value="Red and Burgundy">Red and Burgundy</option>
+                        <option value="Navy Blue and Light Blue">Navy Blue and Light Blue</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('olohi', -1)">-</button>
+                        <input type="number" id="qty-olohi" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('olohi', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Olohi✨', 2000, 'color-olohi', 'qty-olohi')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Eno Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Eno✨', '₦2,000', 2000, 'Charming crochet earrings made with bold colors. Eno means sun in the Idoma Language', 'color-eno', 'qty-eno')">
+                <div class="image-slider">
+                    <img src="er3.jpeg" alt="Burgundy Pearl Earrings" class="active-slide">
+                    <img src="er2.jpeg" alt="Purple Pearl Earrings">
+                    <img src="er1.jpeg">
+                    <img src="er4.jpeg">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Eno✨</h3>
+                    <p class="product-price">₦2,000</p>
+                    
+                    <select id="color-eno" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="Black">Black</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Cream">Cream</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('eno', -1)">-</button>
+                        <input type="number" id="qty-eno" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('eno', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Eno✨', 2000, 'color-eno', 'qty-eno')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Flower Bag Charm -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Blume Charm🌸', '₦3,500', 3500, 'Beautiful flower accessory designed to attach directly onto your tote or shoulder bag. Blume means Flower in the German Language', 'color-blume-charm', 'qty-blume-charm')">
+                <div class="image-slider">
+                    <img src="bag charm black and pink.jpeg" alt="Flower Bag Charm Black Pink" class="active-slide">
+                    <img src="bag charm burgundy and salmon pink.jpeg" alt="Flower Bag Charm Burgundy Salmon">
+                    <img src="bagcharms together.jfif" alt="Flower Bag Charms Group">
+                    <img src="black and pink bag charm.jpeg" alt="Bag Charms together">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Blume Charm🌸</h3>
+                    <p class="product-price">₦3,500</p>
+                    
+                    <select id="color-blume-charm" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Fuchsia Pink and Black">Fuchsia Pink and Black</option>
+                        <option value="Burgundy and Salmon Pink">Burgundy and Salmon Pink</option>
+                        <option value="Purple and Lilac">Purple and Lilac</option>
+                        <option value="Olive Green and Fuschia Pink">Olive Green and Fuschia Pink</option>
+                        <option value="Light Pink and Burgundy">Light Pink and Burgundy</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('blume-charm', -1)">-</button>
+                        <input type="number" id="qty-flower-charm" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('blume-charm', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Blume Charm🌸', 3500, 'color-blume-charm', 'qty-blume-charm')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Otu Bag Charm -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Otu Bag Charm💖', '₦4,500', 4500, 'Cute, functional and colorful heart bag charm. Otu means Heart in the Idoma Language', 'color-otu-bag-charm', 'qty-otu-bag-charm')">
+                <div class="image-slider">
+                    <img src="apricotbagcharm.jfif" alt="Apricot Heart Bag Charm" class="active-slide">
+                    <img src="bagcharmwithbows.jfif" alt="Heart Bag Charm with Bows">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Otu Bag Charm💖</h3>
+                    <p class="product-price">₦4,500</p>
+                    
+                    <select id="color-otu-bag-charm" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Black and Apricot">Black and Apricot</option>
+                        <option value="Red and Cream">Red and Cream</option>
+                        <option value="Lilac and Fuchsia Pink">Lilac and Fuchsia Pink</option>
+                        <option value="Dark Brown and Blue">Dark Brown and Blue</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('otu-bag-charm', -1)">-</button>
+                        <input type="number" id="qty-otu-bag-charm" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('otu-bag-charm', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Otu Bag Charm💖', 4500, 'color-otu-bag-charm', 'qty-otu-bag-charm')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Slouchy Beanie -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Slouchy Beanie😮‍💨', '₦10,000', 10000, 'Stylish slouchy beanie.', 'color-slouchy-beanie', 'qty-slouchy-beanie')">
+                <div class="image-slider">
+                    <img src="slouchybeanie1.jfif" alt="Slouchy Beanie Style 1" class="active-slide">
+                    <img src="slouchybeanie2.jfif" alt="Slouchy Beanie Style 2">
+                    <img src="slouchybeanie3.jfif" alt="Slouchy Beanie Style 3">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Slouchy Beanie😮‍💨</h3>
+                    <p class="product-price">₦10,000</p>
+                    
+                    <select id="color-slouchy-beanie" class="color-selector" onclick="event.stopPropagation()">
+                         <option value="Burgundy and White">Burgundy and White</option>
+                        <option value="Lilac and Black">Lilac and Black</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('slouchy-beanie', -1)">-</button>
+                        <input type="number" id="qty-slouchy-beanie" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('slouchy-beanie', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Slouchy Beanie😮‍💨', 10000, 'color-slouchy-beanie', 'qty-slouchy-beanie')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Tapestry Beanie -->
+<div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Tapestry Beanie👾', '₦15,000', 15000, 'Intricately patterned tapestry crochet beanie with bold graphic designs.', 'tapestryBeanieSelect', 'qty-tapestry-beanie')">
+    <div class="image-slider">
+        <img src="JESUS beanie.jpeg" alt="JESUS Beanie Front" class="active-slide">
+        <img src="J-beanie.jpeg" alt="Tapestry Beanie View 2">
+        <img src="JE-beanie.jpeg" alt="Tapestry Beanie View 3">
+        <img src="JES-beanie.jpeg" alt="Tapestry Beanie View 4">
+        <img src="JESU-beanie.jpeg" alt="Tapestry Beanie View 5">
+        <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+        <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+    </div>
+    <div class="product-details">
+        <h3 class="product-name">Tapestry Beanie👾</h3>
+        <p class="product-price">₦15,000</p>
+        
+        <select id="tapestryBeanieSelect" class="color-selector" onclick="event.stopPropagation()" onchange="redirectToContact(this)">
+            <option value="Pattern A">Pattern A</option>
+            <option value="Custom Pattern">Custom Pattern</option>
+        </select>
+
+        <div class="quantity-selector" onclick="event.stopPropagation()">
+            <button type="button" onclick="changeCardQty('tapestry-beanie', -1)">-</button>
+            <input type="number" id="qty-tapestry-beanie" value="1" min="1" readonly>
+            <button type="button" onclick="changeCardQty('tapestry-beanie', 1)">+</button>
+        </div>
+
+        <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Tapestry Beanie👾', 15000, 'tapestryBeanieSelect', 'qty-tapestry-beanie')">Add to Cart</button>
+    </div>
+</div>
+
+            <!-- Hair Bow -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Hair Bow🎀', '₦2,000', 2000, 'Cute crochet hair bow attachment that clips securely onto your hair.', 'color-hair-bow', 'qty-hair-bow')">
+                <div class="image-slider">
+                    <img src="bow pictures.jfif" alt="Hair Bow Display" class="active-slide">
+                    <img src="bow on head.jfif" alt="Hair Bow On Head">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Hair Bow🎀</h3>
+                    <p class="product-price">₦2,000</p>
+                    
+                    <select id="color-hair-bow" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Neon Pink">Neon Pink</option>
+                        <option value="Cream">Cream</option>
+                        <option value="Red">Red</option>
+                        <option value="Black">Black</option>
+                        <option value="Lilac">Lilac</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('hair-bow', -1)">-</button>
+                        <input type="number" id="qty-hair-bow" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('hair-bow', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Hair Bow🎀', 2000, 'color-hair-bow', 'qty-hair-bow')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Hair Bow & Scrunchie Combo -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Hair Bow & Scrunchie Combo✨', '₦7,000', 7000, 'Matching set containing a crochet hair bow and scrunchie.', 'color-bow-scrunchie-combo', 'qty-bow-scrunchie-combo')">
+                <div class="image-slider">
+                    <img src="2nd bow combo look.jfif" alt="Hair Bow & Scrunchie Combo Look" class="active-slide">
+                    <img src="bow and scrunchie combo2.jfif" alt="Hair Bow & Scrunchie Combo Display">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Hair Bow & Scrunchie Combo✨</h3>
+                    <p class="product-price">₦7,000</p>
+                    
+                    <select id="color-bow-scrunchie-combo" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Matching Champagne">Matching Champagne</option>
+                        <option value="Matching Pink">Matching Pink</option>
+                        <option value="Matching Red">Matching Red</option>
+                        <option value="Matching Apricot">Matching Apricot</option>
+                        <option value="Custom Combo">Custom Combo</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('bow-scrunchie-combo', -1)">-</button>
+                        <input type="number" id="qty-bow-scrunchie-combo" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('bow-scrunchie-combo', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Hair Bow & Scrunchie Combo✨', 7000, 'color-bow-scrunchie-combo', 'qty-bow-scrunchie-combo')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Ihotu Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Ihotu💖', '₦2,500', 2500, 'Delicate crochet heart drop earrings. Ihotu means Love in the Idoma Language', 'color-ihotu', 'qty-ihotu')">
+                <div class="image-slider">
+                    <img src="heart1.jpeg" alt="Heart Earrings Style 1" class="active-slide">
+                    <img src="heart2.jpeg" alt="Heart Earrings Style 2">
+                    <img src="heart3.jpeg" alt="Heart Earrings Style 3">
+                    <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
+                    <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-name">Ihotu💖</h3>
+                    <p class="product-price">₦2,500</p>
+                    
+                    <select id="color-ihotu" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Lilac">Lilac</option>
+                        <option value="Neon Pink">Neon Pink</option>
+                        <option value="Red">Red</option>
+                        <option value="Burgundy">Burgundy</option>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
+                    </select>
+
+                    <div class="quantity-selector" onclick="event.stopPropagation()">
+                        <button type="button" onclick="changeCardQty('ihotu', -1)">-</button>
+                        <input type="number" id="qty-ihotu" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('ihotu', 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Ihotu💖', 2500, 'color-ihotu', 'qty-ihotu')">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickViewOverlay" class="modal-overlay">
+        <div class="modal-content-wrapper">
+            <span class="close-modal" onclick="closeQuickView()">&times;</span>
+            <div class="qv-modal-body">
+                <div class="qv-image-container">
+                    <div id="qvSliderWrapper" class="image-slider">
+                        <!-- Dynamic images and navigation buttons injected via JS -->
+                    </div>
+                </div>
+                <div class="qv-details-container">
+                    <h2 id="qvModalTitle" class="qv-title">Product Name</h2>
+                    <p id="qvModalPrice" class="qv-price">₦0</p>
+                    <p id="qvModalDesc" class="qv-description">Description text...</p>
+                    
+                    <div id="qvColorContainer" class="form-group">
+                        <label for="qvColorSelect">Color / Pattern Variant:</label>
+                        <select id="qvColorSelect" class="color-selector"></select>
+                    </div>
+
+                    <div class="quantity-selector" style="justify-content: flex-start; margin-top: 10px;">
+                        <button type="button" onclick="changeModalQty(-1)">-</button>
+                        <input type="number" id="qvModalQty" value="1" min="1" readonly>
+                        <button type="button" onclick="changeModalQty(1)">+</button>
+                    </div>
+
+                    <button id="qvAddToCartBtn" class="add-to-cart" style="width: 100%; margin-top: 15px;">Add to Cart🛒</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART MODAL HTML -->
+    <div id="cartModalOverlay" class="modal-overlay">
+        <div class="modal-content-wrapper cart-modal" id="cartModalMainContent">
+            <span class="close-modal" onclick="closeCartModal()">&times;</span>
+            
+            <div id="cartItemsView">
+                <h2>Your Shopping Cart</h2>
+                <div id="cartItemsList">
+                    <!-- Cart items injected dynamically -->
+                </div>
+                <div class="cart-total" id="cartTotalDisplay">Total: ₦0</div>
+                <button class="modal-checkout-btn" onclick="showCheckoutForm()" id="checkoutStep1Btn">Secure Checkout 💳</button>
+            </div>
+
+            <!-- STEP 2: Delivery Details & Payment Form -->
+            <div class="checkout-form-container" id="checkoutFormStep">
+                <h3>Delivery Details</h3>
+
+                <!-- Automatic Payment Countdown Timer Box -->
+                <div id="checkout-timer-box" style="background-color: #fff5f5; border: 1px solid #631C2D; color: #631C2D; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 15px; font-weight: 600; font-size: 0.9rem;">
+                    ⏳ Complete checkout in: <span id="timer-display" style="font-weight: bold; font-size: 1.1rem; color: #d9534f;">10:00</span>
+                </div>
+
+                <form id="checkoutForm" onsubmit="initializePaystack(event)">
+                    <div class="form-group">
+                        <label for="cust-name">Full Name *</label>
+                        <input type="text" id="cust-name" placeholder="Sarah Danjuma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-email">Email Address *</label>
+                        <input type="email" id="cust-email" placeholder="sarah@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-phone">Phone Number *</label>
+                        <input type="tel" id="cust-phone" placeholder="07012345678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-state">Delivery State / Area *</label>
+                        <select id="cust-state" required>
+                            <option value="" disabled selected>Select location</option>
+                            <option value="Abuja Central">Abuja Central</option>
+                            <option value="Lugbe / Airport Road">Lugbe / Airport Road</option>
+                            <option value="Gwarinpa">Gwarinpa</option>
+                            <option value="Wuse / Garki">Wuse / Garki</option>
+                            <option value="Other">Other</option>
+                            <option value="Outside Abuja (Interstate)">Outside Abuja (Interstate)</option>
+                            <option value="International">International</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cust-address">Exact Delivery Address *</label>
+                        <textarea id="cust-address" rows="2" placeholder="Street name, house number, estate..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="modal-checkout-btn" style="margin-top: 15px;" id="paystackTriggerBtn">Pay with Paystack🔒</button>
+                    <button type="button" onclick="hideCheckoutForm()" style="background: none; border: none; color: #666; margin-top: 10px; cursor: pointer; text-decoration: underline; width: 100%;">Back to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Icon -->
+    <div id="floatingCart" class="floating-cart cart-hidden" onclick="openCartModal()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+    </div>
+
+    <!-- Care Guide Link -->
+    <div class="product-care-badge" style="text-align: center; margin: 20px 0;">
+      <span>Need Care Instructions?</span>
+      <a href="index.html#care-guide" style="color: #631C2D; font-weight: bold; text-decoration: underline; margin-left: 5px;">View Care Guide →</a>
+    </div>
+
+    <!-- Custom Requests Section -->
+    <section class="custom-requests-section" id="custom-requests">
+      <div class="custom-card" style="background: #fafafa; padding: 25px; border-radius: 12px; max-width: 800px; margin: 0 auto; text-align: center; border: 1px dashed #631C2D;">
+        <span class="custom-badge" style="background: #631C2D; color: #fff; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">Custom Orders</span>
+        <h2 class="custom-title" style="font-family: 'Playfair Display', serif; color: #631C2D; margin-top: 10px;">Want a Custom Design or Color?🧶</h2>
+
+        <div class="custom-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0; text-align: left;">
+          <div class="custom-item" style="flex: 1 1 250px;">
+            <h3>🎨 Looking for a Different Color?</h3>
+            <p>If your favorite color isn't listed for an existing bag or accessory, reach out to request it at <strong>no extra charge</strong>!</p>
+          </div>
+          <div class="custom-item" style="flex: 1 1 250px;">
+            <h3>👗 Custom Clothing & Unique Pieces</h3>
+            <p>We craft tailored crochet wearables and completely custom designs made strictly to order.</p>
+          </div>
+        </div>
+
+        <div class="custom-cta">
+          <a href="contact.html" class="add-to-cart" style="text-decoration: none; display: inline-block;">Send us a message✨</a>
+        </div>
+      </div>
+    </section>
+
+     <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>Perfectly Hooked</h3>
+            <p>Handmade crochet bags crafted with love.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="products.html">Products</a>
+            <a href="about.html">About & Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-subscribe">
+            <h4>Subscribe</h4>
+            <p>Join the inner circle for product drops!</p>
+            <!-- Your live Mailchimp URL added below -->
+            <form action="http://eepurl.com/KweztjJP5p" method="post" target="_blank" novalidate>
+                <div class="subscribe-form">
+                    <input type="email" name="EMAIL" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-socials">
+            <h4>Connect</h4>
+            <div class="social-links">
+                <a href="https://www.instagram.com/perfection_crochetsabuja?igsh=cXE3OTdkZmlja3Q5&utm_source=qr" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@perfection_crochetsabuja?_r=1&_t=ZS-97vXRY3c20D" target="_blank">TikTok</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Perfectly Hooked. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- JavaScript Features -->
+<script>
+    const PAYSTACK_PUBLIC_KEY = "pk_live_68394cd088e435a90f4a72ca19ff16f807fd43e6"; 
+    let cart = JSON.parse(localStorage.getItem('perfectlyHookedCart')) || [];
+    let activeQvItemData = {};
+    let countdownInterval;
+
+    // Single unified onload event listener
+    window.addEventListener('DOMContentLoaded', function() {
+        updateCartDisplay();
+        checkWelcomeBanner();
+        handleHashNavigation();
+    });
+
+    /* --- WELCOME BACK BANNER LOGIC --- */
+    function checkWelcomeBanner() {
+        const aggregateUnitsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        const hasSeenWelcomeBanner = sessionStorage.getItem('welcomeBannerDismissed');
+        const welcomeBanner = document.getElementById('welcome-back-banner');
+        const welcomeCount = document.getElementById('welcome-cart-count');
+
+        if (aggregateUnitsCount > 0 && !hasSeenWelcomeBanner) {
+            if (welcomeBanner) {
+                welcomeBanner.classList.remove('hidden');
+            }
+            if (welcomeCount) {
+                welcomeCount.textContent = aggregateUnitsCount;
+            }
+        }
+    }
+
+    function closeWelcomeBanner() {
+        const welcomeBanner = document.getElementById('welcome-back-banner');
+        if (welcomeBanner) {
+            welcomeBanner.classList.add('hidden');
+        }
+        // Save in session so it doesn't reappear during this browsing session
+        sessionStorage.setItem('welcomeBannerDismissed', 'true');
+    }
+
+    function handleHashNavigation() {
+        const hash = window.location.hash;
+        if (hash) {
+            const category = hash.replace('#', '');
+            const targetBtn = document.querySelector(`.filter-btn[onclick*="'${category}'"]`);
+            if (targetBtn) {
+                targetBtn.click();
+                targetBtn.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
+    /* --- QUICK VIEW MODAL LOGIC WITH IMAGE SLIDER --- */
+    function openQuickView(cardElement, title, priceFormatted, numericPrice, description, sourceColorSelectId, sourceQtyId) {
+        activeQvItemData = {
+            title: title,
+            price: numericPrice
+        };
+
+        document.getElementById('qvModalTitle').textContent = title;
+        document.getElementById('qvModalPrice').textContent = priceFormatted;
+        document.getElementById('qvModalDesc').textContent = description;
+        document.getElementById('qvModalQty').value = 1;
+
+        // Populate Quick View Gallery Images from card slider
+        const sliderWrapper = document.getElementById('qvSliderWrapper');
+        sliderWrapper.innerHTML = '';
+        
+        const cardImages = cardElement.querySelectorAll('.image-slider img');
+        cardImages.forEach((img, idx) => {
+            const newImg = document.createElement('img');
+            newImg.src = img.src;
+            newImg.alt = img.alt || title;
+            if (idx === 0) newImg.classList.add('active-slide');
+            sliderWrapper.appendChild(newImg);
+        });
+
+        if (cardImages.length > 1) {
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'slide-btn prev-btn';
+            prevBtn.innerHTML = '&#10094;';
+            prevBtn.onclick = function(e) {
+                e.stopPropagation();
+                changeSlide(this, -1);
+            };
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'slide-btn next-btn';
+            nextBtn.innerHTML = '&#10095;';
+            nextBtn.onclick = function(e) {
+                e.stopPropagation();
+                changeSlide(this, 1);
+            };
+
+            sliderWrapper.appendChild(prevBtn);
+            sliderWrapper.appendChild(nextBtn);
+        }
+
+        // Populate Color Options
+        const qvColorSelect = document.getElementById('qvColorSelect');
+        qvColorSelect.innerHTML = '';
+
+        const sourceSelect = document.getElementById(sourceColorSelectId);
+        if (sourceSelect) {
+            Array.from(sourceSelect.options).forEach(opt => {
+                const optionElem = document.createElement('option');
+                optionElem.value = opt.value;
+                optionElem.textContent = opt.textContent;
+                if(opt.selected) optionElem.selected = true;
+                qvColorSelect.appendChild(optionElem);
+            });
+        }
+
+        document.getElementById('qvAddToCartBtn').onclick = function() {
+            const selectedColor = qvColorSelect.value || "Standard";
+            const selectedQty = parseInt(document.getElementById('qvModalQty').value) || 1;
+            
+            const matchingIndex = cart.findIndex(item => item.name === title && item.color === selectedColor);
+            if (matchingIndex > -1) {
+                cart[matchingIndex].quantity += selectedQty;
+            } else {
+                cart.push({ 
+                    name: title, 
+                    price: numericPrice, 
+                    color: selectedColor, 
+                    quantity: selectedQty 
+                });
+            }
+            saveCart();
+            closeQuickView();
+            alert(`${selectedQty}x ${title} (${selectedColor}) successfully added to cart! ✨`);
+        };
+
+        document.getElementById('quickViewOverlay').style.display = 'flex';
+    }
+
+    function closeQuickView() {
+        document.getElementById('quickViewOverlay').style.display = 'none';
+    }
+
+    function changeModalQty(direction) {
+        const qtyInput = document.getElementById('qvModalQty');
+        let currentVal = parseInt(qtyInput.value) || 1;
+        currentVal += direction;
+        if (currentVal < 1) currentVal = 1;
+        qtyInput.value = currentVal;
+    }
+
+    /* --- BASIC PRODUCT CARD CONTROLS --- */
+    function filterItems(category, buttonElement) {
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        buttonElement.classList.add('active');
+
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => {
+            if (category === 'all' || product.getAttribute('data-category') === category) {
+                product.classList.remove('hide-product');
+            } else {
+                product.classList.add('hide-product');
+            }
+        });
+    }
+
+    function changeSlide(button, direction) {
+        const slider = button.closest('.image-slider');
+        const images = slider.querySelectorAll('img');
+        let currentIndex = 0;
+        
+        images.forEach((img, index) => {
+            if (img.classList.contains('active-slide')) {
+                currentIndex = index;
+                img.classList.remove('active-slide');
+            }
+        });
+        
+        let newIndex = currentIndex + direction;
+        if (newIndex >= images.length) newIndex = 0; 
+        else if (newIndex < 0) newIndex = images.length - 1; 
+        
+        images[newIndex].classList.add('active-slide');
+    }
+
+    function changeCardQty(inputId, direction) {
+        const qtyInput = document.getElementById(`qty-${inputId}`);
+        if (!qtyInput) return;
+        let currentVal = parseInt(qtyInput.value) || 1;
+        currentVal += direction;
+        if (currentVal < 1) currentVal = 1;
+        qtyInput.value = currentVal;
+    }
+
+    function saveCart() {
+        localStorage.setItem('perfectlyHookedCart', JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    function addCustomToCart(itemName, itemPrice, colorSelectId, qtyInputId) {
+        let selectedColor = "Standard";
+        if (colorSelectId) {
+            const colorDropdown = document.getElementById(colorSelectId);
+            if (colorDropdown) selectedColor = colorDropdown.value;
+        }
+
+        const qtyField = document.getElementById(qtyInputId);
+        const chosenQuantity = qtyField ? parseInt(qtyField.value) || 1 : 1;
+
+        const matchingIndex = cart.findIndex(item => item.name === itemName && item.color === selectedColor);
+        
+        if (matchingIndex > -1) {
+            cart[matchingIndex].quantity += chosenQuantity;
+        } else {
+            cart.push({ 
+                name: itemName, 
+                price: itemPrice, 
+                color: selectedColor, 
+                quantity: chosenQuantity 
+            });
+        }
+
+        saveCart();
+        if (qtyField) qtyField.value = 1; 
+        alert(`${chosenQuantity}x ${itemName} (${selectedColor}) successfully added to cart! ✨`);
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        saveCart();
+        openCartModal(); 
+    }
+
+    function updateCartDisplay() {
+        const aggregateUnitsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        const floatingCart = document.getElementById('floatingCart');
+        const cartCount = document.getElementById('cartCount');
+        const cartCountHeader = document.getElementById('cartCountHeader');
+        
+        if (cartCount) cartCount.textContent = aggregateUnitsCount;
+        if (cartCountHeader) cartCountHeader.textContent = aggregateUnitsCount;
+
+        if (aggregateUnitsCount > 0) {
+            if (floatingCart) floatingCart.classList.remove('cart-hidden');
+        } else {
+            if (floatingCart) floatingCart.classList.add('cart-hidden');
+        }
+    }
+
+    /* --- CART MODAL LOGIC --- */
+    function openCartModal() {
+        const modalOverlay = document.getElementById('cartModalOverlay');
+        const list = document.getElementById('cartItemsList');
+        const totalDisplay = document.getElementById('cartTotalDisplay');
+
+        document.getElementById('cartItemsView').style.display = 'block';
+        document.getElementById('checkoutFormStep').style.display = 'none';
+
+        list.innerHTML = ''; 
+        let total = 0;
+
+        if (cart.length === 0) {
+            list.innerHTML = '<p style="text-align:center; color:#666;">Your cart is empty.</p>';
+            document.getElementById('checkoutStep1Btn').style.display = 'none';
+        } else {
+            document.getElementById('checkoutStep1Btn').style.display = 'block';
+            cart.forEach((item, index) => {
+                const itemQty = item.quantity || 1;
+                const rowSubtotal = item.price * itemQty;
+                total += rowSubtotal;
+                
+                list.innerHTML += `
+                    <div class="cart-item-row">
+                        <div class="cart-item-details">
+                            <span class="cart-item-title">${item.name} (x${itemQty})</span>
+                            <span class="cart-item-subtitle">Color: ${item.color} | Subtotal: ₦${rowSubtotal.toLocaleString()}</span>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${index})" title="Remove item">✖</button>
+                    </div>
+                `;
+            });
+        }
+
+        totalDisplay.textContent = `Total: ₦${total.toLocaleString()}`;
+        document.getElementById('checkoutStep1Btn').textContent = `Proceed to Details (₦${total.toLocaleString()})`;
+        
+        modalOverlay.style.display = 'flex'; 
+    }
+
+    function closeCartModal() {
+        document.getElementById('cartModalOverlay').style.display = 'none'; 
+    }
+
+    function startCheckoutTimer() {
+        clearInterval(countdownInterval);
+        let durationInSeconds = 10 * 60; 
+        const display = document.getElementById('timer-display');
+
+        countdownInterval = setInterval(() => {
+            let minutes = Math.floor(durationInSeconds / 60);
+            let seconds = durationInSeconds % 60;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (display) display.textContent = `${minutes}:${seconds}`;
+
+            if (--durationInSeconds < 0) {
+                clearInterval(countdownInterval);
+                alert("Checkout time expired. Please re-select your items to proceed.");
+                closeCartModal();
+            }
+        }, 1000);
+    }
+
+    function showCheckoutForm() {
+        if (cart.length === 0) return;
+        document.getElementById('cartItemsView').style.display = 'none';
+        document.getElementById('checkoutFormStep').style.display = 'block';
+        startCheckoutTimer();
+    }
+
+    function hideCheckoutForm() {
+        document.getElementById('cartItemsView').style.display = 'block';
+        document.getElementById('checkoutFormStep').style.display = 'none';
+    }
+
+    function initializePaystack(event) {
+        event.preventDefault();
+
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        const name = document.getElementById('cust-name').value;
+        const email = document.getElementById('cust-email').value;
+        const phone = document.getElementById('cust-phone').value;
+        const location = document.getElementById('cust-state').value;
+        const address = document.getElementById('cust-address').value;
+
+        let totalOrderCount = parseInt(localStorage.getItem('ph_order_count')) || 0;
+        const isEarlyBird = totalOrderCount < 20;
+
+        let subtotalNaira = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+        
+        let totalNaira = subtotalNaira;
+        if (isEarlyBird) {
+            totalNaira = Math.round(subtotalNaira * 0.90); 
+        }
+
+        const totalKobo = totalNaira * 100;
+
+        const payButton = document.getElementById('paystackTriggerBtn');
+        payButton.disabled = true;
+        payButton.textContent = "Opening Paystack Gateway...";
+
+        const orderRef = "PH-" + Math.floor(100000 + Math.random() * 900000);
+
+        let handler = PaystackPop.setup({
+            key: PAYSTACK_PUBLIC_KEY,
+            email: email,
+            amount: totalKobo,
+            currency: 'NGN',
+            ref: orderRef,
+            metadata: {
+                custom_fields: [
+                    { display_name: "Customer Name", variable_name: "customer_name", value: name },
+                    { display_name: "Phone Number", variable_name: "phone_number", value: phone },
+                    { display_name: "Delivery Location", variable_name: "delivery_location", value: location },
+                    { display_name: "Delivery Address", variable_name: "delivery_address", value: address },
+                    { display_name: "Early Bird Discount", variable_name: "early_bird", value: isEarlyBird ? "Yes (10% OFF)" : "No" }
+                ]
+            },
+            callback: function(response) {
+                handlePaymentSuccess(response.reference, name, phone, location, address, totalNaira, isEarlyBird, totalOrderCount + 1);
+            },
+            onClose: function() {
+                alert('Transaction cancelled. You can try again when you are ready :)');
+                payButton.disabled = false;
+                payButton.textContent = "Pay with Paystack🔒";
+            }
+        });
+
+        handler.openIframe();
+    }
+
+    function handlePaymentSuccess(reference, name, phone, location, address, amountPaid, isEarlyBird, orderNumber) {
+        localStorage.setItem('ph_order_count', orderNumber);
+        clearInterval(countdownInterval);
+
+        let itemsString = "";
+        cart.forEach(item => {
+            itemsString += `• ${item.name} (x${item.quantity}) [Color: ${item.color}]\n`;
+        });
+
+        const rawMessage = `Hi Perfectly Hooked!🧶\n\nI have successfully completed payment on your website for my order.\n\n` +
+                           `Amount Paid: ₦${amountPaid.toLocaleString()}${isEarlyBird ? ' (Includes 10% Early Bird Discount!🎉)' : ''}\n` +
+                           `Reference: ${reference}\n\n` +
+                           `Items Purchased:\n${itemsString}\n` +
+                           `Customer Details:\n` +
+                           `• Name: ${name}\n` +
+                           `• Phone: ${phone}\n` +
+                           `• Area: ${location}\n` +
+                           `• Address: ${address}\n\n` +
+                           `Let's discuss shipping fees!✨`;
+
+        const encodedMessage = encodeURIComponent(rawMessage);
+        const whatsappNumber = "2347015089219"; 
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        cart = [];
+        saveCart();
+
+        let specialMessageHTML = "";
+        if (isEarlyBird) {
+            specialMessageHTML = `
+                <div style="background-color: #fff5f5; border: 1px dashed #631C2D; padding: 15px; border-radius: 12px; margin: 15px 0; text-align: left;">
+                    <p style="color: #631C2D; font-weight: bold; font-size: 1rem; margin-bottom: 8px;">
+                        Congratulations ${name} on being customer #${orderNumber} from our website!🎉
+                    </p>
+                    <p style="color: #4a1522; font-style: italic; font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                        "We truly appreciate your patronage, in no time your product will be delivered to you, I hope you enjoy it as much as I did making it for you!🥹❤️"
+                    </p>
+                </div>
+            `;
+        }
+
+        const modalContent = document.getElementById('cartModalMainContent');
+        modalContent.innerHTML = `
+            <div class="success-screen">
+                <h2>🎉Payment Successful!</h2>
+                <p>Your transaction was verified under reference: <strong>${reference}</strong>.</p>
+                ${specialMessageHTML}
+                <p>We've registered your payment. To complete your order and arrange shipping/delivery options, tap below to continue on WhatsApp.</p>
+                <a href="${whatsappUrl}" target="_blank" class="whatsapp-btn">Continue to WhatsApp 💬</a>
+            </div>
+        `;
+    }
+
+    function redirectToContact(selectElement) {
+        if (selectElement.value === 'Custom Pattern') {
+            window.location.href = 'contact.html?topic=custom_tapestry_beanie';
+        }
+    }
+</script>
+</body>
+</html>
