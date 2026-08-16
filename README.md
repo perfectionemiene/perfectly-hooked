@@ -8,7 +8,7 @@ This project is my first frontend website and marks the beginning of my frontend
 
 ## Live Website
 
-(yet to be uploaded)
+https://perfectlyhooked.netlify.app/
 
 ---
 
@@ -124,7 +124,6 @@ Planned features include:
 - Database integration
 - Admin dashboard
 - Product search
-- Product filtering
 - Wishlist
 - Inventory management
 - Order history
