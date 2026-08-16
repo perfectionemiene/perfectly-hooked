@@ -1044,9 +1044,7 @@ footer h3, footer h4 {
     box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.1);
 }
 
-/* ==========================================================================
-   --- Mobile Responsiveness Breakpoints ---
-   ========================================================================== */
+  /* --- Mobile Responsiveness Breakpoints --- */
 
 /* --- Tablet (768px - 992px) --- */
 @media (max-width: 992px) {
@@ -1127,7 +1125,7 @@ footer h3, footer h4 {
         padding-right: 4% !important;
     }
     
-    /* Kept header text center-aligned on mobile */
+    /* Keep header text center-aligned on mobile */
     header {
         flex-direction: column;
         align-items: flex-start;
@@ -1183,7 +1181,7 @@ footer h3, footer h4 {
         padding: 20px 15px;
     }
     
-    /* Bestseller and about preview remain SIDE-BY-SIDE on mobile */
+    /* Bestseller and about preview remain side by side on mobile */
     .bestseller-container,  
     .about-preview-container {
         flex-direction: row !important;
@@ -1508,9 +1506,7 @@ footer h3, footer h4 {
     color: #4a4a4a;
 }
 
-/* ==========================================
-   FAQ SECTION STYLING
-   ========================================== */
+/* FAQ SECTION STYLING */
 
 .faq-section {
     max-width: 900px;
@@ -1688,9 +1684,7 @@ footer h3, footer h4 {
     text-decoration: underline;
 }
 
-/* ==========================================
-   LOVE IT. CARE FOR IT. (BESTSELLER MIRROR STYLING)
-   ========================================== */
+/* LOVE IT. CARE FOR IT. (BESTSELLER MIRROR STYLING) */
 
 .care-guide-section {
     padding: 40px 20px;
@@ -1819,9 +1813,7 @@ footer h3, footer h4 {
     transform: translateY(-2px);
 }
 
-/* ==========================================
-   GENERAL CARE TIPS
-   ========================================== */
+/* GENERAL CARE TIPS */
 
 .general-care-tips {
     background-color: rgba(255, 255, 255, 0.7);
@@ -1874,9 +1866,7 @@ footer h3, footer h4 {
     line-height: 1;
 }
 
-/* ==========================================
-   UNIFIED CUSTOM REQUESTS SECTION
-   ========================================== */
+/*  UNIFIED CUSTOM REQUESTS SECTION */
 
 .custom-requests-section {
     padding: 40px 20px;
@@ -2011,9 +2001,7 @@ footer h3, footer h4 {
     }
 }
 
-/* ==========================================
-   WELCOME BACK BANNER STYLING
-   ========================================== */
+/*  WELCOME BACK BANNER STYLING */
 
 .welcome-banner {
     position: fixed;
