@@ -770,9 +770,9 @@
             <!-- Elara Duo Bag -->
             <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Duo Bag🤩', '₦25,000', 25000, 'A beautiful dual-tone handmade crochet wrist bag.', 'color-elara-duo', 'qty-elara-duo')">
                 <div class="image-slider">
-                    <img src="bag elara.jpeg" alt="Elara Duo Bag Front" class="active-slide">
+                    <img src="b+p elara.jpeg" alt="Elara Duo Bag Front" class="active-slide">
                     <img src="brown elara.jpeg" alt="Elara Duo Bag Side">
-                    <img src="b+p elara.jpeg" alt="Elara Duo Bag Inside">
+                    <img src="bag elara.jpeg" alt="Elara Duo Bag Inside">
                     <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
@@ -781,9 +781,9 @@
                     <p class="product-price">₦25,000</p>
                     
                     <select id="color-elara-duo" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Brown and Olive Green">Brown and Olive Green</option>
                         <option value="Electric Blue and Fuchsia Pink">Electric Blue and Fuchsia Pink</option>
                         <option value="Lilac and Purple">Lilac and Purple</option>
-                        <option value="Brown and Olive Green">Brown and Olive Green</option>
                         <option value="Fuchsia Pink and Olive Green">Fuchsia Pink and Olive Green</option>
                     </select>
 
@@ -1008,7 +1008,7 @@
             </div>
 
             <!-- Large Scrunchie -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Large scrunchie💫', '₦3,500', 3500, 'Oversized statement hair scrunchie adding instant volume to buns and ponytails, made with bold colors for you.', 'color-scrunchie-lg', 'qty-scrunchie-lg')">
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Maxi scrunchie💫', '₦3,500', 3500, 'Oversized statement hair scrunchie adding instant volume to buns and ponytails, made with bold colors for you.', 'color-scrunchie-lg', 'qty-scrunchie-lg')">
                 <div class="image-slider">
                     <img src="red scrunchie.jpeg" alt="Large Red Scrunchie" class="active-slide">
                     <img src="pink big scrunchie.jpeg" alt="Large Pink Scrunchie">
@@ -1016,7 +1016,7 @@
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Large scrunchie💫</h3>
+                    <h3 class="product-name">Maxi Scrunchie💫</h3>
                     <p class="product-price">₦3,500</p>
                     
                     <select id="color-scrunchie-lg" class="color-selector" onclick="event.stopPropagation()">
@@ -1038,23 +1038,29 @@
                         <button type="button" onclick="changeCardQty('scrunchie-lg', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Large scrunchie💫', 3500, 'color-scrunchie-lg', 'qty-scrunchie-lg')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Maxi scrunchie💫', 3500, 'color-scrunchie-lg', 'qty-scrunchie-lg')">Add to Cart</button>
                 </div>
             </div>
 
-            <!-- Ivy Earrings -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Ivy Earrings✨', '₦2,000', 2000, 'Lightweight floral dangle earrings.', 'color-ivy-earrings', 'qty-ivy-earrings')">
+            <!-- Olohi Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Olohi✨', '₦2,000', 2000, 'Lightweight floral dangle earrings. Olohi means Beauty in the Idoma Language.', 'color-ihotu', 'qty-ihotu')">
                 <div class="image-slider">
-                    <img src="earring1.jfif" alt="Ivy Earrings Style 1" class="active-slide">
-                    <img src="earring2.jfif" alt="Ivy Earrings Style 2">
+                    <img src="ivy4.jpeg" alt="Ivy Earrings Style 1" class="active-slide">
+                    <img src="ivy2.jpeg" alt="Ivy Earrings Style 2">
+                    <img src="ivy3.jpeg" alt="style 3">
+                    <img src="ivy1.jpeg" alt="style 4">
+                    <img src="ivy5.jpeg">
                     <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Ivy Earrings✨</h3>
+                    <h3 class="product-name">Olohi✨</h3>
                     <p class="product-price">₦2,000</p>
                     
-                    <select id="color-ivy-earrings" class="color-selector" onclick="event.stopPropagation()">
+                    <select id="color-olohi" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Buttercream">Buttercream</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Neon Pink">Neon Pink</option>
                         <option value="Purple and Lilac">Purple and Lilac</option>
                         <option value="Burgundy and Apricot">Burgundy and Aprioct</option>
                         <option value="Red and Burgundy">Red and Burgundy</option>
@@ -1062,60 +1068,63 @@
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
-                        <button type="button" onclick="changeCardQty('ivy-earrings', -1)">-</button>
-                        <input type="number" id="qty-ivy-earrings" value="1" min="1" readonly>
-                        <button type="button" onclick="changeCardQty('ivy-earrings', 1)">+</button>
+                        <button type="button" onclick="changeCardQty('olohi', -1)">-</button>
+                        <input type="number" id="qty-olohi" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('olohi', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Ivy Earrings✨', 2000, 'color-ivy-earrings', 'qty-ivy-earrings')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Olohi✨', 2000, 'color-olohi', 'qty-olohi')">Add to Cart</button>
                 </div>
             </div>
 
-            <!-- Pearl Earrings -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Pearl Earrings✨', '₦2,000', 2000, 'Charming crochet earrings madde with bold colors.', 'color-pearl-earrings', 'qty-pearl-earrings')">
+            <!-- Eno Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Eno✨', '₦2,000', 2000, 'Charming crochet earrings made with bold colors. Eno means sun in the Idoma Language', 'color-eno', 'qty-eno')">
                 <div class="image-slider">
-                    <img src="burgundy earrings1.jfif" alt="Burgundy Pearl Earrings" class="active-slide">
-                    <img src="purpleearrings2.jfif" alt="Purple Pearl Earrings">
+                    <img src="er3.jpeg" alt="Burgundy Pearl Earrings" class="active-slide">
+                    <img src="er2.jpeg" alt="Purple Pearl Earrings">
+                    <img src="er1.jpeg">
+                    <img src="er4.jpeg">
                     <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Pearl Earrings✨</h3>
+                    <h3 class="product-name">Eno✨</h3>
                     <p class="product-price">₦2,000</p>
                     
-                    <select id="color-pearl-earrings" class="color-selector" onclick="event.stopPropagation()">
+                    <select id="color-eno" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Burgundy">Burgundy</option>
-                        <option value="Pink">Pink</option>
                         <option value="Black">Black</option>
+                        <option value="Pink">Pink</option>
                         <option value="Purple">Purple</option>
                         <option value="Brown">Brown</option>
                         <option value="Cream">Cream</option>
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
-                        <button type="button" onclick="changeCardQty('pearl-earrings', -1)">-</button>
-                        <input type="number" id="qty-pearl-earrings" value="1" min="1" readonly>
-                        <button type="button" onclick="changeCardQty('pearl-earrings', 1)">+</button>
+                        <button type="button" onclick="changeCardQty('eno', -1)">-</button>
+                        <input type="number" id="qty-eno" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('eno', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Pearl Earrings✨', 2000, 'color-pearl-earrings', 'qty-pearl-earrings')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Eno✨', 2000, 'color-eno', 'qty-eno')">Add to Cart</button>
                 </div>
             </div>
 
             <!-- Flower Bag Charm -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Flower Bag Charm🌸', '₦3,500', 3500, 'Beautiful flower accessory designed to attach directly onto your tote or shoulder bag.', 'color-flower-charm', 'qty-flower-charm')">
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Blume Charm🌸', '₦3,500', 3500, 'Beautiful flower accessory designed to attach directly onto your tote or shoulder bag. Blume means Flower in the German Language', 'color-blume-charm', 'qty-blume-charm')">
                 <div class="image-slider">
                     <img src="bag charm black and pink.jpeg" alt="Flower Bag Charm Black Pink" class="active-slide">
                     <img src="bag charm burgundy and salmon pink.jpeg" alt="Flower Bag Charm Burgundy Salmon">
                     <img src="bagcharms together.jfif" alt="Flower Bag Charms Group">
+                    <img src="black and pink bag charm.jpeg" alt="Bag Charms together">
                     <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Flower Bag Charm🌸</h3>
+                    <h3 class="product-name">Blume Charm🌸</h3>
                     <p class="product-price">₦3,500</p>
                     
-                    <select id="color-flower-charm" class="color-selector" onclick="event.stopPropagation()">
+                    <select id="color-blume-charm" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Fuchsia Pink and Black">Fuchsia Pink and Black</option>
                         <option value="Burgundy and Salmon Pink">Burgundy and Salmon Pink</option>
                         <option value="Purple and Lilac">Purple and Lilac</option>
@@ -1124,17 +1133,17 @@
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
-                        <button type="button" onclick="changeCardQty('flower-charm', -1)">-</button>
+                        <button type="button" onclick="changeCardQty('blume-charm', -1)">-</button>
                         <input type="number" id="qty-flower-charm" value="1" min="1" readonly>
-                        <button type="button" onclick="changeCardQty('flower-charm', 1)">+</button>
+                        <button type="button" onclick="changeCardQty('blume-charm', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Flower Bag Charm🌸', 3500, 'color-flower-charm', 'qty-flower-charm')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Blume Charm🌸', 3500, 'color-blume-charm', 'qty-blume-charm')">Add to Cart</button>
                 </div>
             </div>
 
-            <!-- Heart Bag Charm -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Heart Bag Charm💖', '₦4,500', 4500, 'Cute and functional heart bag charm, made with love', 'color-heart-charm', 'qty-heart-charm')">
+            <!-- Otu Bag Charm -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Otu Bag Charm💖', '₦4,500', 4500, 'Cute, functional and colorful heart bag charm. Otu means Heart in the Idoma Language', 'color-otu-bag-charm', 'qty-otu-bag-charm')">
                 <div class="image-slider">
                     <img src="apricotbagcharm.jfif" alt="Apricot Heart Bag Charm" class="active-slide">
                     <img src="bagcharmwithbows.jfif" alt="Heart Bag Charm with Bows">
@@ -1142,10 +1151,10 @@
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Heart Bag Charm💖</h3>
+                    <h3 class="product-name">Otu Bag Charm💖</h3>
                     <p class="product-price">₦4,500</p>
                     
-                    <select id="color-heart-charm" class="color-selector" onclick="event.stopPropagation()">
+                    <select id="color-otu-bag-charm" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Black and Apricot">Black and Apricot</option>
                         <option value="Red and Cream">Red and Cream</option>
                         <option value="Lilac and Fuchsia Pink">Lilac and Fuchsia Pink</option>
@@ -1153,12 +1162,12 @@
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
-                        <button type="button" onclick="changeCardQty('heart-charm', -1)">-</button>
-                        <input type="number" id="qty-heart-charm" value="1" min="1" readonly>
-                        <button type="button" onclick="changeCardQty('heart-charm', 1)">+</button>
+                        <button type="button" onclick="changeCardQty('otu-bag-charm', -1)">-</button>
+                        <input type="number" id="qty-otu-bag-charm" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('otu-bag-charm', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Heart Bag Charm💖', 4500, 'color-heart-charm', 'qty-heart-charm')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Otu Bag Charm💖', 4500, 'color-otu-bag-charm', 'qty-otu-bag-charm')">Add to Cart</button>
                 </div>
             </div>
 
@@ -1233,10 +1242,11 @@
                     <p class="product-price">₦2,000</p>
                     
                     <select id="color-hair-bow" class="color-selector" onclick="event.stopPropagation()">
-                        <option value="Pink">Pink</option>
+                        <option value="Neon Pink">Neon Pink</option>
                         <option value="Cream">Cream</option>
                         <option value="Red">Red</option>
                         <option value="Black">Black</option>
+                        <option value="Lilac">Lilac</option>
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
@@ -1279,32 +1289,35 @@
                 </div>
             </div>
 
-            <!-- Heart Earrings -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Heart Earrings💖', '₦2,500', 2500, 'Delicate crochet heart drop earrings.', 'color-heart-earrings', 'qty-heart-earrings')">
+            <!-- Ihotu Earrings -->
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Ihotu💖', '₦2,500', 2500, 'Delicate crochet heart drop earrings. Ihotu means Love in the Idoma Language', 'color-ihotu', 'qty-ihotu')">
                 <div class="image-slider">
-                    <img src="heartearrings1.jpeg" alt="Heart Earrings Style 1" class="active-slide">
-                    <img src="heartearrings2.jpeg" alt="Heart Earrings Style 2">
+                    <img src="heart1.jpeg" alt="Heart Earrings Style 1" class="active-slide">
+                    <img src="heart2.jpeg" alt="Heart Earrings Style 2">
+                    <img src="heart3.jpeg" alt="Heart Earrings Style 3">
                     <button class="slide-btn prev-btn" onclick="event.stopPropagation(); changeSlide(this, -1)">&#10094;</button>
                     <button class="slide-btn next-btn" onclick="event.stopPropagation(); changeSlide(this, 1)">&#10095;</button>
                 </div>
                 <div class="product-details">
-                    <h3 class="product-name">Heart Earrings💖</h3>
+                    <h3 class="product-name">Ihotu💖</h3>
                     <p class="product-price">₦2,500</p>
                     
-                    <select id="color-heart-earrings" class="color-selector" onclick="event.stopPropagation()">
-                        <option value="Pink">Pink</option>
+                    <select id="color-ihotu" class="color-selector" onclick="event.stopPropagation()">
+                        <option value="Lilac">Lilac</option>
+                        <option value="Neon Pink">Neon Pink</option>
                         <option value="Red">Red</option>
                         <option value="Burgundy">Burgundy</option>
                         <option value="White">White</option>
+                        <option value="Black">Black</option>
                     </select>
 
                     <div class="quantity-selector" onclick="event.stopPropagation()">
-                        <button type="button" onclick="changeCardQty('heart-earrings', -1)">-</button>
-                        <input type="number" id="qty-heart-earrings" value="1" min="1" readonly>
-                        <button type="button" onclick="changeCardQty('heart-earrings', 1)">+</button>
+                        <button type="button" onclick="changeCardQty('ihotu', -1)">-</button>
+                        <input type="number" id="qty-ihotu" value="1" min="1" readonly>
+                        <button type="button" onclick="changeCardQty('ihotu', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Heart Earrings💖', 2500, 'color-heart-earrings', 'qty-heart-earrings')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Ihotu💖', 2500, 'color-ihotu', 'qty-ihotu')">Add to Cart</button>
                 </div>
             </div>
 
@@ -1874,7 +1887,7 @@
         });
 
         const rawMessage = `Hi Perfectly Hooked!🧶\n\nI have successfully completed payment on your website for my order.\n\n` +
-                           `Amount Paid: ₦${amountPaid.toLocaleString()}${isEarlyBird ? ' (Includes 10% Early Bird Discount!🎉)' : ''}\n` +
+                           `Amount Paid: ₦${amountPaid.toLocaleString()}${isEarlyBird ? ' (Includes 10% Early Bird Discount! 🎉)' : ''}\n` +
                            `Reference: ${reference}\n\n` +
                            `Items Purchased:\n${itemsString}\n` +
                            `Customer Details:\n` +
@@ -1882,7 +1895,7 @@
                            `• Phone: ${phone}\n` +
                            `• Area: ${location}\n` +
                            `• Address: ${address}\n\n` +
-                           `Let's discuss shipping fees!`;
+                           `Let's discuss shipping fees!✨`;
 
         const encodedMessage = encodeURIComponent(rawMessage);
         const whatsappNumber = "2347015089219"; 
