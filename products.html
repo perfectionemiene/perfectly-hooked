@@ -293,7 +293,6 @@
         transform: translateY(20px);
     }
 
-    /* --- Quick View Modal & Cart Modal Overlay --- */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -340,13 +339,17 @@
         min-height: 250px;
     }
 
-    .qv-image-container img {
-        width: 100%;
-        max-height: 380px;
-        object-fit: contain;
-        border-radius: 8px;
-        display: none;
-    }
+   .qv-image-container img {
+    width: 100%;
+    max-height: 480px; 
+    object-fit: contain; 
+    border-radius: 12px; 
+    display: none;
+    border: 2px solid #f0eaeb; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06); 
+    background-color: #fafafa; 
+    padding: 4px; 
+}
 
     .qv-image-container img.active-slide {
         display: block;
@@ -541,9 +544,7 @@
         background-color: #128C7E;
     }
 
-    /* ==========================================
-       RESPONSIVE BREAKPOINTS
-       ========================================== */
+    /* RESPONSIVE BREAKPOINTS */
 
     /* Tablet: 2 columns */
     @media (max-width: 992px) {
@@ -798,7 +799,7 @@
             </div>
 
             <!-- Elara Classic Bag -->
-            <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Classic Bag🤩', '₦25,000', 25000, 'A sleek single-tone crochet bag', 'color-elara-classic', 'qty-elara-classic')">
+            <div class="product-card" data-category="elara" onclick="openQuickView(this, 'Elara Classic Bag🤩', '₦20,000', 20000, 'A sleek single-tone crochet bag', 'color-elara-classic', 'qty-elara-classic')">
                 <div class="image-slider">
                     <img src="burgundy elara.jpeg" alt="Elara Classic Bag Front" class="active-slide">
                     <img src="burgundy bottom.jfif" alt="Elara Classic Bag Side">
@@ -807,7 +808,7 @@
                 </div>
                 <div class="product-details">
                     <h3 class="product-name">Elara Classic Bag🤩</h3>
-                    <p class="product-price">₦25,000</p>
+                    <p class="product-price">₦20,000</p>
                     
                     <select id="color-elara-classic" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Burgundy">Burgundy</option>
@@ -821,7 +822,7 @@
                         <button type="button" onclick="changeCardQty('elara-classic', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Elara Classic Bag🤩', 25000, 'color-elara-classic', 'qty-elara-classic')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Elara Classic Bag🤩', 20000, 'color-elara-classic', 'qty-elara-classic')">Add to Cart</button>
                 </div>
             </div>
 
@@ -882,7 +883,7 @@
             </div>
 
             <!-- Suzy Tote -->
-            <div class="product-card" data-category="totes" onclick="openQuickView(this, 'Suzy Tote🤍', '₦30,000', 30000, 'Minimalist solid tote bag.', 'color-suzy-tote', 'qty-suzy-tote')">
+            <div class="product-card" data-category="totes" onclick="openQuickView(this, 'Suzy Tote🤍', '₦20,000', 20000, 'Minimalist solid tote bag.', 'color-suzy-tote', 'qty-suzy-tote')">
                 <div class="image-slider">
                     <img src="2nd tote bag.jfif" alt="Suzy Tote Front" class="active-slide">
                     <img src="pink closer look.jfif" alt="Suzy Tote Close Look">
@@ -891,7 +892,7 @@
                 </div>
                 <div class="product-details">
                     <h3 class="product-name">Suzy Tote🤍</h3>
-                    <p class="product-price">₦30,000</p>
+                    <p class="product-price">₦20,000</p>
                     
                     <select id="color-suzy-tote" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Fuchsia Pink">Fuchsia Pink</option>
@@ -906,7 +907,7 @@
                         <button type="button" onclick="changeCardQty('suzy-tote', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Suzy Tote🤍', 30000, 'color-suzy-tote', 'qty-suzy-tote')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Suzy Tote🤍', 20000, 'color-suzy-tote', 'qty-suzy-tote')">Add to Cart</button>
                 </div>
             </div>
 
@@ -942,7 +943,7 @@
             </div>
 
             <!-- Bow Bag - Large -->
-            <div class="product-card" data-category="bows" onclick="openQuickView(this, 'Bow Bag - Large🎀', '₦20,000', 20000, 'Expanded version of our iconic bow bag designed to carry larger items while maintaining its shape.', 'color-bow-lg', 'qty-bow-lg')">
+            <div class="product-card" data-category="bows" onclick="openQuickView(this, 'Bow Bag - Large🎀', '₦18,000', 18000, 'Larger version of our iconic bow bag designed to carry larger items while maintaining its shape.', 'color-bow-lg', 'qty-bow-lg')">
                 <div class="image-slider">
                     <img src="bow bag 1.jpeg" alt="Bow Bag Large Front" class="active-slide">
                     <img src="red bow bag worn.jpeg" alt="Bow Bag Large Worn">
@@ -952,7 +953,7 @@
                 </div>
                 <div class="product-details">
                     <h3 class="product-name">Bow Bag - Large🎀</h3>
-                    <p class="product-price">₦20,000</p>
+                    <p class="product-price">₦18,000</p>
                     
                     <select id="color-bow-lg" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Burgundy">Burgundy</option>
@@ -968,7 +969,7 @@
                         <button type="button" onclick="changeCardQty('bow-lg', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Bow Bag - Large🎀', 20000, 'color-bow-lg', 'qty-bow-lg')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Bow Bag - Large🎀', 18000, 'color-bow-lg', 'qty-bow-lg')">Add to Cart</button>
                 </div>
             </div>
 
@@ -1200,7 +1201,7 @@
             </div>
 
             <!-- Tapestry Beanie -->
-<div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Tapestry Beanie👾', '₦15,000', 15000, 'Intricately patterned tapestry crochet beanie with bold graphic designs.', 'tapestryBeanieSelect', 'qty-tapestry-beanie')">
+<div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Tapestry Beanie👾', '₦15,000', 15000, 'Intricately patterned tapestry crochet beanie. Completely customizable to display your name, age, birth year or even nickname on your beanie.', 'tapestryBeanieSelect', 'qty-tapestry-beanie')">
     <div class="image-slider">
         <img src="JESUS beanie.jpeg" alt="JESUS Beanie Front" class="active-slide">
         <img src="J-beanie.jpeg" alt="Tapestry Beanie View 2">
@@ -1290,7 +1291,7 @@
             </div>
 
             <!-- Ihotu Earrings -->
-            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Ihotu💖', '₦2,500', 2500, 'Delicate crochet heart drop earrings. Ihotu means Love in the Idoma Language', 'color-ihotu', 'qty-ihotu')">
+            <div class="product-card" data-category="accessories" onclick="openQuickView(this, 'Ihotu💖', '₦2,000', 2000, 'Delicate crochet heart drop earrings. Ihotu means Love in the Idoma Language', 'color-ihotu', 'qty-ihotu')">
                 <div class="image-slider">
                     <img src="heart1.jpeg" alt="Heart Earrings Style 1" class="active-slide">
                     <img src="heart2.jpeg" alt="Heart Earrings Style 2">
@@ -1300,7 +1301,7 @@
                 </div>
                 <div class="product-details">
                     <h3 class="product-name">Ihotu💖</h3>
-                    <p class="product-price">₦2,500</p>
+                    <p class="product-price">₦2,000</p>
                     
                     <select id="color-ihotu" class="color-selector" onclick="event.stopPropagation()">
                         <option value="Lilac">Lilac</option>
@@ -1317,7 +1318,7 @@
                         <button type="button" onclick="changeCardQty('ihotu', 1)">+</button>
                     </div>
 
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Ihotu💖', 2500, 'color-ihotu', 'qty-ihotu')">Add to Cart</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addCustomToCart('Ihotu💖', 2000, 'color-ihotu', 'qty-ihotu')">Add to Cart</button>
                 </div>
             </div>
 
